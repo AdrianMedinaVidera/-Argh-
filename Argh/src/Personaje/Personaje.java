@@ -41,6 +41,7 @@ public abstract class Personaje {
 			this.estaEnCombate = estaEnCombate;
 			this.inventario = inventario;
 			this.objetoEquipado = objetoEquipado;
+			System.out.println("GAAAAA");
 		}
 
 	    
