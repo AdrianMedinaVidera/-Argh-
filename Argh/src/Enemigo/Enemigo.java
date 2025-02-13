@@ -127,6 +127,10 @@ abstract public class Enemigo {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	} 	
+
+	public void usarObjeto(Producto objeto) {
+		System.out.println("Se va a usar el objeto " + objeto);
+	}
 	
 	
 	
