@@ -19,6 +19,8 @@ public abstract class Personaje {
 	    protected int islasConquistadas = 0; // El número de islas conquistadas (ha vencido al jefe)
 	    protected int enemigosDerrotados = 0; // Número de enemigos comunes derrotados (estadística)
 	    protected boolean estaEnCombate = false; // Cuando entra en combate, este atributo empieza a valer "true"
+	    protected boolean pedoActivado = false; // Pasa a true cuando activan el objeto pedo.
+	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento"
 
 	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7)
 	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios
@@ -27,7 +29,7 @@ public abstract class Personaje {
 	    public Personaje(String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
 				int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
 				int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
-				Producto objetoEquipado) 
+				Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento) 
 	    {
 			super();
 			this.genero = genero;
@@ -46,6 +48,8 @@ public abstract class Personaje {
 			this.estaEnCombate = estaEnCombate;
 			this.inventario = inventario;
 			this.objetoEquipado = objetoEquipado;
+			this.estaSomnoliento = estaSomnoliento;
+			this.pedoActivado = pedoActivado;
 	    }
 	    
 	    // Getters y Setters de Personaje ---------------------------------------------------------------------------
@@ -226,6 +230,16 @@ public abstract class Personaje {
 			System.out.println("3 - Estadísticas: 			4 - Huir: ");
 		}
 		
+		public void eliminarObjetoInventario(Producto objeto) {
+			
+			for (int i = 0; i < inventario.length; i++) {
+				if (inventario[i].getNombre().equals(objeto.getNombre())) {
+					inventario[i] = null;
+					break;
+				}
+			}
+		}
+		
 		public void usarObjeto(Producto objeto) {
 			System.out.println("Se va a usar el objeto " + objeto);
 			System.out.println("¿Está seguro? (S/N)");
@@ -236,6 +250,184 @@ public abstract class Personaje {
 			} else {System.out.println("No se ha usado el objeto.");}
 			
 			// Para cada tipo de objeto un caso diferente ------
+			switch (objeto.getNombre()) {
+				case "Minipoción" -> {
+					vida += 20;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				case "Poción" -> {
+					vida += 60;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				case "Superpoción" -> {
+					vida += 120;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Báculo" -> {
+					dañoFisico += 20;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Espada" -> {
+					dañoFisico += 50;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Mandoble" -> {
+					dañoFisico += 100;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Varita Madera" -> {
+					dañoMagico += 20;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Varita Plástico" -> {
+					dañoMagico += 50;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Varita Oro" -> {
+					dañoMagico += 100;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Escudito" -> {
+					resistenciaFisica += 20;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Escudo" -> {
+					resistenciaFisica += 40;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Escudazo" -> {
+					resistenciaFisica += 100;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Capita" -> {
+					resistenciaMagica += 20;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Capa" -> {
+					resistenciaMagica += 40;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Capaza" -> {
+					resistenciaFisica += 100;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Alas" -> {
+					velocidad += velocidad*0.2;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Pedo" -> {
+					pedoActivado = true;					
+					objeto.setCantidad(objeto.getCantidad()-1);
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "???" -> {
+					System.out.println("jaja pringao.");
+					objeto.setCantidad(objeto.getCantidad()-1);
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Redbull" -> {
+					estaSomnoliento = false;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+				
+				case "Caramelo" -> {
+					nivel++;
+					objeto.setCantidad(objeto.getCantidad()-1);
+					
+					if (objeto.getCantidad() == 0) {
+						eliminarObjetoInventario(objeto);
+					}
+				}
+					
+			}
 			sc.close();
 		}
 		
@@ -267,16 +459,49 @@ public abstract class Personaje {
 			System.out.println("5 - Salir");
 		}
 		
-		public void huir (Enemigo enemigo) {
+		public boolean huir (Enemigo enemigo) {
 			System.out.println("¿Está seguro de que quiere huir del combate? (S/N) :P");
-			Scanner sc = new Scanner(System.in);
+			try (Scanner sc = new Scanner(System.in)){
 			String opcion = sc.nextLine().toLowerCase();
+			double rng = Math.random()* 100 + 1; //Número aleatorio para poder definir probabilidades de huida.
 			if (opcion.equals("s")) {
-				if (velocidad < enemigo.getVelocidad()) {
-					
+				if (pedoActivado) { //Objeto que aumenta la probabilidad de huir en un 25%
+					if (velocidad/enemigo.getVelocidad() >= 2) { // Si tiene al menos el doble de velocidad, la probabilidad de huir es de un 75%
+						return true; //Huye del combate siempre porque tiene un 100% de probabilidad
+					} else if (velocidad/enemigo.getVelocidad() > 1 && velocidad/enemigo.getVelocidad() < 2) { // Si tiene una velocidad similar o igual, la probabilidad es del 50%
+						if (rng <= 75) { // Es 75 por el aumento del 25%
+							return true; //Huye del combate
+						} else {
+							return false; // No huye del combate
+						}
+					} else { // Si tiene menos velocidad tiene un 25% de probabilidad de huir
+						if (rng <= 50) { // Es 50 por el aumento del 25%
+							return true; //Huye del combate
+						} else {
+							return false; //No huye del combate 
+						}
+					}
+				} else if(velocidad/enemigo.getVelocidad() >= 2 && pedoActivado == false) { // Si tiene al menos el doble de velocidad, la probabilidad de huir es de un 75%
+					if (rng <= 75) {
+						return true; //Huye del combate
+					} else {
+						return false; //No huye del combate
+					}
+				} else if (velocidad/enemigo.getVelocidad() > 1 && velocidad/enemigo.getVelocidad() < 2 && pedoActivado == false) { // Si tiene una velocidad similar o igual, la probabilidad es del 50%
+					if (rng <= 50) {
+						return true; //Huye del combate
+					} else {
+						return false; //No huye del combate
+					}
+				} else { // Si tiene menos velocidad tiene un 25% de probabilidad de huir
+					if (rng <= 25) {
+						return true; //Huye del combate
+					} else {
+						return false; //No huye del combate
+					}
 				}
 			}
-			sc.close();
+			}
+			return false; //No huye si pone un input diferente a "s" (sí).
 		}
-
 }
