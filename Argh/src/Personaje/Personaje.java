@@ -20,7 +20,7 @@ public abstract class Personaje {
 	    protected int enemigosDerrotados = 0; // Número de enemigos comunes derrotados (estadística)
 	    protected boolean estaEnCombate = false; // Cuando entra en combate, este atributo empieza a valer "true"
 
-	    protected Producto[] inventario = new Producto[5]; //Es un inventario con una cantidad de objetos limitada (5)
+	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7)
 	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios
 	    
 		//Constructor de Personaje
