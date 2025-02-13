@@ -1,5 +1,6 @@
 package Enemigo;
 
+import Producto.Producto;
 
 abstract public class Enemigo {
 	
@@ -11,6 +12,8 @@ abstract public class Enemigo {
 	protected int experienciaData;
 	protected int dineroDado;
 	protected int nivel;
+   protected Producto[] inventario = new Producto[7]; 
+    protected Producto objetoEquipado; 
 	
 	public Enemigo(int vida, int danioMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
 		int experienciaData, int dineroDado, int nivel) {
@@ -40,6 +43,8 @@ abstract public class Enemigo {
 	abstract public int ataque2();
 	abstract public int ataque3();
 	abstract public Producto usarObjeto();
+	
+	
 	
 	@Override
 	public String toString() {
@@ -127,11 +132,12 @@ abstract public class Enemigo {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	} 	
-
+	
+	
+	
 	public void usarObjeto(Producto objeto) {
 		System.out.println("Se va a usar el objeto " + objeto);
 	}
-	
 	
 	
 }
