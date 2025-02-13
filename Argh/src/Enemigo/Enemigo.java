@@ -1,24 +1,29 @@
 package Enemigo;
 
+import java.util.Scanner;
+
 import Producto.Producto;
+import Personaje.Personaje;
 
 abstract public class Enemigo {
 	
 	protected int vida;
-	protected int danioMagico; 
+	protected int dañoFisico;
+	protected int dañoMagico; 
 	protected int resistenciaMagica;
 	protected int resistenciaFisica; 
 	protected int velocidad;
 	protected int experienciaData;
 	protected int dineroDado;
 	protected int nivel;
-   protected Producto[] inventario = new Producto[7]; 
-    protected Producto objetoEquipado; 
+    protected Producto objetoEquipado;
+    protected boolean estaSomnoliento;
 	
-	public Enemigo(int vida, int danioMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
-		int experienciaData, int dineroDado, int nivel) {
+	public Enemigo(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
+		int experienciaData, int dineroDado, int nivel, int dañoFisico) {
+		this.dañoFisico = dañoFisico;
 		this.vida = vida;
-		this.danioMagico = danioMagico;
+		this.dañoMagico = dañoMagico;
 		this.resistenciaMagica = resistenciaMagica;
 		this.resistenciaFisica = resistenciaFisica;
 		this.velocidad = velocidad;
@@ -30,7 +35,8 @@ abstract public class Enemigo {
 	
 	public void mostrarInfo() {
 		System.out.println("Vida del enemigo: "+vida);
-		System.out.println("Daño mágico del enemigo: "+danioMagico);
+		System.out.println("Daño físico del enemigo: "+dañoFisico);
+		System.out.println("Daño mágico del enemigo: "+dañoMagico);
 		System.out.println("Resistencia mágica del enemigo: "+resistenciaMagica);
 		System.out.println("Resistencia física del enemigo: "+resistenciaFisica);
 		System.out.println("Velocidad del enemigo: "+velocidad);
@@ -48,7 +54,7 @@ abstract public class Enemigo {
 	
 	@Override
 	public String toString() {
-		return "Enemigo [vida=" + vida + ", danioMagico=" + danioMagico + ", resistenciaMagica=" + resistenciaMagica
+		return "Enemigo [vida=" + vida + ", dañoMagico=" + dañoMagico + ", dañoFisico=" + dañoFisico + ", resistenciaMagica=" + resistenciaMagica
 				+ ", resistenciaFisica=" + resistenciaFisica + ", velocidad=" + velocidad + ", experienciaData="
 				+ experienciaData + ", dineroDado=" + dineroDado + ", nivel=" + nivel + "]";
 	}
@@ -63,14 +69,20 @@ abstract public class Enemigo {
 		this.vida = vida;
 	}
 
-
-	public int getDanioMagico() {
-		return danioMagico;
+	public int getdañoFisico () {
+		return dañoFisico;
+	}
+	
+	public int getdañoMagico() {
+		return dañoMagico;
 	}
 
-
-	public void setDanioMagico(int danioMagico) {
-		this.danioMagico = danioMagico;
+	public void setdañoFisico(int dañoFisico) {
+		this.dañoFisico = dañoFisico;
+	}
+	
+	public void setdañoMagico(int dañoMagico) {
+		this.dañoMagico = dañoMagico;
 	}
 
 
@@ -136,13 +148,77 @@ abstract public class Enemigo {
 	
 	
 	public void usarObjeto(Producto objeto) {
-		System.out.println("Se va a usar el objeto " + objeto);
+		System.out.println("El enemigo ha usado el objeto: " + objeto.getNombre());
+		
+		// Para cada tipo de objeto un caso diferente ------
+		switch (objeto.getNombre()) {
+			case "Minipoción" -> {
+				vida += 20;
+			}
+			case "Poción" -> {
+				vida += 60;
+			}
+			case "Superpoción" -> {
+				vida += 120;
+			}
+			
+			case "Báculo" -> {
+				dañoFisico += 20;
+			}
+			
+			case "Espada" -> {
+				dañoFisico += 50;
+			}
+			
+			case "Mandoble" -> {
+				dañoFisico += 100;
+			}
+			
+			case "Varita Madera" -> {
+				dañoMagico += 20;
+			}
+			
+			case "Varita Plástico" -> {
+				dañoMagico += 50;
+			}
+			
+			case "Varita Oro" -> {
+				dañoMagico += 100;
+			}
+			
+			case "Escudito" -> {
+				resistenciaFisica += 20;
+			}
+			
+			case "Escudo" -> {
+				resistenciaFisica += 40;
+			}
+			
+			case "Escudazo" -> {
+				resistenciaFisica += 100;
+			}
+			
+			case "Capita" -> {
+				resistenciaMagica += 20;
+			}
+			
+			case "Capa" -> {
+				resistenciaMagica += 40;
+			}
+			
+			case "Capaza" -> {
+				resistenciaFisica += 100;
+			}
+			
+			case "Alas" -> {
+				velocidad += velocidad*0.2;
+			}
+			
+			case "Redbull" -> {
+				estaSomnoliento = false;
+			}		
+		}
 	}
 	
 	
 }
-
-	
-	
-	
-
