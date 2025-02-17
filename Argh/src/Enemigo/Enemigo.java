@@ -18,9 +18,10 @@ abstract public class Enemigo {
 	protected int nivel;
     protected Producto objetoEquipado;
     protected boolean estaSomnoliento;
+    protected boolean estaSangrando;
 	
 	public Enemigo(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
-		int experienciaData, int dineroDado, int nivel, int dañoFisico) {
+		int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando) {
 		this.dañoFisico = dañoFisico;
 		this.vida = vida;
 		this.dañoMagico = dañoMagico;
@@ -30,6 +31,7 @@ abstract public class Enemigo {
 		this.experienciaData = experienciaData;
 		this.dineroDado = dineroDado;
 		this.nivel = nivel;
+		this.estaSangrando = estaSangrando;
 	}
 
 	
@@ -143,10 +145,18 @@ abstract public class Enemigo {
 
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
-	} 	
+	}
 	
-	
-	
+	public boolean getEstaSangrando() {
+		return estaSangrando;
+	}
+
+
+	public void setEstaSangrando(boolean estaSangrando) {
+		this.estaSangrando = estaSangrando;
+	}
+
+
 	public void usarObjeto(Producto objeto) {
 		System.out.println("El enemigo ha usado el objeto: " + objeto.getNombre());
 		
