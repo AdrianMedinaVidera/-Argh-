@@ -1,4 +1,4 @@
-package Enemigo.EnemigoMarino;
+package Enemigo.EnemigoTerrestre;
 
 public class EnemigoTerrestreJefe {
 
