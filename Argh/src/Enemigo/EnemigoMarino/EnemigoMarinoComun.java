@@ -66,6 +66,7 @@ public class EnemigoMarinoComun extends EnemigoMarino {
         if (enemigoSeleccionado.equals("Amonite")) {
             System.out.println("El enemigo ha usado el ataque Furia Egipcia");
             // El amonite 
+            //Esto es nuevo, a ver si se imprime en el repo
         }else if(enemigoSeleccionado.equals("Trilobite")){
             System.out.println("El enemigo ha usado el ataque Succión de concha");
             //El trilobite crea vacío y quita 30 puntos de vida, 10 de daño mágico al personaje y aumenta su resistencia fisica en 20 y su velocidad en nado.
