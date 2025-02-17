@@ -22,6 +22,7 @@ public abstract class Personaje {
 	    protected boolean estaEnCombate = false; // Cuando entra en combate, este atributo empieza a valer "true"
 	    protected boolean pedoActivado = false; // Pasa a true cuando activan el objeto pedo.
 	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento"
+	    protected boolean estaSangrando = false; // Detecta si el jugador tiene el estado "sangrado"
 
 	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7)
 	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios
@@ -30,7 +31,7 @@ public abstract class Personaje {
 	    public Personaje(String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
 				int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
 				int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
-				Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento) 
+				Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando) 
 	    {
 			super();
 			this.genero = genero;
@@ -51,6 +52,7 @@ public abstract class Personaje {
 			this.objetoEquipado = objetoEquipado;
 			this.estaSomnoliento = estaSomnoliento;
 			this.pedoActivado = pedoActivado;
+			this.estaSangrando = estaSangrando;
 	    }
 	    
 	    // Getters y Setters de Personaje ---------------------------------------------------------------------------
@@ -205,10 +207,14 @@ public abstract class Personaje {
 			System.out.println("+ ------------------------------------ +");
 		}
 		
-		public abstract void infoAtaques ();
-		public abstract void ataque1 ();
-		public abstract void ataque2 ();
-		public abstract void ataque3 ();
+		public abstract void infoAtaquesMenu ();
+		public abstract void infoAtaque1();
+		public abstract void infoAtaque2();
+		public abstract void infoAtaque3();
+		
+		public abstract void ataque1 (Enemigo enemigo);
+		public abstract void ataque2 (Enemigo enemigo);
+		public abstract void ataque3 (Enemigo enemigo);
 		
 		public void mostrarInfoCombate() {
 			System.out.println("+ ------------------------------------ +");
