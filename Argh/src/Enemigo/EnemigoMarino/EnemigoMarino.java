@@ -1,6 +1,7 @@
 package Enemigo.EnemigoMarino;
 
 import Enemigo.Enemigo;
+import Personaje.Personaje;
 
 public abstract class EnemigoMarino extends Enemigo {
 
@@ -15,14 +16,14 @@ public abstract class EnemigoMarino extends Enemigo {
     }
 
     @Override
-    public abstract void ataque1();
+    public abstract void ataque1(Personaje personaje);
 
     @Override
 
-    public abstract void ataque2();
+    public abstract void ataque2(Personaje personaje);
 
     @Override
-    public abstract void ataque3();
+    public abstract void ataque3(Personaje personaje);
 
     public int getNado() {
         return nado;
