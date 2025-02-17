@@ -1,7 +1,10 @@
 package Personaje;
+import java.util.Scanner;
+//WAKALA WAKALA WAKALADEFRGERGJJ
+
+//HOLA K ASE HE CONSEGUIDO HACER UNA MODIFICACIÓN EN EL CÓDIGO DE GITHUB
 import Enemigo.Enemigo;
 import Producto.Producto;
-import java.util.Scanner;
 
 public abstract class Personaje {
 	    protected String genero; //Género a elegir por el jugador
@@ -159,7 +162,7 @@ public abstract class Personaje {
 			this.enemigosDerrotados = enemigosDerrotados;
 		}
 
-		public boolean isEstaEnCombate() {
+		public boolean getEstaEnCombate() {
 			return estaEnCombate;
 		}
 
@@ -181,6 +184,22 @@ public abstract class Personaje {
 
 		public void setObjetoEquipado(Producto objetoEquipado) {
 			this.objetoEquipado = objetoEquipado;
+		}
+
+		public boolean getEstaSangrando() {
+			return estaSangrando;
+		}
+
+		public void setEstaSangrando(boolean estaSangrando) {
+			this.estaSangrando = estaSangrando;
+		}
+
+		public boolean getEstaSomnoliento(boolean estaSomnoliento) {
+			return estaSomnoliento;
+		}
+
+		public void setEstaSomnoliento(boolean estaSomnoliento) {
+			this.estaSomnoliento = estaSomnoliento;
 		}
 	    
 	    // Fin de Getters y Setters de Personaje --------------------------------------------------------------------
