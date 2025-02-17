@@ -1,9 +1,7 @@
 package Personaje;
-import java.util.Scanner;
-
-//HOLA K ASE HE CONSEGUIDO HACER UNA MODIFICACIÓN EN EL CÓDIGO DE GITHUB
 import Enemigo.Enemigo;
 import Producto.Producto;
+import java.util.Scanner;
 
 public abstract class Personaje {
 	    protected String genero; //Género a elegir por el jugador
