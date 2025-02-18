@@ -1,13 +1,13 @@
 
 # Argh!
 
-Argh! es un juego de Rol desarrollado por Adrián Medina y Carlos, estudiantes de DAM
+Argh! es un juego de Rol desarrollado por Adrián Medina y Carlos López Rodríguez, estudiantes de DAM
 
 Embárcate en una gran aventura en manos de un capitán y sus grumetes!
 ## Authors
 
 - [Adrián Medina Videra](https://github.com/AdrianMedinaVidera)
-- [Carlos](https://github.com/Carlolopespesia)
+- [Carlos López Rodríguez](https://github.com/Carlolopespesia)
 
 
 ## Features
