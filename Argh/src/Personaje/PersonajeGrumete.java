@@ -23,28 +23,28 @@ public class PersonajeGrumete extends Personaje{
 		if (rolSeleccionado.toLowerCase().equals("cubierta")) {
 			
 			System.out.println("+ ------------------------------ +");
-			System.out.println("| 	  Información de ataques	 |");
-			System.out.println("| 1 - Barrido Arcano			 |");
-			System.out.println("| 2 - Vendaval Ascendente		 |");
-			System.out.println("| 3 - Disparo Certero			 |");
+			System.out.println("| 	  Información de ataques   |");
+			System.out.println("| 1 - Barrido Arcano			   |");
+			System.out.println("| 2 - Vendaval Ascendente		   |");
+			System.out.println("| 3 - Disparo Certero			   |");
 			System.out.println("+ ------------------------------ +");
 			
 		} else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
 			
 			System.out.println("+ ------------------------------ +");
-			System.out.println("| 	  Información de ataques	 |");
-			System.out.println("| 1 - Meteoro Cheddar			 |");
-			System.out.println("| 2 - Caldo de los condenados	 |");
-			System.out.println("| 3 - Hongo explosivo			 |");
+			System.out.println("| 	  Información de ataques   |");
+			System.out.println("| 1 - Meteoro Cheddar			   |");
+			System.out.println("| 2 - Caldo de los condenados	   |");
+			System.out.println("| 3 - Hongo explosivo			   |");
 			System.out.println("+ ------------------------------ +");
 			
 		} else {
 			
 			System.out.println("+ ------------------------------ +");
-			System.out.println("| 	  Información de ataques	 |");
-			System.out.println("| 1 - Lanzamiento de barril		 |");
-			System.out.println("| 2 - Carga de ancla			 |");
-			System.out.println("| 3 - Embestida blindada		 |");
+			System.out.println("| 	  Información de ataques   |");
+			System.out.println("| 1 - Lanzamiento de barril	   |");
+			System.out.println("| 2 - Carga de ancla			   |");
+			System.out.println("| 3 - Embestida blindada		   |");
 			System.out.println("+ ------------------------------ +");
 			
 		}

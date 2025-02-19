@@ -1,5 +1,3 @@
-package AppArgh;
-
 import Personaje.Personaje;
 import Producto.Producto;
 

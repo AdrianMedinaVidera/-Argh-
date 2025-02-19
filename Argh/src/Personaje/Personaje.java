@@ -1,10 +1,7 @@
 package Personaje;
-import java.util.Scanner;
-//WAKALA WAKALA WAKALADEFRGERGJJ
-
-//HOLA K ASE HE CONSEGUIDO HACER UNA MODIFICACIÓN EN EL CÓDIGO DE GITHUB
 import Enemigo.Enemigo;
 import Producto.Producto;
+import java.util.Scanner;
 
 public abstract class Personaje {
 	    protected String genero; //Género a elegir por el jugador
@@ -274,9 +271,14 @@ public abstract class Personaje {
 			} else {System.out.println("No se ha usado el objeto.");}
 			
 			// Para cada tipo de objeto un caso diferente ------
+			int vidaInicial = (int) (100 * Math.pow(1.1, nivel)); // Calculamos la vida que debe tener el personaje según su nivel.
 			switch (objeto.getNombre()) {
 				case "Minipoción" -> {
 					vida += 20;
+					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+						int diferencia = vidaInicial - vida;
+						vida -= diferencia;
+					}
 					objeto.setCantidad(objeto.getCantidad()-1);
 					
 					if (objeto.getCantidad() == 0) {
@@ -285,6 +287,10 @@ public abstract class Personaje {
 				}
 				case "Poción" -> {
 					vida += 60;
+					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+						int diferencia = vidaInicial - vida;
+						vida -= diferencia;
+					}
 					objeto.setCantidad(objeto.getCantidad()-1);
 					
 					if (objeto.getCantidad() == 0) {
@@ -293,6 +299,10 @@ public abstract class Personaje {
 				}
 				case "Superpoción" -> {
 					vida += 120;
+					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+						int diferencia = vidaInicial - vida;
+						vida -= diferencia;
+					}
 					objeto.setCantidad(objeto.getCantidad()-1);
 					
 					if (objeto.getCantidad() == 0) {
