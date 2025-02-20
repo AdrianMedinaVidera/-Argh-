@@ -474,9 +474,10 @@ public abstract class Personaje {
 				for (int i = 0; i < inventario.length; i++) {
 					if (inventario[i] != null) {
 						inventario[i] = producto;
+						System.out.println(inventario[i]);
 						System.out.println("Su nuevo balance es de " + monedas + " monedas.");
 						break;
-					} else {
+					} else if (inventario[6] != null){
 						System.out.println("No tiene espacio en el inventario.");
 						monedas += producto.getPrecio();
 						// Añadir el menú de compra.

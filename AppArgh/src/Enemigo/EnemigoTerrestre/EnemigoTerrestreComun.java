@@ -4,7 +4,6 @@ import Personaje.Personaje;
 
 public class EnemigoTerrestreComun extends EnemigoTerrestre {
 
-    private String[] nombre = {"Loco", "Emú", "Sapo"};
     private String enemigoSeleccionado;
 
     public EnemigoTerrestreComun(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
@@ -13,7 +12,6 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
 
         super(vida, dañoMagico, resistenciaMagica, resistenciaFisica, velocidad, experienciaData, dineroDado, nivel,
                 dañoFisico, estaSangrando, correr);
-        this.nombre = nombre;
         this.enemigoSeleccionado = enemigoSeleccionado;
     }
 

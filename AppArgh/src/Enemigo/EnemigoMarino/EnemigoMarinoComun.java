@@ -4,14 +4,13 @@ import Personaje.Personaje;
 
 public class EnemigoMarinoComun extends EnemigoMarino {
 
-    private String[] nombre = { "Amonite", "Trilobite", "Zooplacton" };
     private String enemigoSeleccionado;
 
     public EnemigoMarinoComun(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
-            int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int nado, String[] nombre) {
+            int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int nado, String enemigoSeleccionado) {
         super(vida, dañoMagico, resistenciaMagica, resistenciaFisica, velocidad, experienciaData, dineroDado, nivel,
                 dañoFisico, estaSangrando, nado);
-        this.nombre = nombre;
+        this.enemigoSeleccionado = enemigoSeleccionado;
     }
 
     @Override

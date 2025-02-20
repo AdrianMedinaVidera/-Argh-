@@ -1,7 +1,7 @@
 package Enemigo.EnemigoMarino;
 import Personaje.Personaje;
 public class EnemigoMarinoJefe extends EnemigoMarino {
-    private String[] nombre = {"Sirena", "Patricio", "Kraken"}; 
+
     private String jefeSeleccionado;
     
     public EnemigoMarinoJefe(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
@@ -9,7 +9,6 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             String[] nombre, String jefeSeleccionado) {
         super(vida, dañoMagico, resistenciaMagica, resistenciaFisica, velocidad, experienciaData, dineroDado, nivel,
                 dañoFisico, estaSangrando, nadar);
-        this.nombre = nombre;
         this.jefeSeleccionado = jefeSeleccionado;
     }
 
