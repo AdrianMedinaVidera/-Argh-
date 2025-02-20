@@ -57,7 +57,28 @@ public class Tendera {
         return "Tendera [items=" + Arrays.toString(items) + ", abierto=" + abierto + "]";
     }
 
-    
-
-    
+    public void menuCompra (){
+        System.out.println("Bienvenido a la tendera");
+        System.out.println("¿Qué desea comprar?");
+        System.out.println("1. Minipoción");
+        System.out.println("2. Poción");
+        System.out.println("3. Superpoción");
+        System.out.println("4. Báculo");
+        System.out.println("5. Espada");
+        System.out.println("6. Mandoble");
+        System.out.println("7. Varita Madera");
+        System.out.println("8. Varita Plástico");
+        System.out.println("9. Varita Oro");
+        System.out.println("10. Escudito");
+        System.out.println("11. Escudo");
+        System.out.println("12. Escudazo");
+        System.out.println("13. Capita");
+        System.out.println("14. Capa");
+        System.out.println("15. Capaza");
+        System.out.println("16. Alas");
+        System.out.println("17. Pedo");
+        System.out.println("18. ???");
+        System.out.println("19. Redbull");
+        System.out.println("20. Caramelo");
+    }
 }

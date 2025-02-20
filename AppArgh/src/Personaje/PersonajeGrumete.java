@@ -87,34 +87,64 @@ public class PersonajeGrumete extends Personaje{
 	
 	// Declaración de los ataques --------------------------------------------------------------------------------------
 	@Override
-	public void ataque1(Enemigo enemigo) {
-		if (rolSeleccionado.toLowerCase().equals("cubierta")) {
-			System.out.println("El grumete ha usado el ataque Barrido Arcano");
-			enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 80));
-		} else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
-			System.out.println("El grumete ha usado el ataque Meteoro Cheddar");
-			enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 60));
-			enemigo.setVelocidad((int)(enemigo.getVelocidad() * 0.8));
-		} else {		
-			System.out.println("El grumete ha usado el ataque Lanzamiento de Barril");
-			enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 100));
-			resistenciaFisica = (int)(resistenciaFisica * 0.9);
-		}
-	}
+    public void ataque1(Enemigo enemigo) {
+        if (rolSeleccionado.toLowerCase().equals("cubierta")) {
+            System.out.println("El grumete ha usado el ataque Barrido Arcano");
+            enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 80));
+        } else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
+            System.out.println("El grumete ha usado el ataque Meteoro Cheddar");
+            enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 60));
+            enemigo.setVelocidad((int)(enemigo.getVelocidad() * 0.8));
+            System.out.println("El enemigo ha disminuido su velocidad ↓");
+        } else {        
+            System.out.println("El grumete ha usado el ataque Lanzamiento de Barril");
+            enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 100));
+            resistenciaFisica = (int)(resistenciaFisica * 0.9);
+            System.out.println("El grumete ha disminuido su resistencia física ↓");
+        }
+    }
 
-	@Override
-	public void ataque2(Enemigo enemigo) {
-		System.out.println("El capitán ha usado el ataque Bramido de acero.");
-		enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 120));
-		vida *= 0.5;
-	}
+    @Override
+    public void ataque2(Enemigo enemigo) {
+        if (rolSeleccionado.toLowerCase().equals("cubierta")) {
+            System.out.println("El grumete ha usado el ataque Vendaval Ascendente");
+            velocidad += dañoMagico * 0.5;
+            System.out.println("El grumete ha aumentado su velocidad ↑");
+        } else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
+            System.out.println("El grumete ha usado el ataque Caldo de los condenados");
+            enemigo.setEstaSomnoliento(true);
+            enemigo.setResistenciaMagica((int)(enemigo.getResistenciaMagica() * 0.8));
+            System.out.println("El enemigo ha quedado somnoliento");
+            System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
+        } else {
+            System.out.println("El grumete ha usado el ataque Carga de ancla");
+            dañoFisico = (int)(dañoFisico * 1.2);
+            resistenciaFisica = (int)(resistenciaFisica * 1.2);
+            velocidad = (int)(velocidad * 0.95);
+            System.out.println("El grumete ha aumentado su daño físico ↑");
+            System.out.println("El grumete ha aumentado su resistencia física ↑");
+            System.out.println("El grumete ha disminuido su velocidad ↓");
+        }
+    }
 
-	@Override
-	public void ataque3(Enemigo enemigo) {
-		System.out.println("El capitán ha usado el ataque Espectro náutico.");
-		enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 120));
-		estaSomnoliento = true;
-	}
-	// Fin declaración de los ataques ----------------------------------------------------------------------------------
-	
+    @Override
+    public void ataque3(Enemigo enemigo) {
+        if (rolSeleccionado.toLowerCase().equals("cubierta")) {
+            System.out.println("El grumete ha usado el ataque Disparo Certero");
+            enemigo.setVida(enemigo.getVida() - (int)(dañoFisico - enemigo.getResistenciaFisica() + 50));
+        } else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
+            System.out.println("El grumete ha usado el ataque Hongo explosivo");
+            enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 20));
+            enemigo.setEstaSangrando(true);
+            enemigo.setResistenciaMagica((int)(enemigo.getResistenciaMagica() * 0.9));
+            System.out.println("El enemigo ha empezado a sangrar");
+            System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
+        } else {
+            System.out.println("El grumete ha usado el ataque Embestida Blindada");
+            enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 65));
+            resistenciaFisica = (int)(resistenciaFisica * 1.2);
+            System.out.println("El grumete ha aumentado su resistencia física ↑");
+        }
+    }
 }
+	// Fin declaración de los ataques ----------------------------------------------------------------------------------

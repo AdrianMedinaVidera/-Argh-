@@ -138,6 +138,22 @@ abstract public class Enemigo {
 		this.estaSangrando = estaSangrando;
 	}
 
+	public Producto getObjetoEquipado() {
+		return objetoEquipado;
+	}
+
+	public void setObjetoEquipado(Producto objetoEquipado) {
+		this.objetoEquipado = objetoEquipado;
+	}
+
+	public boolean getEstaSomnoliento() {
+		return estaSomnoliento;
+	}
+
+	public void setEstaSomnoliento(boolean estaSomnoliento) {
+		this.estaSomnoliento = estaSomnoliento;
+	}
+
 	public void usarObjeto(Producto objeto) {
 		System.out.println("El enemigo ha usado el objeto: " + objeto.getNombre());
 

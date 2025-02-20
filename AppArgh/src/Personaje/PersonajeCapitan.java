@@ -47,6 +47,7 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("El capitán ha usado el ataque Látigo de hierro.");
         enemigo.setVida(enemigo.getVida() - (int) (0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 50));
         enemigo.setEstaSangrando(true);
+        System.out.println("El enemigo ha empezado a sangrar");
     }
 
     @Override
@@ -54,6 +55,7 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("El capitán ha usado el ataque Bramido de acero.");
         enemigo.setVida(enemigo.getVida() - (int) (0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 120));
         vida *= 0.5;
+        System.out.println("El capitán ha disminuido su vida ↓");
     }
 
     @Override
