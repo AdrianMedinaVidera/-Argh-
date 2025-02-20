@@ -22,6 +22,12 @@ public class Argh {
 		System.out.println("|      2. Extremo                 |");
 		System.out.println("+ --------------------------------+");
 	}
+
+	public static void menuComoJugar () {
+		System.out.println("+ ------------------------ARGH------------------------+");
+		System.out.println("");
+		System.out.println("+ ----------------------------------------------------+");
+	}
 	public static void main(String[] args) {
 		Producto[] inventario = new Producto[7]; // Inventario del jugador
 		//Producto objetoEquipado = new Producto("Pocion", 20, 2);
@@ -62,8 +68,10 @@ public class Argh {
 				// Inicio del juego
 				System.out.println("¿Cuál es tu género?");
 				String genero = sc.next();
+				System.out.println("-------------------------------------------");
 				System.out.println("¿Cómo te llamas?");
 				String nombre = sc.next();
+				System.out.println("-------------------------------------------");
 				menuDificultad();
 				int opcionDificultad = sc.nextInt();
 				if (opcionDificultad == 1) {
@@ -86,13 +94,14 @@ public class Argh {
 						System.out.println("¡Tu rol seleccionado ha sido el de artillero!");
 						rolSeleccionado = "Artillería";
 					}
-					System.out.println("¡BUENA SUERTE PIRATA!");
 					Personaje grumete = new PersonajeGrumete(genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado);
+					System.out.println("¡BUENA SUERTE PIRATA!");
 					break;
 				} else if (opcionDificultad == 2) {
 					// Dificultad extrema
 					System.out.println("Dificultad extrema");
 					System.out.println("¡Eres el capitán!");
+					System.out.println("¡BUENA SUERTE PIRATA!");
 					Personaje capitán = new PersonajeCapitan(genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false);
 					break;
 				} else {
@@ -102,14 +111,16 @@ public class Argh {
 			} else if (opcionInical == 2) {
 				// Salir del juego	
 				System.out.println("Gracias por jugar");
+				break;
 			} else if (opcionInical == 3) {
 				// Cómo jugar
-				System.out.println("Cómo jugar");
+				menuComoJugar();
 			} else {
 				// Opción inválida
 				System.out.println("Opción inválida");
 			}
 		}
+		
 		
 		
 		
