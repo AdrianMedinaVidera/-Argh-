@@ -5,11 +5,11 @@ import Producto.Producto;
 
 public class PersonajeCapitan extends Personaje {
 
-    public PersonajeCapitan(String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
+    public PersonajeCapitan(String nombre, String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
             int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
             int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
             Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando) {
-        super(genero, vida, dañoFisico, dañoMagico, resistenciaFisica, resistenciaMagica, velocidad, experiencia, nivel,
+        super(nombre, genero, vida, dañoFisico, dañoMagico, resistenciaFisica, resistenciaMagica, velocidad, experiencia, nivel,
                 monedas, grumetesRestantes, islasConquistadas, enemigosDerrotados, estaEnCombate, inventario,
                 objetoEquipado, pedoActivado, estaSomnoliento, estaSangrando);
     }

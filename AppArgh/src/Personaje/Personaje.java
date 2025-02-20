@@ -4,34 +4,36 @@ import Producto.Producto;
 import java.util.Scanner;
 
 public abstract class Personaje {
-	    protected String genero; //Género a elegir por el jugador
-	    protected int vida; // Vida que se usará en combate
-	    protected int dañoFisico; // Tipo de daño, que es resistido por la resistencia física
-	    protected int dañoMagico; // Tipo de daño, que es resistido por la resistencia mágica
-	    protected int resistenciaFisica; // Tipo de resistencia, que resiste el daño físico
-	    protected int resistenciaMagica; // Tipo de resistencia, que resiste el daño mágico
-	    protected int velocidad; // Velocidad del personaje, es usado en la batalla para saber el orden de los turnos |
-	    protected int experiencia = 0; // Experiencia que aumenta y sirve para subir de nivel
+		protected String nombre; //Nombre que el jugador elige.
+	    protected String genero; //Género a elegir por el jugador.
+	    protected int vida; // Vida que se usará en combate.
+	    protected int dañoFisico; // Tipo de daño, que es resistido por la resistencia física.
+	    protected int dañoMagico; // Tipo de daño, que es resistido por la resistencia mágica.
+	    protected int resistenciaFisica; // Tipo de resistencia, que resiste el daño físico.
+	    protected int resistenciaMagica; // Tipo de resistencia, que resiste el daño mágico.
+	    protected int velocidad; // Velocidad del personaje, es usado en la batalla para saber el orden de los turnos.
+	    protected int experiencia = 0; // Experiencia que aumenta y sirve para subir de nivel.
 	    protected int nivel = 0; // Nivel del personaje, según el nivel, más fuerte se hace.
-	    protected int monedas = 0; // El dinero que tiene el jugador para poder comprar en la tienda
-	    protected int grumetesRestantes; // La cantidad de oportunidades (vidas) restantes que le queda al jugador
-	    protected int islasConquistadas = 0; // El número de islas conquistadas (ha vencido al jefe)
-	    protected int enemigosDerrotados = 0; // Número de enemigos comunes derrotados (estadística)
-	    protected boolean estaEnCombate = false; // Cuando entra en combate, este atributo empieza a valer "true"
+	    protected int monedas = 0; // El dinero que tiene el jugador para poder comprar en la tienda.
+	    protected int grumetesRestantes; // La cantidad de oportunidades (vidas) restantes que le queda al jugador.
+	    protected int islasConquistadas = 0; // El número de islas conquistadas (ha vencido al jefe).
+	    protected int enemigosDerrotados = 0; // Número de enemigos comunes derrotados (estadística).
+	    protected boolean estaEnCombate = false; // Cuando entra en combate, este atributo empieza a valer "true".
 	    protected boolean pedoActivado = false; // Pasa a true cuando activan el objeto pedo.
-	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento"
-	    protected boolean estaSangrando = false; // Detecta si el jugador tiene el estado "sangrado"
+	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento".
+	    protected boolean estaSangrando = false; // Detecta si el jugador tiene el estado "sangrado".
 
-	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7)
-	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios
+	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7).
+	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios.
 	    
 		//Constructor de Personaje
-	    public Personaje(String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
+	    public Personaje(String nombre, String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
 				int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
 				int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
 				Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando) 
 	    {
 			super();
+			this.nombre = nombre;
 			this.genero = genero;
 			this.vida = vida;
 			this.dañoFisico = dañoFisico;
@@ -54,6 +56,14 @@ public abstract class Personaje {
 	    }
 	    
 	    // Getters y Setters de Personaje ---------------------------------------------------------------------------
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
 
 		public String getGenero() {
 			return genero;

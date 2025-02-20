@@ -185,7 +185,7 @@ public class Argh {
 					// Dificultad normal
 					System.out.println("");
 					System.out.println("Dificultad normal");
-					System.out.println("¡Eres un grumete!");
+					System.out.println("¡" + nombre + " eres un grumete!");
 					int randomRol = (int) (Math.random() * 100); // Número aleatorio para seleccionar rol
 					int opcionRol;
 					String rolSeleccionado;
@@ -202,9 +202,9 @@ public class Argh {
 						System.out.println("¡Tu rol seleccionado ha sido el de artillero!");
 						rolSeleccionado = "Artillería";
 					}
-					Personaje grumete = new PersonajeGrumete(genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado);
+					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado);
 					personajeActivo = grumete;
-					System.out.println("¡BUENA SUERTE PIRATA!");
+					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
@@ -216,13 +216,13 @@ public class Argh {
 					System.out.println("");
 					System.out.println("Dificultad extrema");
 					System.out.println("¡Eres el capitán!");
-					System.out.println("¡BUENA SUERTE PIRATA!");
+					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
 					sc.nextLine();
 					limpiarPantalla();
-					Personaje capitán = new PersonajeCapitan(genero, 100, 20, 20, 20, 20, 20, 0, 1, 10000000, 3, 0, 0, false, inventario, null, false, false, false);
+					Personaje capitán = new PersonajeCapitan(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 10000000, 3, 0, 0, false, inventario, null, false, false, false);
 					personajeActivo = capitán;
 					break;
 				} else {

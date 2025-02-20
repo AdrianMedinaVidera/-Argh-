@@ -58,11 +58,11 @@ public class Tendera {
 
     public void menuCompra (Personaje personaje){
         if (personaje.getGenero().equals("femenino")|| personaje.getGenero().equals("f")|| personaje.getGenero().equals("mujer")|| personaje.getGenero().equals("hembra")){
-            System.out.println("Bienvenida a la tienda");
+            System.out.println("Bienvenida" + personaje.getNombre() +  " a la tienda");
         } else if (personaje.getGenero().equals("masculino") || personaje.getGenero().equals("m") || personaje.getGenero().equals("hombre") || personaje.getGenero().equals("macho") || personaje.getGenero().equals("h")) {
-            System.out.println("Bienvenido a la tienda");
+            System.out.println("Bienvenido " + personaje.getNombre() + " a la tienda");
         } else {
-            System.out.println("Bienvenide a la tienda");
+            System.out.println("Bienvenide " + personaje.getNombre() + " a la tienda");
         }
         System.out.println("¿Qué desea comprar?");
         System.out.println("1. Minipoción");
