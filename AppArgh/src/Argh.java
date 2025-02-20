@@ -1,4 +1,4 @@
-import Personaje.Personaje;
+import Personaje.*;
 import Producto.Producto;
 
 public class Argh {
@@ -32,7 +32,8 @@ public class Argh {
 		Producto redbull = new Producto("Redbull", 10, 0);
 		Producto caramelo = new Producto("Caramelo", 70, 0);
 		
-		
+
+		// Personaje grumete = new 
 		
 		
 		
