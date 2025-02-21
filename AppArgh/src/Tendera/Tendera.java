@@ -57,35 +57,48 @@ public class Tendera {
     }
 
     public void menuCompra (Personaje personaje){
+        System.out.println("+-----------------------------------------------+");
         if (personaje.getGenero().equals("femenino")|| personaje.getGenero().equals("f")|| personaje.getGenero().equals("mujer")|| personaje.getGenero().equals("hembra")){
-            System.out.println("Bienvenida" + personaje.getNombre() +  " a la tienda");
+            System.out.println("           Bienvenida " + personaje.getNombre() +  " a la tienda");
         } else if (personaje.getGenero().equals("masculino") || personaje.getGenero().equals("m") || personaje.getGenero().equals("hombre") || personaje.getGenero().equals("macho") || personaje.getGenero().equals("h")) {
-            System.out.println("Bienvenido " + personaje.getNombre() + " a la tienda");
+            System.out.println("           Bienvenido " + personaje.getNombre() + " a la tienda");
         } else {
-            System.out.println("Bienvenide " + personaje.getNombre() + " a la tienda");
+            System.out.println("           Bienvenide " + personaje.getNombre() + " a la tienda");
         }
-        System.out.println("¿Qué desea comprar?");
-        System.out.println("1. Minipoción");
-        System.out.println("2. Poción");
-        System.out.println("3. Superpoción");
-        System.out.println("4. Báculo");
-        System.out.println("5. Espada");
-        System.out.println("6. Mandoble");
-        System.out.println("7. Varita Madera");
-        System.out.println("8. Varita Plástico");
-        System.out.println("9. Varita Oro");
-        System.out.println("10. Escudito");
-        System.out.println("11. Escudo");
-        System.out.println("12. Escudazo");
-        System.out.println("13. Capita");
-        System.out.println("14. Capa");
-        System.out.println("15. Capaza");
-        System.out.println("16. Alas");
-        System.out.println("17. Pedo");
-        System.out.println("18. ???");
-        System.out.println("19. Redbull");
-        System.out.println("20. Caramelo");
-        System.out.println("");
-        System.out.println("21. Salir");
+        System.out.println("+------------------------------------------------+");
+        System.out.println("|            ¿Qué desea comprar?                 |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 1. Minipoción      | 20 de vida  | 20 monedas  |");
+        System.out.println("| 2. Poción          | 60 de vida  | 30 monedas  |");
+        System.out.println("| 3. Superpoción     | 120 de vida | 60 monedas  |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 4. Báculo          | 20 de dñF   | 15 monedas  |");
+        System.out.println("| 5. Espada          | 50 de dñF   | 30 monedas  |");
+        System.out.println("| 6. Mandoble        | 100 de dñF  | 120 monedas |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 7. Varita Madera   | 20 de dñM   | 15 monedas  |");
+        System.out.println("| 8. Varita Plástico | 50 de dñM   | 30 monedas  |");
+        System.out.println("| 9. Varita Oro      | 100 de dñM  | 120 monedas |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 10. Escudito       | 20 de resF  | 15 monedas  |");
+        System.out.println("| 11. Escudo         | 40 de resF  | 30 monedas  |");
+        System.out.println("| 12. Escudazo       | 100 de resF | 120 monedas |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 13. Capita         | 20 de resM  | 15 monedas  |");
+        System.out.println("| 14. Capa           | 40 de resM  | 30 monedas  |");
+        System.out.println("| 15. Capaza         | 100 de resM | 120 monedas |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 16. Alas           | 20% de vel  | 30 monedas  |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 17. Pedo           | 25% de huir | 30 monedas  |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 18. ???            |     ???     | 50 monedas  |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 19. Redbull        | Despertar   | 10 monedas  |");
+        System.out.println("+--------------------+-------------+-------------+");
+        System.out.println("| 20. Caramelo       | +1 nivel    | 70 monedas  |");
+        System.out.println("+------------------------------------------------+");
+        System.out.println("|            21. Salir de la tienda              |");
+        System.out.println("+-----------------------------------------------+");
     }
 }

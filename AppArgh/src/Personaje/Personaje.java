@@ -181,6 +181,10 @@ public abstract class Personaje {
 			return inventario;
 		}
 
+		public void objetoInventario (int i) {
+			System.out.println();
+		}
+
 		public void setInventario(Producto[] inventario) {
 			this.inventario = inventario;
 		}
@@ -474,23 +478,36 @@ public abstract class Personaje {
 			}
 			sc.close();
 		}
-		
 		public void procesarCompra(Producto producto, Producto inventario[]) {
 			if (monedas < producto.getPrecio()) {
 				System.out.println("Lo sentimos, no tiene suficientes monedas para realizar la compra.");
 			} else {
-				System.out.println("Se ha realizado la compra correctamente.");
-				monedas -= producto.getPrecio();
-				for (int i = 0; i < inventario.length; i++) {
-					if (inventario[i] != null) {
-						inventario[i] = producto;
-						System.out.println(inventario[i]);
+				// Comprobar si el producto ya existe en el inventario
+				boolean productoExistente = false;
+				for (Producto item : inventario) {
+					if (item != null && item.getNombre().equals(producto.getNombre())) {
+						productoExistente = true;
+						item.setCantidad(item.getCantidad() + 1);
+						monedas -= producto.getPrecio();
+						System.out.println("Se ha realizado la compra correctamente.");
 						System.out.println("Su nuevo balance es de " + monedas + " monedas.");
 						break;
-					} else if (inventario[6] != null){
-						System.out.println("No tiene espacio en el inventario.");
-						monedas += producto.getPrecio();
-						// Añadir el menú de compra.
+					}
+				}
+				
+				// Si el producto no existe, agregarlo al inventario
+				if (!productoExistente) {
+					for (int i = 0; i < inventario.length; i++) {
+						if (inventario[i] == null) {
+							inventario[i] = producto;
+							monedas -= producto.getPrecio();
+							producto.setCantidad(producto.getCantidad() + 1);
+							System.out.println("Se ha realizado la compra correctamente.");
+							System.out.println("Su nuevo balance es de " + monedas + " monedas.");
+							break;
+						} else if (inventario[inventario.length - 1] != null) { //Si el último espacio del inventario está lleno es porque no tiene espacio.
+							System.out.println("No tiene espacio en el inventario.");
+						}
 					}
 				}
 			}

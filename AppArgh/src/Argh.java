@@ -7,6 +7,8 @@ import Tendera.Tendera;
 
 public class Argh {
 
+	private static int mundoActual = 0;
+
 	private static Producto minipocion = new Producto("Minipoción", 0, 20);
 	private static Producto pocion = new Producto("Poción", 0, 30);
 	private static Producto superpocion = new Producto("Superpoción", 0, 60);
@@ -43,7 +45,7 @@ public class Argh {
             }
         } catch (Exception e) {
             // Si falla al limpiar la pantalla, genera muchos espacios.
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 40; i++) {
                 System.out.println();
             }
         }
@@ -51,7 +53,7 @@ public class Argh {
 
 	public static void esperar(int segundos) {
         try {
-            Thread.sleep(segundos * 1000); // Convierte de segundos a milisegundos.
+            Thread.sleep(segundos * 1000); // Convierte de segundos a milisegundos, pues .sleep solo acepta ms.
         } catch (InterruptedException e) {
             System.out.println("Ha ocurrido un error al esperar.");
         }
@@ -66,22 +68,134 @@ public class Argh {
 		System.exit(0);
 	}
 
-	public static void entrarTienda (Tendera tendera, Personaje personajeActivo) {
-		try (Scanner sc = new Scanner(System.in)) {
+	public static void entrarTienda (Tendera tendera, Personaje personajeActivo, Scanner sc) { 
 			boolean dentroTienda = true;
 			while (dentroTienda) {
-				tendera.menuCompra(personajeActivo);
-				int opcionCompra = sc.nextInt();
-				switch (opcionCompra) {
-					case 1 -> 
-					{
-						personajeActivo.procesarCompra(minipocion, personajeActivo.getInventario());
-						esperar(3);
-						limpiarPantalla();
-					}
-					case 21 -> {dentroTienda = false;limpiarPantalla();break;}
-					default -> {dentroTienda = false;limpiarPantalla();break;}
+			tendera.menuCompra(personajeActivo);
+			int opcionCompra = sc.nextInt();
+			switch (opcionCompra) {
+				case 1 -> 
+				{
+					personajeActivo.procesarCompra(minipocion, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
 				}
+				case 2 -> 
+				{
+					personajeActivo.procesarCompra(pocion, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 3 ->
+				{
+					personajeActivo.procesarCompra(superpocion, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 4 ->
+				{
+					personajeActivo.procesarCompra(baculo, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 5 ->
+				{
+					personajeActivo.procesarCompra(espada, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 6 ->
+				{
+					personajeActivo.procesarCompra(mandoble, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 7 ->
+				{
+					personajeActivo.procesarCompra(varitaMadera, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 8 ->
+				{
+					personajeActivo.procesarCompra(varitaPlastico, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 9 ->
+				{
+					personajeActivo.procesarCompra(varitaOro, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 10 ->
+				{
+					personajeActivo.procesarCompra(escudito, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 11 ->
+				{
+					personajeActivo.procesarCompra(escudo, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 12 ->
+				{
+					personajeActivo.procesarCompra(escudazo, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 13 ->
+				{
+					personajeActivo.procesarCompra(capita, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 14 ->
+				{
+					personajeActivo.procesarCompra(capa, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 15 ->
+				{
+					personajeActivo.procesarCompra(capaza, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 16 ->
+				{
+					personajeActivo.procesarCompra(alas, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 17 ->
+				{
+					personajeActivo.procesarCompra(pedo, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 18 ->
+				{
+					personajeActivo.procesarCompra(objetoMisterioso, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 19 ->
+				{
+					personajeActivo.procesarCompra(redbull, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 20 ->
+				{
+					personajeActivo.procesarCompra(caramelo, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
+				}
+				case 21 -> {dentroTienda = false;limpiarPantalla();}
+				default -> {dentroTienda = false;limpiarPantalla();}
 			}
 		}
 	}
@@ -122,13 +236,43 @@ public class Argh {
 	public static void menuInventario (Personaje personaje) {
 		System.out.println("+--------------ARGH--------------+");
 		System.out.println("      Objetos a equipar          ");
-		System.out.println("1. " + personaje.getInventario()[0] + " ");
-		System.out.println("2. " + personaje.getInventario()[0] + " ");
-		System.out.println("3. " + personaje.getInventario()[0] + " ");
-		System.out.println("4. " + personaje.getInventario()[0] + " ");
-		System.out.println("5. " + personaje.getInventario()[0] + " ");
-		System.out.println("6. " + personaje.getInventario()[0] + " ");
-		System.out.println("7. " + personaje.getInventario()[0] + " ");
+		System.out.println("");
+		if (personaje.getInventario()[0] == null) {// Si el inventario está vacío, no se muestra el objeto (null)
+			System.out.println("1. " + "Vacío");
+		} else {
+			System.out.println("1. " + personaje.getInventario()[0].getNombre() + " " + personaje.getInventario()[0].getCantidad());
+		}
+		if (personaje.getInventario()[1] == null) {
+			System.out.println("2. " + "Vacío");
+		} else {
+			System.out.println("2. " + personaje.getInventario()[1].getNombre() + " " + personaje.getInventario()[1].getCantidad());
+		}
+		if (personaje.getInventario()[2] == null) {
+			System.out.println("3. " + "Vacío");
+		} else {
+			System.out.println("3. " + personaje.getInventario()[2].getNombre() + " " + personaje.getInventario()[2].getCantidad());
+		}
+		if (personaje.getInventario()[3] == null) {
+			System.out.println("4. " + "Vacío");
+		} else {
+			System.out.println("4. " + personaje.getInventario()[3].getNombre() + " " + personaje.getInventario()[3].getCantidad());
+		}
+		if (personaje.getInventario()[4] == null) {
+			System.out.println("5. " + "Vacío");
+		} else {
+			System.out.println("5. " + personaje.getInventario()[4].getNombre() + " " + personaje.getInventario()[4].getCantidad());
+		}
+		if (personaje.getInventario()[5] == null) {
+			System.out.println("6. " + "Vacío");
+		} else {
+			System.out.println("6. " + personaje.getInventario()[5].getNombre() + " " + personaje.getInventario()[5].getCantidad());
+		}
+		if (personaje.getInventario()[6] == null) {
+			System.out.println("7. " + "Vacío");
+		} else {
+			System.out.println("7. " + personaje.getInventario()[6].getNombre() + " " + personaje.getInventario()[6].getCantidad());
+		}
+		System.out.println("");
 		System.out.println("      8. Salir                        ");
 		System.out.println("+--------------------------------+");
 
@@ -243,55 +387,61 @@ public class Argh {
 		
 		while (true) {
 			menuContinuar();
-			int opcionContinuar = sc.nextInt();
-			limpiarPantalla();
-			if (opcionContinuar == 1) {
-				// Continuar
-			} else if (opcionContinuar == 2) {
-				// Inventario
-				boolean dentroInventario = true;
-				while (dentroInventario) {
-					menuInventario(personajeActivo);
-					int opcionInventario = sc.nextInt();
-					switch (opcionInventario) {
-						case 1 -> {
-							// Equipar objeto
+			try {
+				int opcionContinuar = sc.nextInt();
+				limpiarPantalla();
+				if (opcionContinuar == 1) {
+					// Continuar
+				} else if (opcionContinuar == 2) {
+					// Inventario
+					boolean dentroInventario = true;
+					while (dentroInventario) {
+						menuInventario(personajeActivo);
+						int opcionInventario = sc.nextInt();
+						switch (opcionInventario) {
+							case 1 -> {
+								// Equipar objeto
+							}
+							case 8 -> {
+								// Salir del inventario
+								dentroInventario = false;
+								limpiarPantalla();
+								break;
+							}
+							default -> {
+								// Opción inválida
+								System.out.println("Opción inválida. Prueba otra vez.");
+							}
 						}
-						case 8 -> {
-							// Salir del inventario
-							dentroInventario = false;
-							limpiarPantalla();
-							break;
-						}
-						default -> {
-							// Opción inválida
-							System.out.println("Opción inválida. Prueba otra vez.");
+					}
+				} else if (opcionContinuar == 3) {
+					// Tienda
+					entrarTienda(tendera, personajeActivo, sc);
+				} else if (opcionContinuar == 4) {
+					// Menú
+					boolean dentroMenu = true;
+					while (dentroMenu) {
+						personajeActivo.menu();
+						int opcionMenu = sc.nextInt();
+						switch (opcionMenu) {
+							case 1 -> {
+								dentroMenu = false;
+							}
+							case 5 -> {
+								// Salir del juego
+								salirJuego();
+							}
+							default -> {
+								// Opción inválida
+								System.out.println("Opción inválida. Prueba otra vez.");
+							}
 						}
 					}
 				}
-			} else if (opcionContinuar == 3) {
-				// Tienda
-				entrarTienda(tendera, personajeActivo);
-			} else if (opcionContinuar == 4) {
-				// Menú
-				boolean dentroMenu = true;
-				while (dentroMenu) {
-					personajeActivo.menu();
-					int opcionMenu = sc.nextInt();
-					switch (opcionMenu) {
-						case 1 -> {
-							dentroMenu = false;
-						}
-						case 5 -> {
-							// Salir del juego
-							salirJuego();
-						}
-						default -> {
-							// Opción inválida
-							System.out.println("Opción inválida. Prueba otra vez.");
-						}
-					}
-				}
+			} catch (InputMismatchException e) {
+				limpiarPantalla();
+				sc.nextLine(); 
+				System.out.println("Opción inválida. Introduce un número.");
 			}
 		}
 	}
