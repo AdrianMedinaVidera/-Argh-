@@ -443,6 +443,7 @@ public class Argh {
 				sc.nextLine(); 
 				System.out.println("Opción inválida. Introduce un número.");
 			}
+			sc.close();
 		}
 	}
 }
