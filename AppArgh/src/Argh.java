@@ -66,22 +66,20 @@ public class Argh {
 		System.exit(0);
 	}
 
-	public static void entrarTienda (Tendera tendera, Personaje personajeActivo) {
-		try (Scanner sc = new Scanner(System.in)) {
-			boolean dentroTienda = true;
-			while (dentroTienda) {
-				tendera.menuCompra(personajeActivo);
-				int opcionCompra = sc.nextInt();
-				switch (opcionCompra) {
-					case 1 -> 
-					{
-						personajeActivo.procesarCompra(minipocion, personajeActivo.getInventario());
-						esperar(3);
-						limpiarPantalla();
-					}
-					case 21 -> {dentroTienda = false;limpiarPantalla();break;}
-					default -> {dentroTienda = false;limpiarPantalla();break;}
+	public static void entrarTienda (Tendera tendera, Personaje personajeActivo, Scanner sc) {
+		boolean dentroTienda = true;
+		while (dentroTienda) {
+			tendera.menuCompra(personajeActivo);
+			int opcionCompra = sc.nextInt();
+			switch (opcionCompra) {
+				case 1 -> 
+				{
+					personajeActivo.procesarCompra(minipocion, personajeActivo.getInventario());
+					esperar(3);
+					limpiarPantalla();
 				}
+				case 21 -> {dentroTienda = false;limpiarPantalla();}
+				default -> {dentroTienda = false;limpiarPantalla();}
 			}
 		}
 	}
@@ -271,7 +269,7 @@ public class Argh {
 				}
 			} else if (opcionContinuar == 3) {
 				// Tienda
-				entrarTienda(tendera, personajeActivo);
+				entrarTienda(tendera, personajeActivo, sc);
 			} else if (opcionContinuar == 4) {
 				// Menú
 				boolean dentroMenu = true;
@@ -293,6 +291,7 @@ public class Argh {
 					}
 				}
 			}
+			sc.close();
 		}
 	}
 }
