@@ -226,7 +226,7 @@ public class Argh {
 
 	public static void menuContinuar () {
 		System.out.println("+--------------ARGH--------------+");
-		System.out.println("|      1. Continuar              |");
+		System.out.println("|      1. Avanzar                |");
 		System.out.println("|      2. Inventario             |");
 		System.out.println("|      3. Tienda                 |");
 		System.out.println("|      4. Menú                   |");
@@ -279,12 +279,13 @@ public class Argh {
 	}
 	public static void main(String[] args) {
 		
-		Tendera tendera = new Tendera(null, false);
-
-		// Creación de todos los objetos del juego.        
+		//Creación de objetos.
+		Tendera tendera = new Tendera(null, false);      
 
 		Personaje personajeActivo = null;
 		Producto[] inventario = new Producto[7]; // Inventario del jugador
+
+		//Comienzo del juego.
 		Scanner sc = new Scanner(System.in);
 		while (true) { // Bucle de menú inicial
 			menuInicial();
@@ -387,63 +388,72 @@ public class Argh {
 		
 		while (true) {
 			menuContinuar();
+			int opcionContinuar = 0;
 			try {
-				int opcionContinuar = sc.nextInt();
-				limpiarPantalla();
-				if (opcionContinuar == 1) {
-					// Continuar
-				} else if (opcionContinuar == 2) {
-					// Inventario
-					boolean dentroInventario = true;
-					while (dentroInventario) {
-						menuInventario(personajeActivo);
-						int opcionInventario = sc.nextInt();
-						switch (opcionInventario) {
-							case 1 -> {
-								// Equipar objeto
-							}
-							case 8 -> {
-								// Salir del inventario
-								dentroInventario = false;
-								limpiarPantalla();
-								break;
-							}
-							default -> {
-								// Opción inválida
-								System.out.println("Opción inválida. Prueba otra vez.");
-							}
-						}
-					}
-				} else if (opcionContinuar == 3) {
-					// Tienda
-					entrarTienda(tendera, personajeActivo, sc);
-				} else if (opcionContinuar == 4) {
-					// Menú
-					boolean dentroMenu = true;
-					while (dentroMenu) {
-						personajeActivo.menu();
-						int opcionMenu = sc.nextInt();
-						switch (opcionMenu) {
-							case 1 -> {
-								dentroMenu = false;
-							}
-							case 5 -> {
-								// Salir del juego
-								salirJuego();
-							}
-							default -> {
-								// Opción inválida
-								System.out.println("Opción inválida. Prueba otra vez.");
-							}
-						}
-					}
-				}
+			opcionContinuar = sc.nextInt();
+			limpiarPantalla();
 			} catch (InputMismatchException e) {
 				limpiarPantalla();
 				sc.nextLine(); 
 				System.out.println("Opción inválida. Introduce un número.");
 			}
-			sc.close();
+			if (opcionContinuar == 1) {
+				// Continuar
+			} else if (opcionContinuar == 2) {
+				// Inventario
+				boolean dentroInventario = true;
+				while (dentroInventario) {
+					menuInventario(personajeActivo);
+					int opcionInventario = sc.nextInt();
+					switch (opcionInventario) {
+						case 1 -> {
+							// Equipar objeto
+						}
+						case 8 -> {
+							// Salir del inventario
+							dentroInventario = false;
+							limpiarPantalla();
+							break;
+						}
+						default -> {
+							// Opción inválida
+							System.out.println("Opción inválida. Prueba otra vez.");
+						}
+					}
+				}
+			} else if (opcionContinuar == 3) {
+				// Tienda
+				entrarTienda(tendera, personajeActivo, sc);
+			} else if (opcionContinuar == 4) {
+				// Menú
+				boolean dentroMenu = true;
+				while (dentroMenu) {
+					personajeActivo.menu();
+					int opcionMenu = sc.nextInt();
+					switch (opcionMenu) {
+						case 1 -> {
+							dentroMenu = false;
+						}
+						case 2 -> {
+							// Ataques
+						}
+						case 3 -> {
+							// Estadísticas
+						}
+						case 4 -> {
+							// Tienda
+						}
+						case 5 -> {
+							// Salir del juego
+							salirJuego();
+						}
+						default -> {
+							// Opción inválida
+							System.out.println("Opción inválida. Prueba otra vez.");
+						}
+					}
+				}
+			}
 		}
 	}
 }
