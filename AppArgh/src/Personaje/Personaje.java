@@ -215,24 +215,49 @@ public abstract class Personaje {
 	    
 	    // Fin de Getters y Setters de Personaje --------------------------------------------------------------------
 	    
+		public static void limpiarPantalla() {
+			try {
+				if (System.getProperty("os.name").contains("Windows")) { // Limpia la termial en Windows.
+					new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+				} else {
+					System.out.print("\033[H\033[2J"); //Limpia la terminal en sistemas operativos basados en Unix.
+					System.out.flush();
+				}
+			} catch (Exception e) {
+				// Si falla al limpiar la pantalla, genera muchos espacios.
+				for (int i = 0; i < 40; i++) {
+					System.out.println();
+				}
+			}
+		}
+
+		public static void esperar(int segundos) {
+			try {
+				Thread.sleep(segundos * 1000); // Convierte de segundos a milisegundos, pues .sleep solo acepta ms.
+			} catch (InterruptedException e) {
+				System.out.println("Ha ocurrido un error al esperar.");
+			}
+		}
+
 		// Métodos de Personaje
 		
-		public void estadística() {
-			System.out.println("+ ------------------------------------ +");
-			System.out.println("Estadísticas del jugador:");
-			System.out.println("");
-			System.out.println(" Vida: " + vida);
-			System.out.println(" Daño Físico:" + dañoFisico);
-			System.out.println(" Daño Mágico:" + dañoMagico);
-			System.out.println(" Resistencia Física: " + resistenciaFisica);
-			System.out.println(" Resistencia Mágica: " + resistenciaMagica);
-			System.out.println(" Velocidad: " + velocidad);
-			System.out.println(" Nivel: " + nivel);
-			System.out.println(" Experiencia: " + experiencia + " / 100 " + "(" + (100 - experiencia) + " más necesaria para subir de nivel)");
-			System.out.println(" Monedas: " + monedas);
-			System.out.println(" Inventario: " + inventario.toString());
-			System.out.println(" Objeto Equipado: " + objetoEquipado);
-			System.out.println("+ ------------------------------------ +");
+		public void estadísticas() {
+			System.out.println("╔══════════════════════════════════════╗");
+			System.out.println("║                A R G H               ║");
+			System.out.println("╠══════════════════════════════════════╣");
+			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
+			System.out.println("╠══════════════════════════════════════╝");
+			System.out.println("║  Vida: " + vida + "                          ");
+			System.out.println("║  Daño Físico: " + dañoFisico + "                   ");
+			System.out.println("║  Daño Mágico: " + dañoMagico + "                   ");
+			System.out.println("║  Resistencia Física: " + resistenciaFisica + "             ");
+			System.out.println("║  Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("║  Velocidad: " + velocidad + "                      ");
+			System.out.println("║  Nivel: " + nivel + "                           ");
+			System.out.println("║  Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
+			System.out.println("║  Monedas: " + monedas + "                        ");
+			System.out.println("║  Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
+			System.out.println("╚═══════════════════════════════════════");
 		}
 		
 		public abstract void infoAtaquesMenu ();
@@ -245,24 +270,30 @@ public abstract class Personaje {
 		public abstract void ataque3 (Enemigo enemigo);
 		
 		public void mostrarInfoCombate() {
-			System.out.println("+ ------------------------------------ +");
-			System.out.println("Estadísticas del jugador:");
-			System.out.println("");
-			System.out.println(" Vida: " + vida);
-			System.out.println(" Daño Físico:" + dañoFisico);
-			System.out.println(" Daño Mágico:" + dañoMagico);
-			System.out.println(" Resistencia Física: " + resistenciaFisica);
-			System.out.println(" Resistencia Mágica: " + resistenciaMagica);
-			System.out.println(" Velocidad: " + velocidad);
-			System.out.println(" Nivel: " + nivel);
-			System.out.println(" Experiencia: " + experiencia + " / 100 " + "(" + (100 - experiencia) + " más necesaria para subir de nivel)");
-			System.out.println(" Objeto Equipado: " + objetoEquipado);
-			System.out.println("+ ------------------------------------ +");
+			System.out.println("╔══════════════════════════════════════╗");
+			System.out.println("║                A R G H               ║");
+			System.out.println("╠══════════════════════════════════════╣");
+			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
+			System.out.println("╠══════════════════════════════════════╝");
+			System.out.println("║  Vida: " + vida + "                          ");
+			System.out.println("║  Daño Físico: " + dañoFisico + "                   ");
+			System.out.println("║  Daño Mágico: " + dañoMagico + "                   ");
+			System.out.println("║  Resistencia Física: " + resistenciaFisica + "             ");
+			System.out.println("║  Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("║  Velocidad: " + velocidad + "                      ");
+			System.out.println("║  Nivel: " + nivel + "                           ");
+			System.out.println("║  Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
+			System.out.println("║  Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
+			System.out.println("╚═══════════════════════════════════════");
 		}
 	    
-		public void menuCombate () {
-			System.out.println("1 - Atacar: 				2 - Inventario: ");
-			System.out.println("3 - Estadísticas: 			4 - Huir: ");
+		public void menuCombate() {
+			System.out.println("╔══════════════════════════════════════╗");
+			System.out.println("║                A R G H               ║");
+			System.out.println("╠══════════════════════════════════════╣");
+			System.out.println("║    1. Atacar          2. Inventario  ║");
+			System.out.println("║    3. Estadísticas    4. Huir        ║");
+			System.out.println("╚══════════════════════════════════════╝");
 		}
 		
 		public void eliminarObjetoInventario(Producto objeto) {
@@ -272,6 +303,59 @@ public abstract class Personaje {
 					inventario[i] = null;
 					break;
 				}
+			}
+		}
+		public void equiparObjeto(Producto[] inventario, int i) {
+			Producto objetoAnterior = objetoEquipado;
+			if (inventario[i] == null) {
+				System.out.println("No hay ningún objeto en esa posición.");
+				esperar(2);
+				limpiarPantalla();
+			} else {
+				objetoEquipado = inventario[i];
+				inventario[i].setCantidad(inventario[i].getCantidad() - 1);
+				System.out.println("Se ha equipado el objeto " + inventario[i].getNombre() + ".");
+				if (inventario[i].getCantidad() == 0) {
+					eliminarObjetoInventario(inventario[i]);
+				}
+				// Comprobar si tenías un objeto antes, y si tenía, lo desequipamos y aumentamos la cantidad de ese objeto.
+				if (objetoAnterior != null) {
+					objetoAnterior.setCantidad(objetoAnterior.getCantidad() + 1);
+				}
+				esperar(2);
+				limpiarPantalla();
+			}
+		}
+
+		public void desequiparObjeto() {
+			if (objetoEquipado == null) {
+				System.out.println("No tienes ningún objeto equipado.");
+				esperar(2);
+				limpiarPantalla();
+			} else {
+				System.out.println("Se ha desequipado el objeto " + objetoEquipado.getNombre() + ".");
+				// Buscar si el objeto ya existe en el inventario
+				boolean encontrado = false;
+				for (int i = 0; i < inventario.length; i++) {
+					if (inventario[i] != null && inventario[i].getNombre().equals(objetoEquipado.getNombre())) {
+						inventario[i].setCantidad(inventario[i].getCantidad() + 1);
+						encontrado = true;
+						break;
+					}
+				}
+				// Si no se encontró en el inventario, buscar el primer espacio vacío
+				if (!encontrado) {
+					for (int i = 0; i < inventario.length; i++) {
+						if (inventario[i] == null) {
+							objetoEquipado.setCantidad(1);
+							inventario[i] = objetoEquipado;
+							break;
+						}
+					}
+				}
+				objetoEquipado = null;
+				esperar(2);
+				limpiarPantalla();
 			}
 		}
 		
@@ -494,7 +578,6 @@ public abstract class Personaje {
 						break;
 					}
 				}
-				
 				// Si el producto no existe, agregarlo al inventario
 				if (!productoExistente) {
 					for (int i = 0; i < inventario.length; i++) {
@@ -513,12 +596,16 @@ public abstract class Personaje {
 			}
 		}
 		
-		public void menu () {
-			System.out.println("1 - Continuar");
-			System.out.println("2 - Ataques");
-			System.out.println("3 - Estadísticas");
-			System.out.println("4 - Tienda");
-			System.out.println("5 - Salir");
+		public void menu() {
+			System.out.println("╔══════════════════════════════════════╗");
+			System.out.println("║                A R G H               ║");
+			System.out.println("╠══════════════════════════════════════╣");
+			System.out.println("║    1. Continuar       2. Ataques     ║");
+			System.out.println("║    3. Estadísticas    4. Tienda      ║");
+			System.out.println("║    5. Descansar       6. Casino      ║");
+			System.out.println("║                                      ║");
+			System.out.println("║          7. Salir del juego          ║");
+			System.out.println("╚══════════════════════════════════════╝");
 		}
 		
 		public boolean huir (Enemigo enemigo) {
@@ -565,5 +652,50 @@ public abstract class Personaje {
 			}
 			}
 			return false; //No huye si pone un input diferente a "s" (sí).
+		}
+
+		public void descansar(Scanner sc) {
+			if (genero.equals("H") || genero.equals("Man") || genero.equals("Hombre") || genero.equals("Macho") || genero.equals("M")){
+				System.out.println("   Bienvenido a la isla del descanso  ");}
+			else if (genero.equals("F") || genero.equals("Woman") || genero.equals("Mujer") || genero.equals("Hembra") || genero.equals("Femenino")){
+				System.out.println("   Bienvenida a la isla del descanso  ");}
+				else {
+					System.out.println("   Bienvenide a la isla del descanso  ");}
+			System.out.println("╔══════════════════════════════════════╗");
+			System.out.println("║                A R G H               ║");
+			System.out.println("╠══════════════════════════════════════╣");
+			System.out.println("║              DESCANSAR               ║");
+			System.out.println("╠══════════════════════════════════════╣");
+			System.out.println("║  ¿Está seguro de que quiere          ║");
+			System.out.println("║  descansar? (S/N)                    ║");
+			System.out.println("║                                      ║");
+			System.out.println("║  Precio: 50 monedas                  ║");
+			System.out.println("╚══════════════════════════════════════╝");
+			try {
+				sc.nextLine();
+				String opcion = sc.nextLine().toLowerCase();
+				if (opcion.equals("s")) {
+					if (monedas >= 50) {
+						monedas -= 50;
+						estaSomnoliento = false;
+						estaSangrando = false;
+						vida = (int) (100 * Math.pow(1.1, nivel)); // Le recupera la vida entera.
+						System.out.println("Ha descansado correctamente.");
+						System.out.println("Monedas restantes: " + monedas);
+					} else {
+						System.out.println("No tiene suficientes monedas.");
+						esperar(3);
+						limpiarPantalla();
+					}
+				} else {
+					System.out.println("No ha descansado.");
+					esperar(3);
+					limpiarPantalla();
+				}
+			} catch (Exception e) {
+				System.out.println("No ha descansado.");
+				esperar(3);
+				limpiarPantalla();
+			}
 		}
 }

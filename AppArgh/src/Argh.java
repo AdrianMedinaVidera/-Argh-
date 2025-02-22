@@ -59,10 +59,15 @@ public class Argh {
         }
     }
 
-	public static void salirJuego () {
-		System.out.println("¡Gracias por jugar!");
-		System.out.println("¡Hasta la próxima!");
-		System.out.println("(Espera mientras se cierra el juego...)");
+	public static void salirJuego() {
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║                A R G H               ║");
+		System.out.println("╠══════════════════════════════════════╣");
+		System.out.println("║         ¡Gracias por jugar!          ║");
+		System.out.println("║         ¡Hasta la próxima!           ║");
+		System.out.println("║                                      ║");
+		System.out.println("║        (Cerrando el juego...)        ║");
+		System.out.println("╚══════════════════════════════════════╝");
 		esperar(3);
 		limpiarPantalla();
 		System.exit(0);
@@ -200,22 +205,24 @@ public class Argh {
 		}
 	}
 
-	public static void menuInicial () {
-		System.out.println(" ");
-		System.out.println("+------------ARGH------------+");
-		System.out.println("|      Bienvenido a Argh     |");
-		System.out.println("|      1. Jugar              |");
-		System.out.println("|      2. Salir              |");
-		System.out.println("|      3. Cómo Jugar         |");
-		System.out.println("+----------------------------+");
+	public static void menuInicial() {
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║                A R G H               ║");
+		System.out.println("╠══════════════════════════════════════╣");
+		System.out.println("║           1. Jugar                   ║");
+		System.out.println("║           2. Salir                   ║");
+		System.out.println("║           3. Cómo Jugar              ║");
+		System.out.println("╚══════════════════════════════════════╝");
 	}
 
-	public static void menuDificultad () {
-		System.out.println("+--------------ARGH--------------+");
-		System.out.println("|      Escoge la dificultad      |");
-		System.out.println("|      1. Normal                 |");
-		System.out.println("|      2. Extremo                |");
-		System.out.println("+--------------------------------+");
+	public static void menuDificultad() {
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║                A R G H               ║");
+		System.out.println("╠══════════════════════════════════════╣");
+		System.out.println("║        Escoge la dificultad:         ║");
+		System.out.println("║           1. Normal                  ║");
+		System.out.println("║           2. Extremo                 ║");
+		System.out.println("╚══════════════════════════════════════╝");
 	}
 
 	public static void menuComoJugar () {
@@ -224,57 +231,62 @@ public class Argh {
 		System.out.println("+----------------------------------------------------+");
 	}
 
-	public static void menuContinuar () {
-		System.out.println("+--------------ARGH--------------+");
-		System.out.println("|      1. Avanzar                |");
-		System.out.println("|      2. Inventario             |");
-		System.out.println("|      3. Tienda                 |");
-		System.out.println("|      4. Menú                   |");
-		System.out.println("+--------------------------------+");
+	public static void menuContinuar() {
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║                A R G H               ║");
+		System.out.println("╠══════════════════════════════════════╣");
+		System.out.println("║           1. Avanzar                 ║");
+		System.out.println("║           2. Inventario              ║");
+		System.out.println("║           3. Tienda                  ║");
+		System.out.println("║           4. Menú                    ║");
+		System.out.println("╚══════════════════════════════════════╝");
 	}
 
 	public static void menuInventario (Personaje personaje) {
-		System.out.println("+--------------ARGH--------------+");
-		System.out.println("      Objetos a equipar          ");
-		System.out.println("");
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║                A R G H               ║");
+		System.out.println("╠══════════════════════════════════════╣");
+		System.out.println("║          OBJETOS A EQUIPAR           ║");
+		System.out.println("╠══════════════════════════════════════╝");
 		if (personaje.getInventario()[0] == null) {// Si el inventario está vacío, no se muestra el objeto (null)
-			System.out.println("1. " + "Vacío");
+			System.out.println("║ 1. " + "Vacío");
 		} else {
-			System.out.println("1. " + personaje.getInventario()[0].getNombre() + " " + personaje.getInventario()[0].getCantidad());
+			System.out.println("║ 1. " + personaje.getInventario()[0].getNombre() + " " + personaje.getInventario()[0].getCantidad());
 		}
 		if (personaje.getInventario()[1] == null) {
-			System.out.println("2. " + "Vacío");
+			System.out.println("║ 2. " + "Vacío");
 		} else {
-			System.out.println("2. " + personaje.getInventario()[1].getNombre() + " " + personaje.getInventario()[1].getCantidad());
+			System.out.println("║ 2. " + personaje.getInventario()[1].getNombre() + " " + personaje.getInventario()[1].getCantidad());
 		}
 		if (personaje.getInventario()[2] == null) {
-			System.out.println("3. " + "Vacío");
+			System.out.println("║ 3. " + "Vacío");
 		} else {
-			System.out.println("3. " + personaje.getInventario()[2].getNombre() + " " + personaje.getInventario()[2].getCantidad());
+			System.out.println("║ 3. " + personaje.getInventario()[2].getNombre() + " " + personaje.getInventario()[2].getCantidad());
 		}
 		if (personaje.getInventario()[3] == null) {
-			System.out.println("4. " + "Vacío");
+			System.out.println("║ 4. " + "Vacío");
 		} else {
-			System.out.println("4. " + personaje.getInventario()[3].getNombre() + " " + personaje.getInventario()[3].getCantidad());
+			System.out.println("║ 4. " + personaje.getInventario()[3].getNombre() + " " + personaje.getInventario()[3].getCantidad());
 		}
 		if (personaje.getInventario()[4] == null) {
-			System.out.println("5. " + "Vacío");
+			System.out.println("║ 5. " + "Vacío");
 		} else {
-			System.out.println("5. " + personaje.getInventario()[4].getNombre() + " " + personaje.getInventario()[4].getCantidad());
+			System.out.println("║ 5. " + personaje.getInventario()[4].getNombre() + " " + personaje.getInventario()[4].getCantidad());
 		}
 		if (personaje.getInventario()[5] == null) {
-			System.out.println("6. " + "Vacío");
+			System.out.println("║ 6. " + "Vacío");
 		} else {
-			System.out.println("6. " + personaje.getInventario()[5].getNombre() + " " + personaje.getInventario()[5].getCantidad());
+			System.out.println("║ 6. " + personaje.getInventario()[5].getNombre() + " " + personaje.getInventario()[5].getCantidad());
 		}
 		if (personaje.getInventario()[6] == null) {
-			System.out.println("7. " + "Vacío");
+			System.out.println("║ 7. " + "Vacío");
 		} else {
-			System.out.println("7. " + personaje.getInventario()[6].getNombre() + " " + personaje.getInventario()[6].getCantidad());
+			System.out.println("║ 7. " + personaje.getInventario()[6].getNombre() + " " + personaje.getInventario()[6].getCantidad());
 		}
-		System.out.println("");
-		System.out.println("      8. Salir                        ");
-		System.out.println("+--------------------------------+");
+		System.out.println("╠══════════════════════════════════════╗");
+		System.out.println("║     8. Desequipar objeto actual      ║");
+		System.out.println("║     9. Salir                         ║");
+		System.out.println("╚══════════════════════════════════════╝");
 
 	}
 	public static void main(String[] args) {
@@ -301,10 +313,18 @@ public class Argh {
 			limpiarPantalla();
 			if (opcionInical == 1) {
 				// Inicio del juego
-				System.out.println("¿Cuál es tu género?");
+				System.out.println("╔══════════════════════════════════════╗");
+				System.out.println("║                A R G H               ║");
+				System.out.println("╠══════════════════════════════════════╣");
+				System.out.println("║        ¿Cuál es tu género?           ║");
+				System.out.println("╚══════════════════════════════════════╝");
 				String genero = sc.next().toLowerCase();
 				limpiarPantalla();
-				System.out.println("¿Cómo te llamas?");
+				System.out.println("╔══════════════════════════════════════╗");
+				System.out.println("║                A R G H               ║");
+				System.out.println("╠══════════════════════════════════════╣");
+				System.out.println("║         ¿Cómo te llamas?             ║");
+				System.out.println("╚══════════════════════════════════════╝");
 				String nombre = sc.next();
 				limpiarPantalla();
 				menuDificultad();
@@ -313,6 +333,7 @@ public class Argh {
 					try {
 						opcionDificultad = sc.nextInt();
 						if (opcionDificultad == 1 || opcionDificultad == 2) {
+							limpiarPantalla();
 							break;
 						} else {
 							limpiarPantalla();
@@ -329,24 +350,26 @@ public class Argh {
 				if (opcionDificultad == 1) {
 					// Dificultad normal
 					System.out.println("");
-					System.out.println("Dificultad normal");
-					System.out.println("¡" + nombre + " eres un grumete!");
+					System.out.println("╔══════════════════════════════════════╗");
+					System.out.println("║                A R G H               ║");
+					System.out.println("╠══════════════════════════════════════╣");
+					System.out.println("║         DIFICULTAD NORMAL            ║");
+					System.out.println("║                                      ║");
+					System.out.println("║          ¡Eres un grumete!           ║");
+					System.out.println("║                                      ║");
 					int randomRol = (int) (Math.random() * 100); // Número aleatorio para seleccionar rol
-					int opcionRol;
 					String rolSeleccionado;
 					if (randomRol <= 33) {
-						opcionRol = 0; // Rol de cubierta
-						System.out.println("¡Tu rol seleccionado ha sido el de cubierta!");
+						System.out.println("║  ¡Tu rol seleccionado es CUBIERTA!   ║");
 						rolSeleccionado = "Cubierta";
 					} else if (randomRol <= 66) {
-						opcionRol = 1; // Rol de cocinero
+						System.out.println("║  ¡Tu rol seleccionado es COCINERO!   ║");
 						rolSeleccionado = "Cocinero";
-						System.out.println("¡Tu rol seleccionado ha sido el de cocinero!");
 					} else {
-						opcionRol = 2; // Rol de Artillería
-						System.out.println("¡Tu rol seleccionado ha sido el de artillero!");
+						System.out.println("║  ¡Tu rol seleccionado es ARTILLERO!  ║");
 						rolSeleccionado = "Artillería";
 					}
+					System.out.println("╚══════════════════════════════════════╝");
 					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado);
 					personajeActivo = grumete;
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
@@ -359,8 +382,13 @@ public class Argh {
 				} else if (opcionDificultad == 2) {
 					// Dificultad extrema
 					System.out.println("");
-					System.out.println("Dificultad extrema");
-					System.out.println("¡Eres el capitán!");
+					System.out.println("╔══════════════════════════════════════╗");
+					System.out.println("║                A R G H               ║");
+					System.out.println("╠══════════════════════════════════════╣");
+					System.out.println("║         DIFICULTAD EXTREMA           ║");
+					System.out.println("║                                      ║");
+					System.out.println("║          ¡Eres el capitán!           ║");
+					System.out.println("╚══════════════════════════════════════╝");
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
 					System.out.println("Pulsa enter para continuar...");
@@ -386,7 +414,7 @@ public class Argh {
 			}
 		} // Fin del bucle del inicio
 		
-		while (true) {
+		while (true) { // Comienzo del juego principal.
 			menuContinuar();
 			int opcionContinuar = 0;
 			try {
@@ -398,18 +426,54 @@ public class Argh {
 				System.out.println("Opción inválida. Introduce un número.");
 			}
 			if (opcionContinuar == 1) {
-				// Continuar
+				// Avanzar
+				limpiarPantalla();
 			} else if (opcionContinuar == 2) {
 				// Inventario
 				boolean dentroInventario = true;
 				while (dentroInventario) {
-					menuInventario(personajeActivo);
-					int opcionInventario = sc.nextInt();
+					int opcionInventario = 0;
+					try {
+						menuInventario(personajeActivo);
+						opcionInventario = sc.nextInt();
+					} catch (InputMismatchException e) {
+						limpiarPantalla();
+						sc.nextLine();
+					}
 					switch (opcionInventario) {
 						case 1 -> {
-							// Equipar objeto
+							// Equipar objeto 1
+							personajeActivo.equiparObjeto(inventario,0);
+						}
+						case 2 -> {
+							// Equipar objeto 2
+							personajeActivo.equiparObjeto(inventario,1);
+						}
+						case 3 -> {
+							// Equipar objeto 3
+							personajeActivo.equiparObjeto(inventario,2);
+						}
+						case 4 -> {
+							// Equipar objeto 4
+							personajeActivo.equiparObjeto(inventario,3);
+						}
+						case 5 -> {
+							// Equipar objeto 5
+							personajeActivo.equiparObjeto(inventario,4);
+						}
+						case 6 -> {
+							// Equipar objeto 6
+							personajeActivo.equiparObjeto(inventario,5);
+						}
+						case 7 -> {
+							// Equipar objeto 7
+							personajeActivo.equiparObjeto(inventario,6);
 						}
 						case 8 -> {
+							// Desequipar objeto
+							personajeActivo.desequiparObjeto();
+						}
+						case 9 -> {
 							// Salir del inventario
 							dentroInventario = false;
 							limpiarPantalla();
@@ -417,6 +481,7 @@ public class Argh {
 						}
 						default -> {
 							// Opción inválida
+							limpiarPantalla();
 							System.out.println("Opción inválida. Prueba otra vez.");
 						}
 					}
@@ -432,18 +497,75 @@ public class Argh {
 					int opcionMenu = sc.nextInt();
 					switch (opcionMenu) {
 						case 1 -> {
+							limpiarPantalla();
 							dentroMenu = false;
 						}
 						case 2 -> {
 							// Ataques
+							limpiarPantalla();
+							personajeActivo.infoAtaquesMenu();
+							int opcionInfoAtaque = 0;
+							try {
+								opcionInfoAtaque = sc.nextInt();
+								switch (opcionInfoAtaque) {
+									case 1 -> {
+										// Ataque 1
+										limpiarPantalla();
+										personajeActivo.infoAtaque1();
+										System.out.println("Pulsa enter para continuar...");
+										sc.nextLine();
+										sc.nextLine();
+										limpiarPantalla();
+									}
+									case 2 -> {
+										// Ataque 2
+										limpiarPantalla();
+										personajeActivo.infoAtaque2();
+										System.out.println("Pulsa enter para continuar...");
+										sc.nextLine();
+										sc.nextLine();
+										limpiarPantalla();
+									}
+									case 3 -> {
+										// Ataque 3
+										limpiarPantalla();
+										personajeActivo.infoAtaque3();
+										System.out.println("Pulsa enter para continuar...");
+										sc.nextLine();
+										sc.nextLine();
+										limpiarPantalla();
+									}
+									default -> {System.out.println("Opción no válida.");}
+								}
+							} catch (InputMismatchException e) {
+								limpiarPantalla();
+								sc.nextLine();
+							}
 						}
 						case 3 -> {
 							// Estadísticas
+							limpiarPantalla();
+							personajeActivo.estadísticas();
+							System.out.println("Pulsa enter para continuar...");
+							sc.nextLine();
+							sc.nextLine();
+							limpiarPantalla();
 						}
 						case 4 -> {
 							// Tienda
+							limpiarPantalla();
+							entrarTienda(tendera, personajeActivo, sc);
 						}
 						case 5 -> {
+							// Descansar
+							limpiarPantalla();
+							personajeActivo.descansar(sc);
+						}
+						case 6 -> {
+							// Casino
+							tendera.entrarCasino(personajeActivo,sc);
+						}
+						case 7 -> {
 							// Salir del juego
 							salirJuego();
 						}

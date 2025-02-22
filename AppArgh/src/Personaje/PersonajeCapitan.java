@@ -16,30 +16,63 @@ public class PersonajeCapitan extends Personaje {
 
     @Override
     public void infoAtaquesMenu() {
-        System.out.println("+ ------------------------------ +");
-        System.out.println("| 	  Información de ataques	 |");
-        System.out.println("| 1 - Látigo de hierro			 |");
-        System.out.println("| 2 - Bramido de acero			 |");
-        System.out.println("| 3 - Espectro náutico			 |");
-        System.out.println("+ ------------------------------ +");
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║                A R G H               ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║         INFORMACIÓN DE ATAQUES       ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║    1. Látigo de hierro               ║");
+        System.out.println("║    2. Bramido de acero               ║");
+        System.out.println("║    3. Espectro náutico               ║");
+        System.out.println("╚══════════════════════════════════════╝");
     }
 
     @Override
     public void infoAtaque1() {
-        System.out.println(
-                "Látigo de hierro: El capitán se abalanza contra el enemigo y le realiza un gancho de boxeo con su garfio, realizando 50 de daño físico y dejando un sangrado en el enemigo, lo que le resta un 10% de la vida total al final del turno.");
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║                A R G H               ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║           LÁTIGO DE HIERRO           ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║  El capitán se abalanza contra el    ║");
+        System.out.println("║  enemigo y le realiza un gancho de   ║");
+        System.out.println("║  boxeo con su garfio.                ║");
+        System.out.println("║                                      ║");
+        System.out.println("║  Daño físico: 50                     ║");
+        System.out.println("║  Efecto: Sangrado (10% vida/turno)   ║");
+        System.out.println("╚══════════════════════════════════════╝");
     }
 
     @Override
     public void infoAtaque2() {
-        System.out.println(
-                "Bramido de acero: El capitán se agarra a las empuñaduras de un cañón y dispara un proyectil extremadamente potente que hace 120 de daño físico, lo que hace que la explosión le reste un 50% de la vida actual al capitán.");
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║                A R G H               ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║           BRAMIDO DE ACERO           ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║  El capitán dispara un proyectil     ║");
+        System.out.println("║  extremadamente potente desde un      ║");
+        System.out.println("║  cañón.                              ║");
+        System.out.println("║                                      ║");
+        System.out.println("║  Daño físico: 120                    ║");
+        System.out.println("║  Efecto: -50% vida propia            ║");
+        System.out.println("╚══════════════════════════════════════╝");
     }
 
     @Override
     public void infoAtaque3() {
-        System.out.println(
-                "Espectro náutico: El capitán lanza al aire una botella con un barco dentro, la botella explota, dejando caer el barco encima del enemigo e infligiéndole 120 de daño mágico, lo que deja somnoliento al capitán.");
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║                A R G H               ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║          ESPECTRO NÁUTICO            ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║  El capitán lanza una botella con    ║");
+        System.out.println("║  un barco dentro. Al explotar, el    ║");
+        System.out.println("║  barco cae sobre el enemigo.         ║");
+        System.out.println("║                                      ║");
+        System.out.println("║  Daño mágico: 120                    ║");
+        System.out.println("║  Efecto: Somnolencia propia          ║");
+        System.out.println("╚══════════════════════════════════════╝");
     }
 
     @Override
@@ -63,6 +96,7 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("El capitán ha usado el ataque Espectro náutico.");
         enemigo.setVida(enemigo.getVida() - (int) (0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 120));
         estaSomnoliento = true;
+        System.out.println("El enemigo está somnoliento zZ");
     }
 
 }
