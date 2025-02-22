@@ -129,36 +129,63 @@ public class Tendera {
         System.out.println("╚════════════════════════════════════════════════════╝");
     }
 
-    public void entrarCasino (Personaje personaje, Scanner sc) {
+    public void entrarCasino(Personaje personaje, Scanner sc) {
         limpiarPantalla();
-        System.out.println("Bienvenido al casino.");
+        System.out.println("╔══════════════════════════════════════════════════════╗");
+        System.out.println("║                      CASINO                          ║");
+        System.out.println("╠══════════════════════════════════════════════════════╣");
+        System.out.println("║          ¡Bienvenido al Casino de Argh!              ║");
+        System.out.println("╚══════════════════════════════════════════════════════╝");
         boolean seguirJugando = true;
         
         while (seguirJugando) {
-            System.out.println("Cuantas monedas deseas apostar?");
+            System.out.println("╔══════════════════════════════════════════════════════╗");
+            System.out.println("║             ¿Cuántas monedas apuestas?               ║");
+            System.out.println("          (Tienes " + personaje.getMonedas() + " monedas disponibles)");
+            System.out.println("╚══════════════════════════════════════════════════════╝");
             int apuesta = 0;
-            while (true){
+            while (true) {
                 try {
                     apuesta = sc.nextInt();
                     break;
                 } catch (Exception e) {
-                    System.out.println("No has introducido un numero.");
+                    System.out.println("╔══════════════════════════════════════════════════════╗");
+                    System.out.println("║           ¡Debes introducir un número!               ║");
+                    System.out.println("╚══════════════════════════════════════════════════════╝");
                     sc.nextLine();
                 }
             }
             if (apuesta > personaje.getMonedas()) {
-                System.out.println("No tienes suficientes monedas.");
+                System.out.println("╔══════════════════════════════════════════════════════╗");
+                System.out.println("║         ¡No tienes suficientes monedas!              ║");
+                System.out.println("╚══════════════════════════════════════════════════════╝");
+                esperar(2);
             } else {
-                limpiarPantalla();
-                System.out.println("Has apostado " + apuesta + " monedas. Buena suerte.");
-                System.out.println("A que quieres jugar?");
-                System.out.println("1 - Dados malditos");
-                System.out.println("2 - Ruleta");
-                System.out.println("3 - Espada o cuerda");
-                System.out.println("4 - Naufragio");
-                System.out.println("5 - Como jugar?");
-                System.out.println("6 - Salir");
-                int opcionCasino = sc.nextInt();
+                int opcionCasino = 0;
+                while (true) {
+                    limpiarPantalla();
+                    System.out.println("╔══════════════════════════════════════════════════════╗");
+                    System.out.println("║                      CASINO                          ║");
+                    System.out.println("╠══════════════════════════════════════════════════════╣");
+                    System.out.println("      Has apostado " + apuesta + " monedas. ¡Buena suerte!");
+                    System.out.println("╠══════════════════════════════════════════════════════╣");
+                    System.out.println("║                  ¿A qué juegas?                      ║");
+                    System.out.println("║                                                      ║");
+                    System.out.println("║              1 - Dados malditos                      ║");
+                    System.out.println("║              2 - Ruleta                              ║");
+                    System.out.println("║              3 - Espada o cuerda                     ║");
+                    System.out.println("║              4 - Naufragio                           ║");
+                    System.out.println("║              5 - Cómo jugar (?)                      ║");
+                    System.out.println("║              6 - Salir                               ║");
+                    System.out.println("╚══════════════════════════════════════════════════════╝");
+                    try {
+                        opcionCasino = sc.nextInt();
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("No has introducido un numero.");
+                        sc.nextLine();
+                    }
+                }
                 switch (opcionCasino) {
                     case 1 -> {
                         limpiarPantalla();
@@ -175,7 +202,7 @@ public class Tendera {
                         if (dado1 + dado2 == 7 || dado1 + dado2 == 11) {
                             System.out.println("Felicidades!");
                             System.out.println("Has ganado " + (apuesta * 2) + " monedas.");
-                            personaje.setMonedas(personaje.getMonedas() + apuesta * 6);
+                            personaje.setMonedas(personaje.getMonedas() + apuesta * 2);
                         } else if (dado1 + dado2 == 2 || dado1 + dado2 == 3 || dado1 + dado2 == 12) {
                             System.out.println("Lo sentimos.");
                             System.out.println("Has perdido " + apuesta + " monedas.");
@@ -288,13 +315,14 @@ public class Tendera {
                     case 4 -> {
                         limpiarPantalla();
                         System.out.println("Bienvenido al juego de naufragio.");
-                        System.out.println("Empiezas con " + apuesta + "monedas");
+                        System.out.println("Empiezas con " + apuesta + " monedas");
                         int total = apuesta;
                         while (true) {
                             System.out.println("Estás al naufragio...");
                             esperar(2);
                             int azar = (int) (Math.random() * 2) + 1;
                             if (azar == 1) {
+                                System.out.println("Lo sentimos.");
                                 System.out.println("Te ha caído un rayo y has perdido " + total + " monedas.");
                                 personaje.setMonedas(personaje.getMonedas() - total);
                                 break;
@@ -303,16 +331,121 @@ public class Tendera {
                                 System.out.println("Has obtenido " + apuesta + " monedas.");
                                 total += apuesta;
                             }
+                            System.out.println("El total actualmente es: " + total);
                             System.out.println("¿Quieres seguir al naufragio? (S/N)");
                             sc.nextLine();
                             String respuesta = sc.nextLine().toLowerCase();
                             if (!respuesta.equals("s")) {
-                                break;
+                                if (total < 0) {
+                                    System.out.println("Lo sentimos.");
+                                    System.out.println("Has perdido un total de " + total + " monedas");
+                                    personaje.setMonedas(personaje.getMonedas() - total);
+                                    break;
+                                } else {
+                                    System.out.println("Has ganado un total de " + total + " monedas");
+                                    personaje.setMonedas(personaje.getMonedas() + total);
+                                    break;
+                                }
+                            }
+                        }
+                        esperar(3);
+                        System.out.println("¿Quieres jugar otra vez? (S/N)");
+                        sc.nextLine();
+                        String respuesta = sc.nextLine().toLowerCase();
+                        if (!respuesta.equals("s")) {
+                            seguirJugando = false;
+                        }
+                        limpiarPantalla();
+                    }
+                    case 5 -> {
+                        limpiarPantalla();
+                        System.out.println("Como jugar");
+                        System.out.println("1 - Dados malditos");
+                        System.out.println("2 - Ruleta");
+                        System.out.println("3 - Espada o cuerda");
+                        System.out.println("4 - Naufragio");
+                        int opcionCasinoJugar = 0;
+                        while (true) {
+                            try {
+                                opcionCasinoJugar = sc.nextInt();
+                                if (opcionCasinoJugar >= 1 && opcionCasinoJugar <= 4) {
+                                    break;
+                                }
+                            } catch (Exception e) {
+                                limpiarPantalla();
+                                System.out.println("Introduce un valor válido.");
+                            }
+                        }
+                        switch (opcionCasinoJugar) {
+                            case 1 -> {
+                                limpiarPantalla();
+                                System.out.println("╔══════════════════════════════════════════════════════╗");
+                                System.out.println("║                  DADOS MALDITOS                      ║");
+                                System.out.println("╠══════════════════════════════════════════════════════╣");
+                                System.out.println("║  Se lanzan dos dados malditos y se suman sus         ║");
+                                System.out.println("║  valores.                                            ║");
+                                System.out.println("║                                                      ║");
+                                System.out.println("║  RESULTADOS:                                         ║");
+                                System.out.println("║  • Si sumas 7 u 11: ¡GANAS x2 tu apuesta!            ║");
+                                System.out.println("║  • Si sumas 2, 3 o 12: Pierdes tu apuesta            ║");
+                                System.out.println("║  • Cualquier otro número: Empate                     ║");
+                                System.out.println("╚══════════════════════════════════════════════════════╝");
+                                esperar(5);
+                                limpiarPantalla();
+                            }
+                            case 2 -> {
+                                limpiarPantalla();
+                                System.out.println("╔══════════════════════════════════════════════════════╗");
+                                System.out.println("║                     RULETA                           ║");
+                                System.out.println("╠══════════════════════════════════════════════════════╣");
+                                System.out.println("║  La ruleta girará y se detendrá en un número         ║");
+                                System.out.println("║  del 0 al 36.                                        ║");
+                                System.out.println("║                                                      ║");
+                                System.out.println("║  RESULTADOS:                                         ║");
+                                System.out.println("║  • Si sale 0: ¡GANAS x10 tu apuesta!                 ║");
+                                System.out.println("║  • Si sale par: Ganas tu apuesta                     ║");
+                                System.out.println("║  • Si sale impar: Pierdes tu apuesta                 ║");
+                                System.out.println("╚══════════════════════════════════════════════════════╝");
+                                esperar(5);
+                                limpiarPantalla();
+                            }
+                            case 3 -> {
+                                limpiarPantalla();
+                                System.out.println("╔══════════════════════════════════════════════════════╗");
+                                System.out.println("║                ESPADA O CUERDA                       ║");
+                                System.out.println("╠══════════════════════════════════════════════════════╣");
+                                System.out.println("║  Elige entre la espada o la cuerda. La espada        ║");
+                                System.out.println("║  intentará cortar la cuerda.                         ║");
+                                System.out.println("║                                                      ║");
+                                System.out.println("║  RESULTADOS:                                         ║");
+                                System.out.println("║  • Si elegiste espada y corta: Ganas tu apuesta      ║");
+                                System.out.println("║  • Si elegiste cuerda y resiste: Ganas tu apuesta    ║");
+                                System.out.println("║  • Si fallas tu elección: Pierdes tu apuesta         ║");
+                                System.out.println("╚══════════════════════════════════════════════════════╝");
+                                esperar(5);
+                                limpiarPantalla();
+                            }
+                            case 4 -> {
+                                limpiarPantalla();
+                                System.out.println("╔══════════════════════════════════════════════════════╗");
+                                System.out.println("║                   NAUFRAGIO                          ║");
+                                System.out.println("╠══════════════════════════════════════════════════════╣");
+                                System.out.println("║  Navega por la tormenta y decide si continuar        ║");
+                                System.out.println("║  o retirarte con tus ganancias.                      ║");
+                                System.out.println("║                                                      ║");
+                                System.out.println("║  RESULTADOS:                                         ║");
+                                System.out.println("║  • Si encuentras un barril: Duplicas tu apuesta      ║");
+                                System.out.println("║  • Si te cae un rayo: ¡Pierdes todo!                 ║");
+                                System.out.println("║  • Si te retiras: Te llevas lo acumulado             ║");
+                                System.out.println("╚══════════════════════════════════════════════════════╝");
+                                esperar(5);
+                                limpiarPantalla();
                             }
                         }
                     }
                     case 6 -> {
                         seguirJugando = false;
+                        limpiarPantalla();
                     }
                 }   
             }

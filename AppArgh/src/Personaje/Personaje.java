@@ -246,18 +246,18 @@ public abstract class Personaje {
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
-			System.out.println("╠══════════════════════════════════════╝");
-			System.out.println("║  Vida: " + vida + "                          ");
-			System.out.println("║  Daño Físico: " + dañoFisico + "                   ");
-			System.out.println("║  Daño Mágico: " + dañoMagico + "                   ");
-			System.out.println("║  Resistencia Física: " + resistenciaFisica + "             ");
-			System.out.println("║  Resistencia Mágica: " + resistenciaMagica + "             ");
-			System.out.println("║  Velocidad: " + velocidad + "                      ");
-			System.out.println("║  Nivel: " + nivel + "                           ");
-			System.out.println("║  Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
-			System.out.println("║  Monedas: " + monedas + "                        ");
-			System.out.println("║  Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
-			System.out.println("╚═══════════════════════════════════════");
+			System.out.println("╚══════════════════════════════════════╝");
+			System.out.println("  	Vida: " + vida + "                          ");
+			System.out.println("  	Daño Físico: " + dañoFisico + "                   ");
+			System.out.println("  	Daño Mágico: " + dañoMagico + "                   ");
+			System.out.println("  	Resistencia Física: " + resistenciaFisica + "             ");
+			System.out.println("  	Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("  	Velocidad: " + velocidad + "                      ");
+			System.out.println("  	Nivel: " + nivel + "                           ");
+			System.out.println("  	Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
+			System.out.println("  	Monedas: " + monedas + "                        ");
+			System.out.println("  	Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
+			System.out.println("════════════════════════════════════════");
 		}
 		
 		public abstract void infoAtaquesMenu ();
@@ -274,17 +274,17 @@ public abstract class Personaje {
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
-			System.out.println("╠══════════════════════════════════════╝");
-			System.out.println("║  Vida: " + vida + "                          ");
-			System.out.println("║  Daño Físico: " + dañoFisico + "                   ");
-			System.out.println("║  Daño Mágico: " + dañoMagico + "                   ");
-			System.out.println("║  Resistencia Física: " + resistenciaFisica + "             ");
-			System.out.println("║  Resistencia Mágica: " + resistenciaMagica + "             ");
-			System.out.println("║  Velocidad: " + velocidad + "                      ");
-			System.out.println("║  Nivel: " + nivel + "                           ");
-			System.out.println("║  Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
-			System.out.println("║  Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
-			System.out.println("╚═══════════════════════════════════════");
+			System.out.println("╚══════════════════════════════════════╝");
+			System.out.println("  	Vida: " + vida + "                          ");
+			System.out.println("  	Daño Físico: " + dañoFisico + "                   ");
+			System.out.println("  	Daño Mágico: " + dañoMagico + "                   ");
+			System.out.println("  	Resistencia Física: " + resistenciaFisica + "             ");
+			System.out.println("  	Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("  	Velocidad: " + velocidad + "                      ");
+			System.out.println("  	Nivel: " + nivel + "                           ");
+			System.out.println("  	Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
+			System.out.println("  	Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
+			System.out.println("════════════════════════════════════════");
 		}
 	    
 		public void menuCombate() {
@@ -590,6 +590,7 @@ public abstract class Personaje {
 							break;
 						} else if (inventario[inventario.length - 1] != null) { //Si el último espacio del inventario está lleno es porque no tiene espacio.
 							System.out.println("No tiene espacio en el inventario.");
+							break;
 						}
 					}
 				}
