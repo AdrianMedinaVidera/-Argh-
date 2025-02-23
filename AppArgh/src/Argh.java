@@ -1,7 +1,10 @@
+import Enemigo.*;
+import Enemigo.EnemigoMarino.*;
 import Personaje.*;
 import Producto.Producto;
 import Tendera.Tendera;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Argh {
@@ -294,6 +297,16 @@ public class Argh {
 		System.out.println("╚══════════════════════════════════════╝");
 
 	}
+
+	public static void suspense(){
+		esperar(2);
+		System.out.print(".");
+		esperar(2);
+		System.out.print(".");
+		esperar(2);
+		System.out.print(".");
+	}
+
 	public static void main(String[] args) {
 		
 		//Creación de objetos.
@@ -434,7 +447,7 @@ public class Argh {
 				// Avanzar
 				System.out.println("¡Tu aventura va a comenzar!");
 				esperar(4);
-				String[] comienzo = new String[3];
+				// String[] comienzo = new String[3];
 				if(personajeActivo instanceof PersonajeCapitan){
 					System.out.println("Es un placerte tenerte con nosotros, capitán "+personajeActivo.getNombre()+".");
 					System.out.println("Su barco se está aproximando a las Tierras desconocidas...");
@@ -477,19 +490,48 @@ public class Argh {
 					sc.nextLine();
 					limpiarPantalla();
 					System.out.println("Hay una calma de repente el el horizonte");
-					esperar(2);
-					System.out.print(".");
-					esperar(2);
-					System.out.print(".");
-					esperar(2);
-					System.out.print(".");
+					suspense();
 					limpiarPantalla();
 					esperar(2);
-					// Enemigo e11 = new EnemigoMarinoComun();
-					System.out.println("Capitán, nos atacan un grupo de ");
+					Enemigo[] listaEnemigosMarinos = { 
+						new EnemigoMarinoComun(100, 20, 20, 20, 20, 30, 30, 1, 20, false, 20, "Amonite"),
+						new EnemigoMarinoComun(100, 20, 20, 20, 20, 30, 30, 1, 20, false, 20, "Trilobite"),
+						new EnemigoMarinoComun(100, 20, 20, 20, 20, 30, 30, 1, 20, false, 20, "Zooplacton")
+					};
+					Random rand = new Random();
+					int indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length); 
+					Enemigo e1 = listaEnemigosMarinos[indiceAleatorio];
+					Enemigo e2 = listaEnemigosMarinos[indiceAleatorio];
+					Enemigo e3 = listaEnemigosMarinos[indiceAleatorio];
+					EnemigoMarinoComun enemigoComun = (EnemigoMarinoComun) e1;
+    				System.out.println("Capitán, nos atacan un grupo de " + enemigoComun.getEnemigoSeleccionado());
+					System.out.println("¡Capitán, prepárese!");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
 					limpiarPantalla();
+					System.out.println("Vas a entrar en combate, prepárate");
+					suspense();
+					limpiarPantalla();
+					System.out.println("Antes de nada te recomiendo que veas la información de tus ataques.");
+					System.out.println("¿Quieres ver tus ataques? S/N");
+					String respuestaAyudaAtaque = sc.next();
+					suspense();
+					limpiarPantalla();
+					if(respuestaAyudaAtaque.equals("S")){
+						personajeActivo.infoAtaque1();
+						System.out.println();
+						personajeActivo.infoAtaque2();
+						System.out.println();
+						personajeActivo.infoAtaque3();
+						System.out.println();
+						System.out.println("Pulsa enter para continuar: ");
+						sc.nextLine();
+						limpiarPantalla();
+					}
+					while (true) { 
+												
+					}
+					
 				}else{
 
 				}

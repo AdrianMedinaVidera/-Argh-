@@ -13,6 +13,11 @@ public class EnemigoMarinoComun extends EnemigoMarino {
         this.enemigoSeleccionado = enemigoSeleccionado;
     }
 
+    public String getEnemigoSeleccionado() {
+        return enemigoSeleccionado;
+    }
+    
+
     @Override
     public void ataque1(Personaje personaje) {
         switch(enemigoSeleccionado) {
@@ -120,5 +125,4 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 break;
         }
     }
-
 }
