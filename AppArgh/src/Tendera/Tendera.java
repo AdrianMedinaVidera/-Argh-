@@ -1,8 +1,8 @@
 package Tendera;
-import java.util.Scanner;
-import Producto.Producto;
 import Personaje.Personaje;
+import Producto.Producto;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Tendera {
     private Producto[] items = { // La cantidad de los objetos es 0, pues no es necesario modificarla en ningún momento.
@@ -211,7 +211,7 @@ public class Tendera {
                             System.out.println("Has empatado.");
                         }
                         esperar(2);
-                        System.out.println("¿Quieres jugar otra vez? (S/N)");
+                        System.out.println("¿Quieres volver al casino? (S/N)");
                         sc.nextLine();
                         String respuesta = sc.nextLine().toLowerCase();
                         if (!respuesta.equals("s")) {
@@ -243,7 +243,7 @@ public class Tendera {
                             personaje.setMonedas(personaje.getMonedas() - apuesta);
                         }
                         esperar(2);
-                        System.out.println("Quieres jugar otra vez? (S/N)");
+                        System.out.println("Quieres volver al casino? (S/N)");
                         sc.nextLine(); //
                         String respuesta = sc.nextLine().toLowerCase();
                         if (!respuesta.equals("s")) {
@@ -289,7 +289,7 @@ public class Tendera {
                                     }
                                 }
                                 esperar(3);
-                                System.out.println("¿Quieres jugar otra vez? (S/N)");
+                                System.out.println("¿Quieres volver al casino? (S/N)");
                                 sc.nextLine();
                                 String respuesta = sc.nextLine().toLowerCase();
                                 if (!respuesta.equals("s")) {
@@ -304,7 +304,7 @@ public class Tendera {
                             
                         }
                         esperar(3);
-                                System.out.println("¿Quieres jugar otra vez? (S/N)");
+                                System.out.println("¿Quieres volver al casino? (S/N)");
                                 sc.nextLine();
                                 String respuesta = sc.nextLine().toLowerCase();
                                 if (!respuesta.equals("s")) {
@@ -349,7 +349,7 @@ public class Tendera {
                             }
                         }
                         esperar(3);
-                        System.out.println("¿Quieres jugar otra vez? (S/N)");
+                        System.out.println("¿Quieres volver al casino? (S/N)");
                         sc.nextLine();
                         String respuesta = sc.nextLine().toLowerCase();
                         if (!respuesta.equals("s")) {

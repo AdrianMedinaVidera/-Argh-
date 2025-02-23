@@ -1,9 +1,8 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 import Personaje.*;
 import Producto.Producto;
 import Tendera.Tendera;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Argh {
 
@@ -203,7 +202,7 @@ public class Argh {
 					default -> {dentroTienda = false;limpiarPantalla();
 					}
 				}
-			} catch (InputMismatchException e) {
+			} catch (Exception e) {
 				limpiarPantalla();
 				System.out.println("Introduce un número.");
 				sc.nextLine();
@@ -310,7 +309,7 @@ public class Argh {
 			int opcionInical = 0;
 			try {
 				opcionInical = sc.nextInt();
-			} catch (InputMismatchException e) {
+			} catch (Exception e) {
 				limpiarPantalla();
 				sc.nextLine(); // Clear invalid input
 				System.out.println("Opción inválida. Introduce un número.");
@@ -346,7 +345,7 @@ public class Argh {
 							System.out.println("Opción incorrecta. Introduce una opción válida.");
 							menuDificultad();
 						}
-					} catch (InputMismatchException e) {
+					} catch (Exception e) {
 						sc.nextLine(); // Limpia la opción anterior.
 						limpiarPantalla();
 						System.out.println("Opción inválida. Introduce un número.");
@@ -426,14 +425,74 @@ public class Argh {
 			try {
 			opcionContinuar = sc.nextInt();
 			limpiarPantalla();
-			} catch (InputMismatchException e) {
+			} catch (Exception e) {
 				limpiarPantalla();
 				sc.nextLine(); 
 				System.out.println("Opción inválida. Introduce un número.");
 			}
 			if (opcionContinuar == 1) {
 				// Avanzar
-				limpiarPantalla();
+				System.out.println("¡Tu aventura va a comenzar!");
+				esperar(4);
+				String[] comienzo = new String[3];
+				if(personajeActivo instanceof PersonajeCapitan){
+					System.out.println("Es un placerte tenerte con nosotros, capitán "+personajeActivo.getNombre()+".");
+					System.out.println("Su barco se está aproximando a las Tierras desconocidas...");
+					System.out.println("Pulsa enter para continuar...");
+					sc.nextLine();
+					limpiarPantalla();
+					System.out.println("Capitán, llega un aviso del mástil mayor que se atisba una isla en el horizonte.");
+					System.out.println("Vamos a desplegar a la tripulación para defender el barco... tengo un mal presentimiento...");
+					System.out.println("Pulsa enter para continuar...");
+					sc.nextLine();
+					limpiarPantalla();
+					System.out.println("Da la órden de proteger el barco (debes gritar, si no no te escucharán): ");
+					String aviso = sc.nextLine();
+					while(true){
+						int contador = 1; 
+						for (int i = 1; i < aviso.length(); i++) {
+							if (aviso.charAt(i) == aviso.charAt(i - 1)) {
+								contador++;
+								if(contador>=4){
+									break;
+								}
+							} else {
+								contador = 1;
+							}
+						}
+						System.out.println();
+						if(contador>=4){
+							break;
+						}else{
+							System.out.println("No le han escuchado, capitán. ¡Tiene que GRITAAAAAAAAAAAAAAAR MUUUUUUCHOOOOOO!");
+							esperar(3);
+							limpiarPantalla();
+							System.out.println("Da la órden de proteger el barco (debes gritar, si no, no te escucharán): ");
+							aviso = sc.nextLine();
+						}
+					}
+					System.out.println("El grito del capitán es tan potente que hace brincar a los peces del agua.");
+					System.out.println("La tripulación se pone en alerta y preparan las defensas del barco...");
+					System.out.println("Pulsa enter para continuar...");
+					sc.nextLine();
+					limpiarPantalla();
+					System.out.println("Hay una calma de repente el el horizonte");
+					esperar(2);
+					System.out.print(".");
+					esperar(2);
+					System.out.print(".");
+					esperar(2);
+					System.out.print(".");
+					limpiarPantalla();
+					esperar(2);
+					// Enemigo e11 = new EnemigoMarinoComun();
+					System.out.println("Capitán, nos atacan un grupo de ");
+					System.out.println("Pulsa enter para continuar...");
+					sc.nextLine();
+					limpiarPantalla();
+				}else{
+
+				}
 			} else if (opcionContinuar == 2) {
 				// Inventario
 				boolean dentroInventario = true;
@@ -442,7 +501,7 @@ public class Argh {
 					try {
 						menuInventario(personajeActivo);
 						opcionInventario = sc.nextInt();
-					} catch (InputMismatchException e) {
+					} catch (Exception e) {
 						limpiarPantalla();
 						sc.nextLine();
 					}
@@ -560,7 +619,7 @@ public class Argh {
 									}
 									default -> {System.out.println("Opción no válida.");}
 								}
-							} catch (InputMismatchException e) {
+							} catch (Exception e) {
 								limpiarPantalla();
 								sc.nextLine();
 							}
