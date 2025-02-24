@@ -4,6 +4,14 @@
 Argh! es un juego de Rol desarrollado por Adrián Medina y Carlos López Rodríguez, estudiantes de DAM
 
 Embárcate en una gran aventura en manos de un capitán y sus grumetes!
+En Mares de Sangre y Gloria, te embarcarás en una aventura llena de peligro, tesoros ocultos y batallas navales legendarias. En un mundo dominado por Jefes, los jugadores tomarán el papel de valientes piratas que buscan hacerse un nombre en los océanos.
+
+Explora islas misteriosas y conquístalas, y enfréntate a monstruos marinos que acechan en la oscuridad de las profundidades. Podrás buscar tesoros prohibidos y desafiar la ley con tu tripulación de bandidos.
+
+¿Serás un noble capitán con un código de honor o un infame villano temido en todos los mares? Tu destino está en tus manos, pero recuerda: en el mar, solo los más astutos y despiadados sobreviven.
+
+¡Zarpa hacia la aventura y reclama tu leyenda!
+
 ## Autores
 
 - [Adrián Medina Videra](https://github.com/AdrianMedinaVidera)
