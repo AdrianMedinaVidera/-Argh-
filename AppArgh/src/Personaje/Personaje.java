@@ -361,7 +361,7 @@ public abstract class Personaje {
 		}
 		
 		public void usarObjeto(Producto objeto) {
-			System.out.println("Se va a usar el objeto " + objeto);
+			System.out.println("Se va a usar el objeto " + objeto.getNombre());
 			System.out.println("¿Está seguro? (S/N)");
 			Scanner sc = new Scanner(System.in);
 			String opcion = sc.nextLine().toLowerCase();

@@ -346,13 +346,13 @@ public class Argh {
 	}
 
 	public static void suspense(){
-		esperar(1);
+		esperar(0);
 		System.out.print(".");
-		esperar(1);
+		esperar(0);
 		System.out.print(".");
-		esperar(1);
+		esperar(0);
 		System.out.print(".");
-		esperar(1);
+		esperar(0);
 	}
 
 	public static boolean obtenerRespuestaConIntentos(String claveCorrecta, int intentosMaximos) {
@@ -468,46 +468,27 @@ public class Argh {
 		}
 	}
 
-	public static void usarObjetoCombate (Producto[] inventario, int opcion, Personaje personaje) {
+	public static boolean usarObjetoCombate (Producto[] inventario, int opcion, Personaje personaje) {
 		opcion = opcion - 1;
 		if (inventario[opcion] == null){
 			System.out.println("No tienes ningún objeto en esa posición.");
+			return false;
 		} else {
 			personaje.usarObjeto(inventario[opcion]);
+			return true;
 		}
 	}
 	
 	public static void combate (Personaje personajeActivo, Enemigo enemigoComunMarino, Scanner sc, Random rand) {
-		int opcionCombate = 0;
+		boolean combateActivo = true;
 		int[] ataquesEnemigo = {1,2,3}; // Posibles ataques a realizar por el enemigo
-		while (true) { // Bucle para elegir accion
-			personajeActivo.menuCombate();
-			try {
-				opcionCombate = sc.nextInt();
-				if (opcionCombate >= 1 && opcionCombate <= 4) {
-					break;
-				} else {
-					limpiarPantalla();
-					System.out.println("Opción inválida. Introduce una opción válida.");
-				}
-			} catch (Exception e) {
-				limpiarPantalla();
-				sc.nextLine();
-				System.out.println("Opción inválida. Introduce un número.");
-			}
-		}
-		if (personajeActivo.getVida() <= 0) {
-			// Perder
-			muerteCombate(personajeActivo);
-		}
-		switch (opcionCombate) { // Comprobamos la eleccion del usuario
-			case 1 -> {
-				// Atacar
-				personajeActivo.eleccionAtaquesMenu();
-				int opcionAtaque = 0;
+		while (combateActivo) {
+			int opcionCombate = 0;
+			while (true) { // Bucle para elegir accion
+				personajeActivo.menuCombate();
 				try {
-					opcionAtaque = sc.nextInt();
-					if (opcionAtaque >= 1 && opcionAtaque <= 3) {
+					opcionCombate = sc.nextInt();
+					if (opcionCombate >= 1 && opcionCombate <= 4) {
 						break;
 					} else {
 						limpiarPantalla();
@@ -515,25 +496,66 @@ public class Argh {
 					}
 				} catch (Exception e) {
 					limpiarPantalla();
+					sc.nextLine();
+					System.out.println("Opción inválida. Introduce un número.");
 				}
-				if (enemigoComunMarino.getVelocidad() < personajeActivo.getVelocidad()) {
-					// Atacar primero
-					switch (opcionAtaque) {
-						case 1 -> {
-							// Ataque 1
-							personajeActivo.ataque1(enemigoComunMarino);
+			}
+			if (personajeActivo.getVida() <= 0) {
+				// Perder
+				muerteCombate(personajeActivo);
+			}
+			switch (opcionCombate) { // Comprobamos la eleccion del usuario
+				case 1 -> {
+					// Atacar
+					personajeActivo.eleccionAtaquesMenu();
+					int opcionAtaque = 0;
+					try {
+						opcionAtaque = sc.nextInt();
+						if (opcionAtaque >= 1 && opcionAtaque <= 3) {
+							break;
+						} else {
+							limpiarPantalla();
+							System.out.println("Opción inválida. Introduce una opción válida.");
 						}
-						case 2 -> {
-							// Ataque 2
-							personajeActivo.ataque2(enemigoComunMarino);
-						}
-						case 3 -> {
-							// Ataque 3
-							personajeActivo.ataque3(enemigoComunMarino);
-						}
+					} catch (Exception e) {
+						limpiarPantalla();
 					}
-					if (enemigoComunMarino.getVida() > 0) {
-						// Atacar enemigo
+					if (enemigoComunMarino.getVelocidad() < personajeActivo.getVelocidad()) {
+						// Atacar primero
+						switch (opcionAtaque) {
+							case 1 -> {
+								// Ataque 1
+								personajeActivo.ataque1(enemigoComunMarino);
+							}
+							case 2 -> {
+								// Ataque 2
+								personajeActivo.ataque2(enemigoComunMarino);
+							}
+							case 3 -> {
+								// Ataque 3
+								personajeActivo.ataque3(enemigoComunMarino);
+							}
+						}
+						if (enemigoComunMarino.getVida() > 0) {
+							// Atacar enemigo
+							int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
+							switch (ataqueEnemigo) {
+								case 1 -> {
+									// Ataque 1
+									enemigoComunMarino.ataque1(personajeActivo);
+								}
+								case 2 -> {
+									// Ataque 2
+									enemigoComunMarino.ataque2(personajeActivo);
+								}
+								case 3 -> {
+									// Ataque 3
+									enemigoComunMarino.ataque3(personajeActivo);
+								}
+							}
+						}
+					} else { // Si el enemigo es más rápido que el personaje
+						// Atacar enemigo primero
 						int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
 						switch (ataqueEnemigo) {
 							case 1 -> {
@@ -550,58 +572,53 @@ public class Argh {
 							}
 						}
 					}
-				} else { // Si el enemigo es más rápido que el personaje
-					// Atacar enemigo primero
-					int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
-					switch (ataqueEnemigo) {
-						case 1 -> {
-							// Ataque 1
-							enemigoComunMarino.ataque1(personajeActivo);
-						}
-						case 2 -> {
-							// Ataque 2
-							enemigoComunMarino.ataque2(personajeActivo);
-						}
-						case 3 -> {
-							// Ataque 3
-							enemigoComunMarino.ataque3(personajeActivo);
-						}
-					}
 				}
-			}
-			case 2 -> {
-				// Usar objeto
-				int opcionObjeto = 0;
-				while (true) {
-					menuInventario(personajeActivo);
-				try {
-					opcionObjeto = sc.nextInt();
-					if (opcionObjeto >= 1 && opcionObjeto <= 8) {
-						break;
+				case 2 -> {
+					// Usar objeto
+					int opcionObjeto = 0;
+					boolean dentroInventario = true;
+					while (dentroInventario) {
+						while (true) {
+							menuInventario(personajeActivo);
+							try {
+								opcionObjeto = sc.nextInt();
+								if (opcionObjeto >= 1 && opcionObjeto <= 8) {
+									break;
+								} else {
+									limpiarPantalla();
+									System.out.println("Opción inválida. Introduce una opción válida.");
+								}
+							} catch (Exception e) {
+								limpiarPantalla();
+							}
+						}
+						if (opcionObjeto != 8) {
+							limpiarPantalla();
+							if (usarObjetoCombate(personajeActivo.getInventario(), opcionObjeto, personajeActivo)) {
+								dentroInventario = false;
+							}
+						} else {
+							// Volver al combate
+							limpiarPantalla();
+							dentroInventario = false;
+						}	
+					}
+				} case 3 -> {
+					limpiarPantalla();
+					personajeActivo.mostrarInfoCombate();
+					System.out.println("Pulsa enter para volver al combate.");
+					sc.nextLine();
+					sc.nextLine();
+					limpiarPantalla();
+				} case 4 -> {
+					if(personajeActivo.huir(enemigoComunMarino)) {
+						combateActivo = false;
 					} else {
 						limpiarPantalla();
-						System.out.println("Opción inválida. Introduce una opción válida.");
+						System.out.println("No puedes huir de este enemigo.");
 					}
-				} catch (Exception e) {
-					limpiarPantalla();
 				}
-				if (opcionObjeto != 8) {
-					limpiarPantalla();
-					usarObjetoCombate(personajeActivo.getInventario(), opcionObjeto, personajeActivo);
-				} else {
-					// Volver al combate
-					limpiarPantalla();
-				}
-				}
-			} case 3 -> {
-				limpiarPantalla();
-				personajeActivo.mostrarInfoCombate();
-				System.out.println("Pulsa enter para volver al combate.");
-				sc.nextLine();
-				limpiarPantalla();
-			} case 4 -> {
-				personajeActivo.huir(enemigoComunMarino);
-			}
+			}	
 		}
 	}
 	public static void main(String[] args) {
