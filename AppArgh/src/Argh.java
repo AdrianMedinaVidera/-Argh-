@@ -567,6 +567,7 @@ public class Argh {
 				limpiarPantalla();
 				if (usarObjetoCombate(personajeActivo.getInventario(), opcionObjeto, personajeActivo, sc)) {
 					dentroInventario = false;
+					break;
 				}
 			} else {
 				dentroInventario = false;
