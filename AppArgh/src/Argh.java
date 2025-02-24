@@ -335,8 +335,6 @@ public class Argh {
 		return exito;
 	}
 	
-	
-
 	public static void  CalaveraGameOver() {
 			System.out.println("       ______ ");
 			System.out.println("    .-'      '-.");
@@ -354,8 +352,176 @@ public class Argh {
 			System.out.println("     GAME OVER");
 			System.out.println("¡A los tiburones contigo!");
 	}
-	
 
+	public static void muerteCombate(Personaje personajeActivo) {
+		if (personajeActivo instanceof PersonajeCapitan) {
+			CalaveraGameOver();
+			salirJuego();
+		} else {
+			PersonajeGrumete personajeGrumete = (PersonajeGrumete) personajeActivo;
+			System.out.println("¡Has sido derrotado!");
+			if (personajeActivo.getGrumetesRestantes() > 0) {
+				System.out.println("¡Pero viene un grumete a tu rescate!");
+				personajeActivo.setGrumetesRestantes(personajeActivo.getGrumetesRestantes() - 1);
+
+				if (personajeGrumete.getContadorCocinero()) {
+					int random = (int) (Math.random() * 100);
+					if (random <= 50) { // Le sale el rol cubierta
+						System.out.println("¡Ahora eres un grumete de cubierta!");
+						personajeGrumete.setContadorCubierta(true);
+						personajeGrumete.setRolSeleccionado("Cubierta");
+					} else { // Le sale el rol artillero
+						System.out.println("¡Ahora eres un grumete artillero!");
+						personajeGrumete.setContadorArtillero(true);
+						personajeGrumete.setRolSeleccionado("Artillero");
+					}
+				} else if (personajeGrumete.getContadorCubierta()) {
+					int random = (int) (Math.random() * 100);
+					if (random <= 50) { // Le sale el rol cocinero
+						System.out.println("¡Ahora eres un grumete cocinero!");
+						personajeGrumete.setContadorCocinero(true);
+						personajeGrumete.setRolSeleccionado("Cocinero");
+					} else { // Le sale el rol artillero
+						System.out.println("¡Ahora eres un grumete artillero!");
+						personajeGrumete.setContadorArtillero(true);
+						personajeGrumete.setRolSeleccionado("Artillero");
+					}
+				} else if (personajeGrumete.getContadorArtillero()) {
+					int random = (int) (Math.random() * 100);
+					if (random <= 50) { // Le sale el rol cubierta
+						System.out.println("¡Ahora eres un grumete de cubierta!");
+						personajeGrumete.setContadorCubierta(true);
+						personajeGrumete.setRolSeleccionado("Cubierta");
+					} else { // Le sale el rol cocinero
+						System.out.println("¡Ahora eres un grumete cocinero!");
+						personajeGrumete.setContadorCocinero(true);
+						personajeGrumete.setRolSeleccionado("Cocinero");
+					}
+				} else if (personajeGrumete.getContadorCocinero() && personajeGrumete.getContadorCubierta()) {
+					System.out.println("¡Ahora eres un grumete artillero!");
+					personajeGrumete.setRolSeleccionado("Artillero");
+					personajeGrumete.setContadorArtillero(true);
+				} else if (personajeGrumete.getContadorCocinero() && personajeGrumete.getContadorArtillero()) {
+					System.out.println("¡Ahora eres un grumete de cubierta!");
+					personajeGrumete.setRolSeleccionado("Cubierta");
+					personajeGrumete.setContadorCubierta(true);
+				} else if (personajeGrumete.getContadorArtillero() && personajeGrumete.getContadorCubierta()) {
+					System.out.println("¡Ahora eres un grumete cocinero!");
+					personajeGrumete.setRolSeleccionado("Cocinero");
+					personajeGrumete.setContadorCocinero(true);
+				} else {
+					CalaveraGameOver();
+					salirJuego();
+				}
+			} else {
+				CalaveraGameOver();
+				salirJuego();
+			}
+		}
+	}
+
+	public static void usarObjetoCombate (Producto[] objeto, int opcion, Personaje personaje) {
+		personaje.usarObjeto(objeto[opcion]);
+	}
+	
+	public static void combate (Personaje personajeActivo, Enemigo enemigoComunMarino, Scanner sc, Random rand) {
+		int opcionCombate = 0;
+		int[] ataquesEnemigo = {1,2,3};
+		while (true) { // Bucle para elegir accion
+			personajeActivo.menuCombate();
+			try {
+				opcionCombate = sc.nextInt();
+				if (opcionCombate >= 1 && opcionCombate <= 4) {
+					break;
+				} else {
+					limpiarPantalla();
+					System.out.println("Opción inválida. Introduce una opción válida.");
+				}
+			} catch (Exception e) {
+				limpiarPantalla();
+				sc.nextLine();
+				System.out.println("Opción inválida. Introduce un número.");
+			}
+		}
+		if (personajeActivo.getVida() <= 0) {
+			// Perder
+			muerteCombate(personajeActivo);
+		}
+		switch (opcionCombate) { // Comprobamos la eleccion del usuario
+			case 1 -> {
+				// Atacar
+				int opcionAtaque = 0;
+				try {
+					opcionAtaque = sc.nextInt();
+					if (opcionAtaque >= 1 && opcionAtaque <= 3) {
+						break;
+					} else {
+						limpiarPantalla();
+						System.out.println("Opción inválida. Introduce una opción válida.");
+					}
+				} catch (Exception e) {
+					limpiarPantalla();
+				}
+				if (enemigoComunMarino.getVelocidad() < personajeActivo.getVelocidad()) {
+					// Atacar primero
+					switch (opcionAtaque) {
+						case 1 -> {
+							// Ataque 1
+							personajeActivo.ataque1(enemigoComunMarino);
+						}
+						case 2 -> {
+							// Ataque 2
+							personajeActivo.ataque2(enemigoComunMarino);
+						}
+						case 3 -> {
+							// Ataque 3
+							personajeActivo.ataque3(enemigoComunMarino);
+						}
+					}
+					if (enemigoComunMarino.getVida() > 0) {
+						// Atacar enemigo
+						int ataqueEnemigo = ataquesEnemigo[rand.nextInt(ataquesEnemigo.length)];
+						switch (ataqueEnemigo) {
+							case 1 -> {
+								// Ataque 1
+								enemigoComunMarino.ataque1(personajeActivo);
+							}
+							case 2 -> {
+								// Ataque 2
+								enemigoComunMarino.ataque2(personajeActivo);
+							}
+							case 3 -> {
+								// Ataque 3
+								enemigoComunMarino.ataque3(personajeActivo);
+							}
+						}
+					}
+				} else { // Si el enemigo es más rápido que el personaje
+					// Atacar enemigo primero
+					int ataqueEnemigo = ataquesEnemigo[rand.nextInt(ataquesEnemigo.length)];
+					switch (ataqueEnemigo) {
+						case 1 -> {
+							// Ataque 1
+							enemigoComunMarino.ataque1(personajeActivo);
+						}
+						case 2 -> {
+							// Ataque 2
+							enemigoComunMarino.ataque2(personajeActivo);
+						}
+						case 3 -> {
+							// Ataque 3
+							enemigoComunMarino.ataque3(personajeActivo);
+						}
+					}
+				}
+			}
+			case 2 -> {
+				// Usar objeto
+				menuInventario(personajeActivo);
+				// try
+			}
+		}
+	}
 	public static void main(String[] args) {
 		
 		//Creación de objetos.
@@ -426,18 +592,25 @@ public class Argh {
 					System.out.println("║                                      ║");
 					int randomRol = (int) (Math.random() * 100); // Número aleatorio para seleccionar rol
 					String rolSeleccionado;
+					boolean contadorCubierta = false;
+					boolean contadorCocinero = false;
+					boolean contadorArtillero = false;
+
 					if (randomRol <= 33) {
 						System.out.println("║  ¡Tu rol seleccionado es CUBIERTA!   ║");
 						rolSeleccionado = "Cubierta";
+						contadorCubierta = true;
 					} else if (randomRol <= 66) {
 						System.out.println("║  ¡Tu rol seleccionado es COCINERO!   ║");
 						rolSeleccionado = "Cocinero";
+						contadorCocinero = true;
 					} else {
 						System.out.println("║  ¡Tu rol seleccionado es ARTILLERO!  ║");
 						rolSeleccionado = "Artillería";
+						contadorArtillero = true;
 					}
 					System.out.println("╚══════════════════════════════════════╝");
-					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado);
+					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta);
 					personajeActivo = grumete;
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
@@ -591,8 +764,8 @@ public class Argh {
 				listaEnemigosMarinos[indiceAleatorio] = null; 
 				// Enemigo e2 = listaEnemigosMarinos[indiceAleatorio];
 				// Enemigo e3 = listaEnemigosMarinos[indiceAleatorio];
-				EnemigoMarinoComun enemigoComun1 = (EnemigoMarinoComun) e1;
-				System.out.println("Cuidado, nos atacan un grupo de " + enemigoComun1.getEnemigoSeleccionado());
+				EnemigoMarinoComun enemigoComunMarino = (EnemigoMarinoComun) e1;
+				System.out.println("Cuidado, nos atacan un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
 				System.out.println("Vas a entrar en combate, prepárate");
 				suspense();
 				limpiarPantalla();
@@ -616,100 +789,39 @@ public class Argh {
 				//GUARDAR LAS STATS DEL PERSONAJE Y RESTABLECERLAS ANTES DEL COMBATE SEGUN EL NIVEL STAT*(1.1)**NIVEL
 
 				// Stats de personaje antes del combate
-				int vidaP = personajeActivo.getVida();
-				int dañoFisicoP = personajeActivo.getDañoFisico();
-				int dañoMagicoP = personajeActivo.getDañoMagico();
-				int resistenciaFisicaP = personajeActivo.getResistenciaFisica();
-				int resistenciaMagicaP = personajeActivo.getResistenciaMagica();
-				int velocidadP = personajeActivo.getVelocidad();
-				int monedasP = personajeActivo.getMonedas();
+				// int vidaP = personajeActivo.getVida();
+				// int dañoFisicoP = personajeActivo.getDañoFisico();
+				// int dañoMagicoP = personajeActivo.getDañoMagico();
+				// int resistenciaFisicaP = personajeActivo.getResistenciaFisica();
+				// int resistenciaMagicaP = personajeActivo.getResistenciaMagica();
+				// int velocidadP = personajeActivo.getVelocidad();
+				// int monedasP = personajeActivo.getMonedas();
 
-				// Stats de enemigo antes del combate
-				int vidaE1 = enemigoComun1.getVida();
-				int dañoFisicoE1 = enemigoComun1.getdañoFisico();
-				int dañoMagicoE1 = enemigoComun1.getdañoMagico();
-				int resistenciaFisicaE1 = enemigoComun1.getResistenciaFisica();
-				int resistenciaMagicaE1 = enemigoComun1.getResistenciaMagica();
-				int velocidadE1 = enemigoComun1.getVelocidad();
-				int monedasE1 = enemigoComun1.getDineroDado();
-				int expE1 = enemigoComun1.getExperienciaData();
-				int nivelE1 = enemigoComun1.getNivel();
+				// // Stats de enemigo antes del combate
+				// int vidaE1 = enemigoComun1.getVida();
+				// int dañoFisicoE1 = enemigoComun1.getdañoFisico();
+				// int dañoMagicoE1 = enemigoComun1.getdañoMagico();
+				// int resistenciaFisicaE1 = enemigoComun1.getResistenciaFisica();
+				// int resistenciaMagicaE1 = enemigoComun1.getResistenciaMagica();
+				// int velocidadE1 = enemigoComun1.getVelocidad();
+				// int monedasE1 = enemigoComun1.getDineroDado();
+				// int expE1 = enemigoComun1.getExperienciaData();
+				// int nivelE1 = enemigoComun1.getNivel();
 
-				int[] ataquesEnemigo = {1,2,3};
+				// while (true) { // Combate
 
-				while (true) { 
-					if(Math.random() < 0.5){
-						System.out.println("¡El enemigo ataca primero!");
-						esperar(2);
-						limpiarPantalla();
-						indiceAleatorio = rand.nextInt(ataquesEnemigo.length);
-						if(ataquesEnemigo[indiceAleatorio]==1){
-							enemigoComun1.ataque1(personajeActivo);
-							System.out.println("Pulsa enter para continuar...");
-							sc.nextLine();
-							limpiarPantalla();
-						}else if(ataquesEnemigo[indiceAleatorio]==2){
-							enemigoComun1.ataque2(personajeActivo);
-							System.out.println("Pulsa enter para continuar...");
-							sc.nextLine();
-							limpiarPantalla();
-						}else{
-							enemigoComun1.ataque3(personajeActivo);
-							System.out.println("Pulsa enter para continuar...");
-							sc.nextLine();
-							limpiarPantalla();
-						}
-					}else{
-						if(!personajeActivo.getEstaSomnoliento()){
-							System.out.println("¡Atacas primero!");
-							System.out.println("Selecciona ataque: ");
-							personajeActivo.infoAtaquesMenu();
-							int ataqueSeleccionado = sc.nextInt();
-							if(ataqueSeleccionado==1){
-								personajeActivo.ataque1(enemigoComun1);
-								System.out.println("Pulsa enter para continuar...");
-								sc.nextLine();
-								limpiarPantalla();
-							}else if(ataqueSeleccionado==2){
-								personajeActivo.ataque2(enemigoComun1);
-								System.out.println("Pulsa enter para continuar...");
-								sc.nextLine();
-								limpiarPantalla();
-							}else{
-								personajeActivo.ataque3(enemigoComun1);
-								System.out.println("Pulsa enter para continuar...");
-								sc.nextLine();
-								limpiarPantalla();
-							}
-							esperar(2);
-							limpiarPantalla();
-						}else{
-							System.out.println("Pierdes un turno por estar dormido.");
-						}
-					}
-					
-					if(personajeActivo.getVida()<=0){
-						System.out.println("FIN DEL JUEGO, HAS MUERTO...");
-						CalaveraGameOver();
-					}else if(enemigoComun1.getVida()<=0){
-						System.out.println("¡Has ganado al enemigo!");
-						break;
-					}else{
-						limpiarPantalla();
-						System.out.println("Siguiente turno:");
-					}
-				}
+				// }
 
 				suspense();			
-				personajeActivo.setDañoFisico((int)(personajeActivo.getDañoFisico() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setDañoMagico((int)(personajeActivo.getDañoMagico() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setResistenciaFisica((int)(personajeActivo.getResistenciaFisica() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setResistenciaMagica((int)(personajeActivo.getResistenciaMagica() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setVelocidad((int)(personajeActivo.getVelocidad() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setVida((int)(personajeActivo.getVida() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setNivel((int)(personajeActivo.getNivel() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setExperiencia((int)(personajeActivo.getExperiencia() * Math.pow(1.1, nivelE1)));
-				personajeActivo.setMonedas(personajeActivo.getMonedas()+enemigoComun1.getDineroDado());
+				// personajeActivo.setDañoFisico((int)(personajeActivo.getDañoFisico() * Math.pow(1.1, enemigoComunMarino.getNivel())));
+				// personajeActivo.setDañoMagico((int)(personajeActivo.getDañoMagico() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setResistenciaFisica((int)(personajeActivo.getResistenciaFisica() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setResistenciaMagica((int)(personajeActivo.getResistenciaMagica() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setVelocidad((int)(personajeActivo.getVelocidad() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setVida((int)(personajeActivo.getVida() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setNivel((int)(personajeActivo.getNivel() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setExperiencia((int)(personajeActivo.getExperiencia() * Math.pow(1.1, nivelE1)));
+				// personajeActivo.setMonedas(personajeActivo.getMonedas()+enemigoComun1.getDineroDado());
 				System.out.println("Primer enemigo vencido!");
 				System.out.println("¡Enhorabuena!");
 				System.out.println("Pulsa enter para continuar...");

@@ -5,16 +5,54 @@ import Producto.Producto;
 
 public class PersonajeGrumete extends Personaje{
 	private String rolSeleccionado;
+    private boolean contadorCocinero = false;
+    private boolean contadorArtillero = false;
+    private boolean contadorCubierta = false;
 
 	public PersonajeGrumete(String nombre, String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
 			int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
 			int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
 			Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando,
-			String rolSeleccionado) {
+			String rolSeleccionado, boolean contadorCocinero, boolean contadorArtillero, boolean contadorCubierta) {
 		super(nombre, genero, vida, dañoFisico, dañoMagico, resistenciaFisica, resistenciaMagica, velocidad, experiencia, nivel,
 				monedas, grumetesRestantes, islasConquistadas, enemigosDerrotados, estaEnCombate, inventario,
 				objetoEquipado, pedoActivado, estaSomnoliento, estaSangrando);
 		this.rolSeleccionado = rolSeleccionado;
+		this.contadorCocinero = contadorCocinero;
+		this.contadorArtillero = contadorArtillero;
+		this.contadorCubierta = contadorCubierta;
+	}
+
+	public String getRolSeleccionado() {
+		return rolSeleccionado;
+	}
+
+	public void setRolSeleccionado(String rolSeleccionado) {
+		this.rolSeleccionado = rolSeleccionado;
+	}
+
+	public boolean getContadorCocinero() {
+		return contadorCocinero;
+	}
+
+	public void setContadorCocinero(boolean contadorCocinero) {
+		this.contadorCocinero = contadorCocinero;
+	}
+
+	public boolean getContadorArtillero() {
+		return contadorArtillero;
+	}
+
+	public void setContadorArtillero(boolean contadorArtillero) {
+		this.contadorArtillero = contadorArtillero;
+	}
+
+	public boolean getContadorCubierta() {
+		return contadorCubierta;
+	}
+
+	public void setContadorCubierta(boolean contadorCubierta) {
+		this.contadorCubierta = contadorCubierta;
 	}
 
 	@Override
