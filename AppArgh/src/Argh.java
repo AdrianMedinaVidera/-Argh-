@@ -488,6 +488,7 @@ public class Argh {
 				personajeActivo.menuCombate();
 				try {
 					opcionCombate = sc.nextInt();
+					sc.nextLine();
 					if (opcionCombate >= 1 && opcionCombate <= 4) {
 						break;
 					} else {
@@ -511,6 +512,7 @@ public class Argh {
 					int opcionAtaque = 0;
 					try {
 						opcionAtaque = sc.nextInt();
+						sc.nextLine();
 						if (opcionAtaque >= 1 && opcionAtaque <= 3) {
 							break;
 						} else {
@@ -582,6 +584,7 @@ public class Argh {
 							menuInventario(personajeActivo);
 							try {
 								opcionObjeto = sc.nextInt();
+								sc.nextLine();
 								if (opcionObjeto >= 1 && opcionObjeto <= 8) {
 									break;
 								} else {
@@ -600,7 +603,6 @@ public class Argh {
 						} else {
 							// Volver al combate
 							limpiarPantalla();
-							dentroInventario = false;
 						}	
 					}
 				} case 3 -> {
