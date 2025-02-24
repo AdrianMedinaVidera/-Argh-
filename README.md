@@ -10,7 +10,7 @@ Explora islas misteriosas y conquístalas, y enfréntate a monstruos marinos que
 
 ¿Serás un noble capitán con un código de honor o un infame villano temido en todos los mares? Tu destino está en tus manos, pero recuerda: en el mar, solo los más astutos y despiadados sobreviven.
 
-¡Zarpa hacia la aventura y reclama tu leyenda!
+¡Zarpa hacia la aventura y reclama tu leyenda! ⛵🦜🏴‍☠️
 
 ## Autores
 
@@ -20,17 +20,17 @@ Explora islas misteriosas y conquístalas, y enfréntate a monstruos marinos que
 
 ## Mecánicas
 
-- Juego íntegramente en terminal
-- Dos dificultades (Grumete y Capitán | Fácil / Difícil)
+- Juego íntegramente en terminal 👾
+- Dos dificultades (Grumete y Capitán | Fácil / Difícil) 🦜
 - Modo historia / Campaña
-- Modo infinito
-- Sistema de combates por turnos
-- Sistema de jefes
-- Sistema de estadísticas a tiempo real
-- Sistema de inventario y objetos equipables
-- Sistema de tienda y economía
-- Sistema de Casino y juegos de azar
-- Sistema de lootboxes
+- Modo infinito ♾️
+- Sistema de combates por turnos ⚔️
+- Sistema de jefes 👑
+- Sistema de estadísticas a tiempo real 
+- Sistema de inventario y objetos equipables 💎
+- Sistema de tienda y economía 🛒
+- Sistema de Casino y juegos de azar 🪙
+- Sistema de lootboxes 🎁
 ## Instalación
 
 A excepción de java, al ser un juego por terminal, no es necesario instalar ningún programa.
