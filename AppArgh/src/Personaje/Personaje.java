@@ -298,11 +298,12 @@ public abstract class Personaje {
 		}
 		
 		public void eliminarObjetoInventario(Producto objeto) {
-			
 			for (int i = 0; i < inventario.length; i++) {
-				if (inventario[i].getNombre().equals(objeto.getNombre())) {
-					inventario[i] = null;
-					break;
+				if (inventario[i] != null) {
+					if (inventario[i].getNombre().equals(objeto.getNombre())) {
+						inventario[i] = null;
+						break;
+					}
 				}
 			}
 		}
@@ -360,10 +361,10 @@ public abstract class Personaje {
 			}
 		}
 		
-		public void usarObjeto(Producto objeto) {
+		public void usarObjeto(Producto objeto, Scanner sc) {
 			System.out.println("Se va a usar el objeto " + objeto.getNombre());
 			System.out.println("¿Está seguro? (S/N)");
-			Scanner sc = new Scanner(System.in);
+			sc = new Scanner(System.in);
 			String opcion = sc.nextLine().toLowerCase();
 			if (opcion.equals("s")) {
 				System.out.println("El objeto se ha utilizado correctamente.");
@@ -561,8 +562,8 @@ public abstract class Personaje {
 				}
 					
 			}
-			sc.close();
 		}
+
 		public void procesarCompra(Producto producto, Producto inventario[]) {
 			if (monedas < producto.getPrecio()) {
 				System.out.println("Lo sentimos, no tiene suficientes monedas para realizar la compra.");

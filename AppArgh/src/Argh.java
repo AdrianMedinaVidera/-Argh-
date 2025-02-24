@@ -355,8 +355,7 @@ public class Argh {
 		esperar(0);
 	}
 
-	public static boolean obtenerRespuestaConIntentos(String claveCorrecta, int intentosMaximos) {
-		Scanner scanner = new Scanner(System.in);
+	public static boolean obtenerRespuestaConIntentos(String claveCorrecta, int intentosMaximos, Scanner scanner) {
 		boolean exito = false;
 	
 		System.out.println("¡Espabila, puberscente! Si quieres salvar este barco, di la palabra correcta.");
@@ -468,160 +467,140 @@ public class Argh {
 		}
 	}
 
-	public static boolean usarObjetoCombate (Producto[] inventario, int opcion, Personaje personaje) {
+	public static boolean usarObjetoCombate (Producto[] inventario, int opcion, Personaje personaje, Scanner sc) {
 		opcion = opcion - 1;
 		if (inventario[opcion] == null){
 			System.out.println("No tienes ningún objeto en esa posición.");
 			return false;
 		} else {
-			personaje.usarObjeto(inventario[opcion]);
+			personaje.usarObjeto(inventario[opcion], sc);
 			return true;
 		}
 	}
 	
-	public static void combate (Personaje personajeActivo, Enemigo enemigoComunMarino, Scanner sc, Random rand) {
+	public static void combate(Personaje personajeActivo, Enemigo enemigoComunMarino, Scanner sc, Random rand) {
 		boolean combateActivo = true;
-		int[] ataquesEnemigo = {1,2,3}; // Posibles ataques a realizar por el enemigo
+		int[] ataquesEnemigo = {1,2,3};
+	
 		while (combateActivo) {
-			int opcionCombate = 0;
-			while (true) { // Bucle para elegir accion
-				personajeActivo.menuCombate();
-				try {
-					opcionCombate = sc.nextInt();
-					sc.nextLine();
-					if (opcionCombate >= 1 && opcionCombate <= 4) {
-						break;
-					} else {
-						limpiarPantalla();
-						System.out.println("Opción inválida. Introduce una opción válida.");
-					}
-				} catch (Exception e) {
-					limpiarPantalla();
-					sc.nextLine();
-					System.out.println("Opción inválida. Introduce un número.");
-				}
+			if (enemigoComunMarino.getVida() <= 0) {
+				System.out.println("¡Has derrotado al enemigo!");
+				break;
 			}
 			if (personajeActivo.getVida() <= 0) {
-				// Perder
 				muerteCombate(personajeActivo);
+				break;
 			}
-			switch (opcionCombate) { // Comprobamos la eleccion del usuario
-				case 1 -> {
-					// Atacar
-					personajeActivo.eleccionAtaquesMenu();
-					int opcionAtaque = 0;
-					try {
-						opcionAtaque = sc.nextInt();
-						sc.nextLine();
-						if (opcionAtaque >= 1 && opcionAtaque <= 3) {
-							break;
-						} else {
-							limpiarPantalla();
-							System.out.println("Opción inválida. Introduce una opción válida.");
-						}
-					} catch (Exception e) {
-						limpiarPantalla();
-					}
-					if (enemigoComunMarino.getVelocidad() < personajeActivo.getVelocidad()) {
-						// Atacar primero
-						switch (opcionAtaque) {
-							case 1 -> {
-								// Ataque 1
-								personajeActivo.ataque1(enemigoComunMarino);
-							}
-							case 2 -> {
-								// Ataque 2
-								personajeActivo.ataque2(enemigoComunMarino);
-							}
-							case 3 -> {
-								// Ataque 3
-								personajeActivo.ataque3(enemigoComunMarino);
-							}
-						}
-						if (enemigoComunMarino.getVida() > 0) {
-							// Atacar enemigo
-							int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
-							switch (ataqueEnemigo) {
-								case 1 -> {
-									// Ataque 1
-									enemigoComunMarino.ataque1(personajeActivo);
-								}
-								case 2 -> {
-									// Ataque 2
-									enemigoComunMarino.ataque2(personajeActivo);
-								}
-								case 3 -> {
-									// Ataque 3
-									enemigoComunMarino.ataque3(personajeActivo);
-								}
-							}
-						}
-					} else { // Si el enemigo es más rápido que el personaje
-						// Atacar enemigo primero
-						int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
-						switch (ataqueEnemigo) {
-							case 1 -> {
-								// Ataque 1
-								enemigoComunMarino.ataque1(personajeActivo);
-							}
-							case 2 -> {
-								// Ataque 2
-								enemigoComunMarino.ataque2(personajeActivo);
-							}
-							case 3 -> {
-								// Ataque 3
-								enemigoComunMarino.ataque3(personajeActivo);
-							}
-						}
-					}
-				}
-				case 2 -> {
-					// Usar objeto
-					int opcionObjeto = 0;
-					boolean dentroInventario = true;
-					while (dentroInventario) {
-						while (true) {
-							menuInventario(personajeActivo);
-							try {
-								opcionObjeto = sc.nextInt();
-								sc.nextLine();
-								if (opcionObjeto >= 1 && opcionObjeto <= 8) {
-									break;
-								} else {
-									limpiarPantalla();
-									System.out.println("Opción inválida. Introduce una opción válida.");
-								}
-							} catch (Exception e) {
-								limpiarPantalla();
-							}
-						}
-						if (opcionObjeto != 8) {
-							limpiarPantalla();
-							if (usarObjetoCombate(personajeActivo.getInventario(), opcionObjeto, personajeActivo)) {
-								dentroInventario = false;
-							}
-						} else {
-							// Volver al combate
-							limpiarPantalla();
-						}	
-					}
-				} case 3 -> {
-					limpiarPantalla();
-					personajeActivo.mostrarInfoCombate();
-					System.out.println("Pulsa enter para volver al combate.");
-					sc.nextLine();
-					sc.nextLine();
-					limpiarPantalla();
-				} case 4 -> {
-					if(personajeActivo.huir(enemigoComunMarino)) {
-						combateActivo = false;
-					} else {
-						limpiarPantalla();
-						System.out.println("No puedes huir de este enemigo.");
-					}
-				}
-			}	
+	
+			int opcionCombate = obtenerOpcionCombate(personajeActivo, sc);
+			
+			switch (opcionCombate) {
+				case 1 -> gestionarAtaque(personajeActivo, enemigoComunMarino, sc, rand, ataquesEnemigo);
+				case 2 -> gestionarUsoObjeto(personajeActivo, sc);
+				case 3 -> mostrarEstadisticasCombate(personajeActivo, sc);
+				case 4 -> combateActivo = !personajeActivo.huir(enemigoComunMarino);
+			}
 		}
+	}
+	
+	private static int obtenerOpcionCombate(Personaje personajeActivo, Scanner sc) {
+		while (true) {
+			limpiarPantalla();
+			personajeActivo.menuCombate();
+			try {
+				int opcion = sc.nextInt();
+				sc.nextLine();
+				if (opcion >= 1 && opcion <= 4) {
+					return opcion;
+				}
+				System.out.println("Opción inválida. Introduce una opción válida (1-4).");
+				esperar(2);
+			} catch (Exception e) {
+				System.out.println("Por favor, introduce un número válido.");
+				sc.nextLine();
+				esperar(2);
+			}
+		}
+	}
+	// TODO COMPROBAR
+	private static void gestionarAtaque(Personaje personajeActivo, Enemigo enemigoComunMarino, Scanner sc, Random rand, int[] ataquesEnemigo) {
+		int opcionAtaque = obtenerOpcionAtaque(personajeActivo, sc);
+		if (opcionAtaque != -1) {
+			if (personajeActivo.getVelocidad() > enemigoComunMarino.getVelocidad()) {
+				
+				if (enemigoComunMarino.getVida() > 0) {
+					
+				}
+			} else {
+				
+				if (personajeActivo.getVida() > 0) {
+					
+				}
+			}
+		}
+	}
+	// ! COMPROBAR
+	private static int obtenerOpcionAtaque(Personaje personajeActivo, Scanner sc) {
+		limpiarPantalla();
+		personajeActivo.eleccionAtaquesMenu();
+		try {
+			int opcion = sc.nextInt();
+			sc.nextLine();
+			if (opcion >= 1 && opcion <= 3) {
+				return opcion;
+			}
+			System.out.println("Ataque inválido. Elige entre 1 y 3.");
+			esperar(2);
+		} catch (Exception e) {
+			System.out.println("Por favor, introduce un número válido.");
+			sc.nextLine();
+			esperar(2);
+		}
+		return -1;
+	}
+	// * ESTA BIEN O ESO PARECE
+	private static void gestionarUsoObjeto(Personaje personajeActivo, Scanner sc) {
+		boolean dentroInventario = true;
+		while (dentroInventario) {
+			int opcionObjeto = obtenerOpcionInventario(personajeActivo, sc);
+			if (opcionObjeto != 8) {
+				limpiarPantalla();
+				if (usarObjetoCombate(personajeActivo.getInventario(), opcionObjeto, personajeActivo, sc)) {
+					dentroInventario = false;
+				}
+			} else {
+				dentroInventario = false;
+				limpiarPantalla();
+			}
+		}
+	}
+	// * ESTA BIEN O ESO PARECE
+	private static int obtenerOpcionInventario(Personaje personajeActivo, Scanner sc) {
+		while (true) {
+			limpiarPantalla();
+			menuInventarioCombate(personajeActivo);
+			try {
+				int opcion = sc.nextInt();
+				sc.nextLine();
+				if (opcion >= 1 && opcion <= 8) {
+					return opcion;
+				}
+				System.out.println("Opción inválida. Introduce un número del 1 al 8.");
+				esperar(2);
+			} catch (Exception e) {
+				System.out.println("Por favor, introduce un número válido.");
+				sc.nextLine();
+				esperar(2);
+			}
+		}
+	}
+	// * ESTA BIEN O ESO PARECE
+	private static void mostrarEstadisticasCombate(Personaje personajeActivo, Scanner sc) {
+		limpiarPantalla();
+		personajeActivo.mostrarInfoCombate();
+		System.out.println("Pulsa enter para volver al combate...");
+		sc.nextLine();
+		limpiarPantalla();
 	}
 	public static void main(String[] args) {
 		
@@ -711,7 +690,7 @@ public class Argh {
 						contadorArtillero = true;
 					}
 					System.out.println("╚══════════════════════════════════════╝");
-					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 0, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta);
+					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta);
 					personajeActivo = grumete;
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
@@ -736,7 +715,7 @@ public class Argh {
 					sc.nextLine();
 					sc.nextLine();
 					limpiarPantalla();
-					Personaje capitán = new PersonajeCapitan(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 1, 10000000, 3, 0, 0, false, inventario, null, false, false, false);
+					Personaje capitán = new PersonajeCapitan(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false);
 					personajeActivo = capitán;
 					break;
 				} else {
@@ -770,93 +749,93 @@ public class Argh {
 				// Avanzar
 				System.out.println("¡Tu aventura va a comenzar!");
 				esperar(2);
-				if(personajeActivo instanceof PersonajeCapitan){
-					System.out.println("Es un placer tenerte con nosotros, capitán " + personajeActivo.getNombre()+".");
-					System.out.println("Su barco se está aproximando a las Tierras desconocidas...");
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					System.out.println("Capitán, llega un aviso del mástil mayor que se atisba una isla en el horizonte.");
-					System.out.println("Vamos a desplegar a la tripulación para defender el barco, tengo un mal presentimiento...");
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					System.out.println("Da la órden de proteger el barco (debes gritar, si no no te escucharán): ");
-					String aviso = sc.nextLine();
-					while(true){
-						int contador = 1; 
-						for (int i = 1; i < aviso.length(); i++) {
-							if (aviso.charAt(i) == aviso.charAt(i - 1)) {
-								contador++;
-								if(contador>=4){
-									break;
-								}
-							} else {
-								contador = 1;
-							}
-						}
-						System.out.println();
-						if(contador>=4){
-							break;
-						}else{
-							System.out.println("No le han escuchado, capitán. ¡Tiene que GRITAAAAAAAAAAAAAAAR MUUUUUUCHOOOOOO!");
-							esperar(3);
-							limpiarPantalla();
-							System.out.println("Da la órden de proteger el barco (debes gritar, si no, no te escucharán): ");
-							aviso = sc.nextLine();
-						}
-					}
-					System.out.println("El grito del capitán es tan potente que hace brincar a los peces del agua.");
-					System.out.println("La tripulación se pone en alerta y preparan las defensas del barco...");
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					System.out.println("Hay una calma de repente el el horizonte");
-					suspense();
-					limpiarPantalla();
-					esperar(2);
-					System.out.println("¡Capitán, prepárese, nos atacan!");
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-				}else{
-					System.out.println("¡Bienvenido a bordo, " + personajeActivo.getNombre() + "!");
-					System.out.println("El barco del capitán se aproxima a las Tierras desconocidas...");
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					System.out.println("Grumete, llega un aviso del mástil mayor: se atisba una isla en el horizonte.");
-					System.out.println("Voy a informar al capitán, tengo un mal presentimiento...");
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					System.out.println("Debemos advertir al capitán de la posible amenaza. ¡Corre y dile que debe prepararse!");
-					//------------------------------------------------------------------------------------------------------------
-					boolean pruebaDeLaVerdad = obtenerRespuestaConIntentos("pirata",  5);
-					//------------------------------------------------------------------------------------------------------------
-					if(pruebaDeLaVerdad){
-						System.out.println("Tus pasos resuenan en todo el barco, haciendo temblar toda la nave.");
-						System.out.println("El capitán se alerta y ordena preparar las defensas del barco...");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("Todo parece calmarse repentinamente...");
-						suspense();
-						limpiarPantalla();
-						esperar(2);
-						System.out.println("¡Grumete, mantente alerta, algo se acerca!");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-					}else{
-						System.out.println("FIN DEL JUEGO, EL BARCO SE HA IDO A PIQUE...");
-						CalaveraGameOver();
-					}
-				}
+				// if(personajeActivo instanceof PersonajeCapitan){
+				// 	System.out.println("Es un placer tenerte con nosotros, capitán " + personajeActivo.getNombre()+".");
+				// 	System.out.println("Su barco se está aproximando a las Tierras desconocidas...");
+				// 	System.out.println("Pulsa enter para continuar...");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// 	System.out.println("Capitán, llega un aviso del mástil mayor que se atisba una isla en el horizonte.");
+				// 	System.out.println("Vamos a desplegar a la tripulación para defender el barco, tengo un mal presentimiento...");
+				// 	System.out.println("Pulsa enter para continuar...");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// 	System.out.println("Da la órden de proteger el barco (debes gritar, si no no te escucharán): ");
+				// 	String aviso = sc.nextLine();
+				// 	while(true){
+				// 		int contador = 1; 
+				// 		for (int i = 1; i < aviso.length(); i++) {
+				// 			if (aviso.charAt(i) == aviso.charAt(i - 1)) {
+				// 				contador++;
+				// 				if(contador>=4){
+				// 					break;
+				// 				}
+				// 			} else {
+				// 				contador = 1;
+				// 			}
+				// 		}
+				// 		System.out.println();
+				// 		if(contador>=4){
+				// 			break;
+				// 		}else{
+				// 			System.out.println("No le han escuchado, capitán. ¡Tiene que GRITAAAAAAAAAAAAAAAR MUUUUUUCHOOOOOO!");
+				// 			esperar(3);
+				// 			limpiarPantalla();
+				// 			System.out.println("Da la órden de proteger el barco (debes gritar, si no, no te escucharán): ");
+				// 			aviso = sc.nextLine();
+				// 		}
+				// 	}
+				// 	System.out.println("El grito del capitán es tan potente que hace brincar a los peces del agua.");
+				// 	System.out.println("La tripulación se pone en alerta y preparan las defensas del barco...");
+				// 	System.out.println("Pulsa enter para continuar...");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// 	System.out.println("Hay una calma de repente el el horizonte");
+				// 	suspense();
+				// 	limpiarPantalla();
+				// 	esperar(2);
+				// 	System.out.println("¡Capitán, prepárese, nos atacan!");
+				// 	System.out.println("Pulsa enter para continuar...");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// }else{
+				// 	System.out.println("¡Bienvenido a bordo, " + personajeActivo.getNombre() + "!");
+				// 	System.out.println("El barco del capitán se aproxima a las Tierras desconocidas...");
+				// 	System.out.println("Pulsa enter para continuar...");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// 	System.out.println("Grumete, llega un aviso del mástil mayor: se atisba una isla en el horizonte.");
+				// 	System.out.println("Voy a informar al capitán, tengo un mal presentimiento...");
+				// 	System.out.println("Pulsa enter para continuar...");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// 	System.out.println("Debemos advertir al capitán de la posible amenaza. ¡Corre y dile que debe prepararse!");
+				// 	//------------------------------------------------------------------------------------------------------------
+				// 	boolean pruebaDeLaVerdad = obtenerRespuestaConIntentos("pirata",  5);
+				// 	//------------------------------------------------------------------------------------------------------------
+				// 	if(pruebaDeLaVerdad){
+				// 		System.out.println("Tus pasos resuenan en todo el barco, haciendo temblar toda la nave.");
+				// 		System.out.println("El capitán se alerta y ordena preparar las defensas del barco...");
+				// 		System.out.println("Pulsa enter para continuar...");
+				// 		sc.nextLine();
+				// 		limpiarPantalla();
+				// 		System.out.println("Todo parece calmarse repentinamente...");
+				// 		suspense();
+				// 		limpiarPantalla();
+				// 		esperar(2);
+				// 		System.out.println("¡Grumete, mantente alerta, algo se acerca!");
+				// 		System.out.println("Pulsa enter para continuar...");
+				// 		sc.nextLine();
+				// 		limpiarPantalla();
+				// 	}else{
+				// 		System.out.println("FIN DEL JUEGO, EL BARCO SE HA IDO A PIQUE...");
+				// 		CalaveraGameOver();
+				// 	}
+				//}
 				Enemigo[] listaEnemigosMarinos = { 
-					new EnemigoMarinoComun(100, 20, 20, 20, 30, 30, 30, 1, 20, false, 15, "Amonite"),
-					new EnemigoMarinoComun(100, 20, 20, 20, 20, 30, 30, 1, 20, false, 20, "Trilobite"),
-					new EnemigoMarinoComun(100, 20, 20, 20, 10, 30, 30, 1, 20, false, 10, "Zooplacton")
+					new EnemigoMarinoComun(100, 20, 20, 20, 30, 30, 30, 0, 20, false, 15, "Amonite"),
+					new EnemigoMarinoComun(100, 20, 20, 20, 20, 30, 30, 0, 20, false, 20, "Trilobite"),
+					new EnemigoMarinoComun(100, 20, 20, 20, 10, 30, 30, 0, 20, false, 10, "Zooplacton")
 				};
 				Random rand = new Random();
 				int indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length); 
@@ -865,25 +844,25 @@ public class Argh {
 				// Enemigo e2 = listaEnemigosMarinos[indiceAleatorio];
 				// Enemigo e3 = listaEnemigosMarinos[indiceAleatorio];
 				EnemigoMarinoComun enemigoComunMarino = (EnemigoMarinoComun) e1;
-				System.out.println("Cuidado, nos atacan un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
-				System.out.println("Vas a entrar en combate, prepárate");
-				suspense();
-				limpiarPantalla();
-				System.out.println("Antes de nada te recomiendo que veas la información de tus ataques.");
-				System.out.println("¿Quieres ver tus ataques? S/N");
-				String respuestaAyudaAtaque = sc.nextLine();
-				limpiarPantalla();
-				if(respuestaAyudaAtaque.toLowerCase().equals("s")){
-					personajeActivo.infoAtaque1();
-					System.out.println();
-					personajeActivo.infoAtaque2();
-					System.out.println();
-					personajeActivo.infoAtaque3();
-					System.out.println();
-					System.out.println("Pulsa enter para continuar... ");
-					sc.nextLine();
-					limpiarPantalla();
-				}
+				// System.out.println("Cuidado, nos atacan un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
+				// System.out.println("Vas a entrar en combate, prepárate");
+				// suspense();
+				// limpiarPantalla();
+				// System.out.println("Antes de nada te recomiendo que veas la información de tus ataques.");
+				// System.out.println("¿Quieres ver tus ataques? S/N");
+				// String respuestaAyudaAtaque = sc.nextLine();
+				// limpiarPantalla();
+				// if(respuestaAyudaAtaque.toLowerCase().equals("s")){
+				// 	personajeActivo.infoAtaque1();
+				// 	System.out.println();
+				// 	personajeActivo.infoAtaque2();
+				// 	System.out.println();
+				// 	personajeActivo.infoAtaque3();
+				// 	System.out.println();
+				// 	System.out.println("Pulsa enter para continuar... ");
+				// 	sc.nextLine();
+				// 	limpiarPantalla();
+				// }
 				combate(personajeActivo, enemigoComunMarino, sc, rand);
 				//FUNCION DE SUBIR DE NIVEL
 				//GUARDAR LAS STATS DEL PERSONAJE Y RESTABLECERLAS ANTES DEL COMBATE SEGUN EL NIVEL STAT*(1.1)**NIVEL
