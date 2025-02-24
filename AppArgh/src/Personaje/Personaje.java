@@ -360,22 +360,19 @@ public abstract class Personaje {
 				limpiarPantalla();
 			}
 		}
-		
 		public void usarObjeto(Producto objeto, Scanner sc) {
 			System.out.println("Se va a usar el objeto " + objeto.getNombre());
 			System.out.println("¿Está seguro? (S/N)");
-			sc = new Scanner(System.in);
-			String opcion = sc.nextLine().toLowerCase();
-			
+			String opcion = sc.next().toLowerCase();
+			int vidaInicial = (int) (100 * Math.pow(1.1, nivel)); // Calculamos la vida que debe tener el personaje según su nivel.
 			if (opcion.equals("s")) {
 				System.out.println("El objeto se ha utilizado correctamente.");
-				int vidaInicial = (int) (100 * Math.pow(1.1, nivel)); // Calculamos la vida que debe tener el personaje según su nivel.
 				// Para cada tipo de objeto un caso diferente ------
 				switch (objeto.getNombre()) {
 				case "Minipoción" -> {
 					vida += 20;
 					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
-						int diferencia = vidaInicial - vida;
+						int diferencia = vida - vidaInicial;
 						vida -= diferencia;
 					}
 					objeto.setCantidad(objeto.getCantidad()-1);
@@ -387,7 +384,7 @@ public abstract class Personaje {
 				case "Poción" -> {
 					vida += 60;
 					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
-						int diferencia = vidaInicial - vida;
+						int diferencia = vida - vidaInicial;
 						vida -= diferencia;
 					}
 					objeto.setCantidad(objeto.getCantidad()-1);
@@ -399,7 +396,7 @@ public abstract class Personaje {
 				case "Superpoción" -> {
 					vida += 120;
 					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
-						int diferencia = vidaInicial - vida;
+						int diferencia = vida - vidaInicial;
 						vida -= diferencia;
 					}
 					objeto.setCantidad(objeto.getCantidad()-1);
