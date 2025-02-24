@@ -26,7 +26,7 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 // El amonite muerde al personaje, haciendo 60 de daño fisico según del atributo nado y aumenta su daño fisico en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * nado / 100)));
                 dañoFisico += 10;
-                System.out.println("El enemigo ha aumentado su daño físico ↑");
+                System.out.println("El enemigo ha aumentado su daño físico");
                 break;
             
             case "Trilobite":
@@ -35,8 +35,8 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 40));
                 resistenciaFisica += 10;
                 velocidad *= nado/100;
-                System.out.println("El enemigo ha aumentado su resistencia física ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su resistencia física ");
+                System.out.println("El enemigo ha aumentado su velocidad ");
                 break;
             
             case "Zooplacton":
@@ -45,8 +45,8 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 50));
                 resistenciaMagica += 10;
                 velocidad *= nado/100;
-                System.out.println("El enemigo ha aumentado su resistencia mágica ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su resistencia mágica ");
+                System.out.println("El enemigo ha aumentado su velocidad ");
                 break;
         }
     }
@@ -56,12 +56,12 @@ public class EnemigoMarinoComun extends EnemigoMarino {
         switch(enemigoSeleccionado) {
             case "Amonite":
                 System.out.println("El enemigo ha usado el ataque Cuerno tormentoso");
-                // El amonite aumenta sus revoluciones generando un campo electroestatico que hace 5 puntos de daño mágico, disminuye su velocidad en 20 y aumenta su dañomágico en 150
+                // El amonite aumenta sus revoluciones generando un campo electroestatico que hace 5 puntos de daño mágico, disminuye su velocidad en 20% y aumenta su dañomágico en 150
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 5));
-                velocidad -= 20;
+                velocidad *= 0.8;
                 dañoMagico += 150;
-                System.out.println("El enemigo ha disminuido su velocidad ↓");
-                System.out.println("El enemigo ha aumentado su daño mágico ↑");
+                System.out.println("El enemigo ha disminuido su velocidad ");
+                System.out.println("El enemigo ha aumentado su daño mágico ");
                 break;
             
             case "Trilobite":
@@ -71,8 +71,8 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 10));
                 resistenciaFisica += 20;
                 velocidad *= nado/100;
-                System.out.println("El enemigo ha aumentado su resistencia física ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su resistencia física");
+                System.out.println("El enemigo ha aumentado su velocidad");
                 break;
             
             case "Zooplacton":
@@ -82,9 +82,9 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 resistenciaMagica += 10;
                 resistenciaFisica += 20;
                 velocidad *= nado/100;
-                System.out.println("El enemigo ha aumentado su resistencia mágica ↑");
-                System.out.println("El enemigo ha aumentado su resistencia física ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su resistencia mágica");
+                System.out.println("El enemigo ha aumentado su resistencia física");
+                System.out.println("El enemigo ha aumentado su velocidad");
                 break;
         }
     }
@@ -94,13 +94,13 @@ public class EnemigoMarinoComun extends EnemigoMarino {
         switch(enemigoSeleccionado) {
             case "Amonite":
                 System.out.println("El enemigo ha usado el ataque Furia Egipcia");
-                // El amonite piensa en el origen de su nombre y se enfurece, causando daño fisico y mágico en 20 y su velocidad en nado donde se resta 10 puntos de resistencia mágica.
+                // El amonite piensa en el origen de su nombre y se enfurece, causando daño fisico y mágico en 20 y su velocidad en nado donde se resta 10% de puntos de resistencia mágica.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 20));
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 20));
-                resistenciaMagica -= 10;
+                resistenciaMagica *= 0.9;
                 velocidad *= nado/100;
-                System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha disminuido su resistencia mágica ");
+                System.out.println("El enemigo ha aumentado su velocidad ");
                 break;
             
             case "Trilobite":
@@ -108,10 +108,10 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 //El trilobite hace una danza donde mueve arena y causa 40 de daño mágico y 5 de daño físcio, disminuyendo su resistencia mágica y física en 15 puntos
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 40));
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 5));
-                resistenciaMagica -= 15;
-                resistenciaFisica -= 15;
-                System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
-                System.out.println("El enemigo ha disminuido su resistencia física ↓");
+                resistenciaMagica *= 0.85;
+                resistenciaFisica *= 0.85;
+                System.out.println("El enemigo ha disminuido su resistencia mágica ");
+                System.out.println("El enemigo ha disminuido su resistencia física ");
                 break;
             
             case "Zooplacton":
@@ -121,7 +121,7 @@ public class EnemigoMarinoComun extends EnemigoMarino {
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 60));
                 personaje.setResistenciaFisica(personaje.getResistenciaFisica() - 10);
                 velocidad *= (nado+30)/100;
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su velocidad ");
                 break;
         }
     }

@@ -253,12 +253,12 @@ public void infoAtaque1() {
             System.out.println("El grumete ha usado el ataque Meteoro Cheddar");
             enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 60));
             enemigo.setVelocidad((int)(enemigo.getVelocidad() * 0.8));
-            System.out.println("El enemigo ha disminuido su velocidad ↓");
+            System.out.println("El enemigo ha disminuido su velocidad");
         } else {        
             System.out.println("El grumete ha usado el ataque Lanzamiento de Barril");
             enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 100));
             resistenciaFisica = (int)(resistenciaFisica * 0.9);
-            System.out.println("El grumete ha disminuido su resistencia física ↓");
+            System.out.println("El grumete ha disminuido su resistencia física");
         }
     }
 
@@ -267,21 +267,21 @@ public void infoAtaque1() {
         if (rolSeleccionado.toLowerCase().equals("cubierta")) {
             System.out.println("El grumete ha usado el ataque Vendaval Ascendente");
             velocidad += dañoMagico * 0.5;
-            System.out.println("El grumete ha aumentado su velocidad ↑");
+            System.out.println("El grumete ha aumentado su velocidad");
         } else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
             System.out.println("El grumete ha usado el ataque Caldo de los condenados");
             enemigo.setEstaSomnoliento(true);
             enemigo.setResistenciaMagica((int)(enemigo.getResistenciaMagica() * 0.8));
             System.out.println("El enemigo ha quedado somnoliento");
-            System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
+            System.out.println("El enemigo ha disminuido su resistencia mágica");
         } else {
             System.out.println("El grumete ha usado el ataque Carga de ancla");
             dañoFisico = (int)(dañoFisico * 1.2);
             resistenciaFisica = (int)(resistenciaFisica * 1.2);
             velocidad = (int)(velocidad * 0.95);
-            System.out.println("El grumete ha aumentado su daño físico ↑");
-            System.out.println("El grumete ha aumentado su resistencia física ↑");
-            System.out.println("El grumete ha disminuido su velocidad ↓");
+            System.out.println("El grumete ha aumentado su daño físico");
+            System.out.println("El grumete ha aumentado su resistencia física");
+            System.out.println("El grumete ha disminuido su velocidad");
         }
     }
 
@@ -296,12 +296,12 @@ public void infoAtaque1() {
             enemigo.setEstaSangrando(true);
             enemigo.setResistenciaMagica((int)(enemigo.getResistenciaMagica() * 0.9));
             System.out.println("El enemigo ha empezado a sangrar");
-            System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
+            System.out.println("El enemigo ha disminuido su resistencia mágica");
         } else {
             System.out.println("El grumete ha usado el ataque Embestida Blindada");
             enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 65));
             resistenciaFisica = (int)(resistenciaFisica * 1.2);
-            System.out.println("El grumete ha aumentado su resistencia física ↑");
+            System.out.println("El grumete ha aumentado su resistencia física ");
         }
     }
 }

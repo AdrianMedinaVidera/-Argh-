@@ -276,15 +276,15 @@ public abstract class Personaje {
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
 			System.out.println("╚══════════════════════════════════════╝");
-			System.out.println("  	Vida: " + vida + "                          ");
-			System.out.println("  	Daño Físico: " + dañoFisico + "                   ");
-			System.out.println("  	Daño Mágico: " + dañoMagico + "                   ");
-			System.out.println("  	Resistencia Física: " + resistenciaFisica + "             ");
-			System.out.println("  	Resistencia Mágica: " + resistenciaMagica + "             ");
-			System.out.println("  	Velocidad: " + velocidad + "                      ");
-			System.out.println("  	Nivel: " + nivel + "                           ");
-			System.out.println("  	Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
-			System.out.println("  	Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
+			System.out.println("  Vida: " + vida + "                          ");
+			System.out.println("  Daño Físico: " + dañoFisico + "                   ");
+			System.out.println("  Daño Mágico: " + dañoMagico + "                   ");
+			System.out.println("  Resistencia Física: " + resistenciaFisica + "             ");
+			System.out.println("  Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("  Velocidad: " + velocidad + "                      ");
+			System.out.println("  Nivel: " + nivel + "                           ");
+			System.out.println("  Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
+			System.out.println("  Objeto Equipado: " + (objetoEquipado != null ? objetoEquipado.getNombre() : "Ninguno"));
 			System.out.println("════════════════════════════════════════");
 		}
 	    

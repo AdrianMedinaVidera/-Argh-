@@ -12,6 +12,13 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
         this.jefeSeleccionado = jefeSeleccionado;
     }
 
+    public String getJefeSeleccionado() {
+        return jefeSeleccionado;
+    }
+    public void setJefeSeleccionado(String jefeSeleccionado) {
+        this.jefeSeleccionado = jefeSeleccionado;
+    }
+
     @Override
     public void ataque1(Personaje personaje) {
         switch(jefeSeleccionado) {
@@ -40,8 +47,8 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 120));
                 personaje.setResistenciaFisica((int) (personaje.getResistenciaFisica() * 0.8));
                 personaje.setResistenciaMagica((int) (personaje.getResistenciaMagica() * 0.8));
-                System.out.println("El enemigo ha reducido su Resistencia Física ↓");
-                System.out.println("El enemigo ha reducido su Resistencia Mágica ↓");
+                System.out.println("El enemigo ha reducido su Resistencia Física");
+                System.out.println("El enemigo ha reducido su Resistencia Mágica");
                 break;
         }
     }
@@ -58,26 +65,26 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
                 velocidad *= 1.2;
                 resistenciaFisica = (int) (resistenciaFisica * 0.8);
                 resistenciaMagica = (int) (resistenciaMagica * 0.8);
-                System.out.println("El enemigo ha aumentado su Vida ↑");
-                System.out.println("El enemigo ha aumentado su Daño Físico ↑");
-                System.out.println("El enemigo ha aumentado su Daño Mágico ↑");
-                System.out.println("El enemigo ha aumentado su Velocidad ↑");
-                System.out.println("El enemigo ha reducido su Resistencia Física ↓");
-                System.out.println("El enemigo ha reducido su Resistencia Mágica ↓");
+                System.out.println("El enemigo ha aumentado su Vida ");
+                System.out.println("El enemigo ha aumentado su Daño Físico ");
+                System.out.println("El enemigo ha aumentado su Daño Mágico ");
+                System.out.println("El enemigo ha aumentado su Velocidad ");
+                System.out.println("El enemigo ha reducido su Resistencia Física");
+                System.out.println("El enemigo ha reducido su Resistencia Mágica");
                 break;
             
             case "Patricio":
                 System.out.println("El jefe enemigo ha usado el ataque Furia Estrellada");
-                // Patricio entra en un estado de furia estrellada, aumentando enormemente su ataque. Aumenta en 200 su daño físico.
-                dañoFisico += 200;
-                System.out.println("El enemigo ha aumentado su Daño Físico ↑");
+                // Patricio entra en un estado de furia estrellada, aumentando enormemente su ataque. Aumenta por 2 su daño físico.
+                dañoFisico *= 2;
+                System.out.println("El enemigo ha aumentado su Daño Físico");
                 break;
             
             case "Kraken":
                 System.out.println("El jefe enemigo ha usado el ataque Corrientes Abisales");
                 // El Kraken controla las corrientes marinas, aumentando exageradamente su velocidad un 777%
                 velocidad *= 8.77;
-                System.out.println("El enemigo ha aumentado su Velocidad ↑");
+                System.out.println("El enemigo ha aumentado su Velocidad");
                 break;
         }
     }
@@ -97,7 +104,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
                 int dañoRealizado = (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 120);
                 personaje.setVida(personaje.getVida() - dañoRealizado);
                 vida += dañoRealizado/2.5;
-                System.out.println("El enemigo ha aumentado su Vida ↑");
+                System.out.println("El enemigo ha aumentado su Vida");
                 break;
             
             case "Kraken":

@@ -15,6 +15,13 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
         this.enemigoSeleccionado = enemigoSeleccionado;
     }
 
+    public String getEnemigoSeleccionado() {
+        return enemigoSeleccionado;
+    }
+    public void setEnemigoSeleccionado(String enemigoSeleccionado) {
+        this.enemigoSeleccionado = enemigoSeleccionado;
+    }
+
     @Override
     public void ataque1(Personaje personaje) {
         switch(enemigoSeleccionado) {
@@ -23,7 +30,7 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
                 // El loco lanza un coco con fuerza que hace 60 de daño fisico según del atributo correr y lo aumenta en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * correr / 100)));
                 correr += 10;
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ↑");
+                System.out.println("El enemigo ha aumentado su velocidad de carrera");
                 break;
             
             case "Emú":
@@ -31,7 +38,7 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
                 // El emú da una patada que hace 60 de daño fisico según del atributo correr y aumenta su velocidad en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * correr / 100)));
                 velocidad += 10;
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su velocidad");
                 break;
             
             case "Sapo":
@@ -39,7 +46,7 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
                 // El sapo lanza un lengüetazo al personaje, haciendo 60 de daño fisico según del atributo correr y aumenta su daño físico en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * correr / 100)));
                 dañoFisico += 10;
-                System.out.println("El enemigo ha aumentado su daño físico ↑");
+                System.out.println("El enemigo ha aumentado su daño físico");
                 break;
         }
     }
@@ -54,10 +61,10 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
                 dañoMagico += 20;
                 velocidad += 20;
                 correr += 20;
-                System.out.println("El enemigo ha aumentado su daño físico ↑");
-                System.out.println("El enemigo ha aumentado su daño mágico ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ↑");
+                System.out.println("El enemigo ha aumentado su daño físico ");
+                System.out.println("El enemigo ha aumentado su daño mágico ");
+                System.out.println("El enemigo ha aumentado su velocidad ");
+                System.out.println("El enemigo ha aumentado su velocidad de carrera ");
                 break;
             
             case "Emú":
@@ -67,10 +74,10 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
                 resistenciaMagica += 20;
                 velocidad += 20;
                 correr += 20;
-                System.out.println("El enemigo ha aumentado su resistencia física ↑");
-                System.out.println("El enemigo ha aumentado su resistencia mágica ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ↑");
+                System.out.println("El enemigo ha aumentado su resistencia física ");
+                System.out.println("El enemigo ha aumentado su resistencia mágica ");
+                System.out.println("El enemigo ha aumentado su velocidad ");
+                System.out.println("El enemigo ha aumentado su velocidad de carrera ");
                 break;
             
             case "Sapo":
@@ -79,8 +86,8 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
                 vida += 20;
                 correr += 20;
                 estaSangrando = false;
-                System.out.println("El enemigo ha aumentado su vida ↑");
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ↑");
+                System.out.println("El enemigo ha aumentado su vida ");
+                System.out.println("El enemigo ha aumentado su velocidad de carrera ");
                 System.out.println("El enemigo ha curado su sangrado");
                 break;
         }
@@ -105,10 +112,10 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
             
             case "Sapo":
                 System.out.println("El enemigo ha usado el ataque Lluvia de Babas");
-                // El sapo genera una tormenta que segrega babas tóxicas que realizan 50 de daño mágico y ralentizan al personaje en 20.
+                // El sapo genera una tormenta que segrega babas tóxicas que realizan 50 de daño mágico y ralentizan al personaje en 20%.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + (50 * correr / 100)));
-                personaje.setVelocidad(personaje.getVelocidad() - 20);
-                System.out.println("El personaje ha disminuido su velocidad ↓");
+                personaje.setVelocidad((int) (personaje.getVelocidad() * 0.8));
+                System.out.println("El personaje ha disminuido su velocidad");
                 break;
         }
     }

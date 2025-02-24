@@ -53,8 +53,8 @@ public class EnemigoTerrestreJefe extends EnemigoTerrestre{
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 120));
                 personaje.setResistenciaFisica((int) (personaje.getResistenciaFisica() * 0.8));
                 personaje.setResistenciaMagica((int) (personaje.getResistenciaMagica() * 0.8));
-                System.out.println("El personaje ha disminuido su resistencia física ↓");
-                System.out.println("El personaje ha disminuido su resistencia mágica ↓");
+                System.out.println("El personaje ha disminuido su resistencia física");
+                System.out.println("El personaje ha disminuido su resistencia mágica");
                 break;
         }
     }
@@ -70,26 +70,26 @@ public class EnemigoTerrestreJefe extends EnemigoTerrestre{
                 velocidad *= 1.2;
                 resistenciaFisica = (int) (resistenciaFisica * 0.8);
                 resistenciaMagica = (int) (resistenciaMagica * 0.8);
-                System.out.println("El enemigo ha aumentado su vida ↑");
-                System.out.println("El enemigo ha aumentado su daño físico ↑");
-                System.out.println("El enemigo ha aumentado su daño mágico ↑");
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
-                System.out.println("El enemigo ha disminuido su resistencia física ↓");
-                System.out.println("El enemigo ha disminuido su resistencia mágica ↓");
+                System.out.println("El enemigo ha aumentado su vida ");
+                System.out.println("El enemigo ha aumentado su daño físico ");
+                System.out.println("El enemigo ha aumentado su daño mágico ");
+                System.out.println("El enemigo ha aumentado su velocidad ");
+                System.out.println("El enemigo ha disminuido su resistencia física ");
+                System.out.println("El enemigo ha disminuido su resistencia mágica ");
                 break;
             
             case "Trex":
                 System.out.println("El jefe enemigo ha usado el ataque Cólera del Titán");
                 // El Trex entra en cólera, aumentando enormemente su ataque. Aumenta en 200 su daño físico.
                 dañoFisico += 200;
-                System.out.println("El enemigo ha aumentado su daño físico ↑");
+                System.out.println("El enemigo ha aumentado su daño físico");
                 break;
             
             case "Rajoy":
                 System.out.println("El jefe enemigo ha usado el ataque 'Como decía Galileo, el movimiento siempre se acelera cuando se va a detener.'");
                 // Rajoy adopta los conocimientos de Galileo y aumenta exageradamente su velocidad. Su velocidad aumenta un 777%
                 velocidad *= 8.77;
-                System.out.println("El enemigo ha aumentado su velocidad ↑");
+                System.out.println("El enemigo ha aumentado su velocidad");
                 break;
         }
     }
@@ -108,7 +108,7 @@ public class EnemigoTerrestreJefe extends EnemigoTerrestre{
                 int dañoRealizado = (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 120);
                 personaje.setVida(personaje.getVida() - dañoRealizado);
                 vida += dañoRealizado/2.5;
-                System.out.println("El enemigo ha aumentado su vida ↑");
+                System.out.println("El enemigo ha aumentado su vida");
                 break;
             
             case "Rajoy":
