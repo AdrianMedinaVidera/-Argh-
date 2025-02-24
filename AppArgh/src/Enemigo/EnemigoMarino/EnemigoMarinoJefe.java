@@ -5,8 +5,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
     private String jefeSeleccionado;
     
     public EnemigoMarinoJefe(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
-            int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int nadar,
-            String[] nombre, String jefeSeleccionado) {
+            int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int nadar, String jefeSeleccionado) {
         super(vida, dañoMagico, resistenciaMagica, resistenciaFisica, velocidad, experienciaData, dineroDado, nivel,
                 dañoFisico, estaSangrando, nadar);
         this.jefeSeleccionado = jefeSeleccionado;

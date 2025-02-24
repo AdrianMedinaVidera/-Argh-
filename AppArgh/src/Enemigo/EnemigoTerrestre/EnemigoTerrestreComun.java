@@ -7,8 +7,7 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
     private String enemigoSeleccionado;
 
     public EnemigoTerrestreComun(int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad,
-            int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int correr,
-            String[] nombre, String enemigoSeleccionado) {
+            int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int correr, String enemigoSeleccionado) {
 
         super(vida, dañoMagico, resistenciaMagica, resistenciaFisica, velocidad, experienciaData, dineroDado, nivel,
                 dañoFisico, estaSangrando, correr);
