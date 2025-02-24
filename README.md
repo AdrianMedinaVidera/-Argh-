@@ -36,7 +36,7 @@ Para entender la diferencia entre ambos personajes, primero hay que entender las
 
 #### ¿Se puede terminar el juego?
 
-Tecnicamente. no puedes terminar nunca el juego, pues existe un modo ilimitado que te permite seguir jugando hasta el infinito. Al haber sistema de campaña, podrías considerar una victoria a partir del final de esta.
+Tecnicamente, no puedes terminar nunca el juego, pues existe un modo ilimitado que te permite seguir jugando hasta el infinito. Al haber sistema de campaña, podrías considerar una victoria a partir del final de esta.
 
 
 ## Screenshots
