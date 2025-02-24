@@ -264,6 +264,7 @@ public abstract class Personaje {
 		public abstract void infoAtaque1();
 		public abstract void infoAtaque2();
 		public abstract void infoAtaque3();
+		public abstract void eleccionAtaquesMenu();
 		
 		public abstract void ataque1 (Enemigo enemigo);
 		public abstract void ataque2 (Enemigo enemigo);

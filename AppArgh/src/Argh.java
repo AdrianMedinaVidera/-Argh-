@@ -298,13 +298,61 @@ public class Argh {
 
 	}
 
+	public static void menuInventarioCombate (Personaje personaje) {
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║                A R G H               ║");
+		System.out.println("╠══════════════════════════════════════╣");
+		System.out.println("║            OBJETOS A USAR            ║");
+		System.out.println("╚══════════════════════════════════════╝");
+		if (personaje.getInventario()[0] == null) {// Si el inventario está vacío, no se muestra el objeto (null)
+			System.out.println("   1. " + "Vacío");
+		} else {
+			System.out.println("   1. " + personaje.getInventario()[0].getNombre() + " " + personaje.getInventario()[0].getCantidad());
+		}
+		if (personaje.getInventario()[1] == null) {
+			System.out.println("   2. " + "Vacío");
+		} else {
+			System.out.println("   2. " + personaje.getInventario()[1].getNombre() + " " + personaje.getInventario()[1].getCantidad());
+		}
+		if (personaje.getInventario()[2] == null) {
+			System.out.println("   3. " + "Vacío");
+		} else {
+			System.out.println("   3. " + personaje.getInventario()[2].getNombre() + " " + personaje.getInventario()[2].getCantidad());
+		}
+		if (personaje.getInventario()[3] == null) {
+			System.out.println("   4. " + "Vacío");
+		} else {
+			System.out.println("   4. " + personaje.getInventario()[3].getNombre() + " " + personaje.getInventario()[3].getCantidad());
+		}
+		if (personaje.getInventario()[4] == null) {
+			System.out.println("   5. " + "Vacío");
+		} else {
+			System.out.println("   5. " + personaje.getInventario()[4].getNombre() + " " + personaje.getInventario()[4].getCantidad());
+		}
+		if (personaje.getInventario()[5] == null) {
+			System.out.println("   6. " + "Vacío");
+		} else {
+			System.out.println("   6. " + personaje.getInventario()[5].getNombre() + " " + personaje.getInventario()[5].getCantidad());
+		}
+		if (personaje.getInventario()[6] == null) {
+			System.out.println("   7. " + "Vacío");
+		} else {
+			System.out.println("   7. " + personaje.getInventario()[6].getNombre() + " " + personaje.getInventario()[6].getCantidad());
+		}
+		System.out.println("╔══════════════════════════════════════╗");
+		System.out.println("║     8. Salir del inventario          ║");
+		System.out.println("╚══════════════════════════════════════╝");
+
+	}
+
 	public static void suspense(){
-		esperar(2);
+		esperar(1);
 		System.out.print(".");
-		esperar(2);
+		esperar(1);
 		System.out.print(".");
-		esperar(2);
+		esperar(1);
 		System.out.print(".");
+		esperar(1);
 	}
 
 	public static boolean obtenerRespuestaConIntentos(String claveCorrecta, int intentosMaximos) {
@@ -420,13 +468,18 @@ public class Argh {
 		}
 	}
 
-	public static void usarObjetoCombate (Producto[] objeto, int opcion, Personaje personaje) {
-		personaje.usarObjeto(objeto[opcion]);
+	public static void usarObjetoCombate (Producto[] inventario, int opcion, Personaje personaje) {
+		opcion = opcion - 1;
+		if (inventario[opcion] == null){
+			System.out.println("No tienes ningún objeto en esa posición.");
+		} else {
+			personaje.usarObjeto(inventario[opcion]);
+		}
 	}
 	
 	public static void combate (Personaje personajeActivo, Enemigo enemigoComunMarino, Scanner sc, Random rand) {
 		int opcionCombate = 0;
-		int[] ataquesEnemigo = {1,2,3};
+		int[] ataquesEnemigo = {1,2,3}; // Posibles ataques a realizar por el enemigo
 		while (true) { // Bucle para elegir accion
 			personajeActivo.menuCombate();
 			try {
@@ -450,6 +503,7 @@ public class Argh {
 		switch (opcionCombate) { // Comprobamos la eleccion del usuario
 			case 1 -> {
 				// Atacar
+				personajeActivo.eleccionAtaquesMenu();
 				int opcionAtaque = 0;
 				try {
 					opcionAtaque = sc.nextInt();
@@ -480,7 +534,7 @@ public class Argh {
 					}
 					if (enemigoComunMarino.getVida() > 0) {
 						// Atacar enemigo
-						int ataqueEnemigo = ataquesEnemigo[rand.nextInt(ataquesEnemigo.length)];
+						int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
 						switch (ataqueEnemigo) {
 							case 1 -> {
 								// Ataque 1
@@ -498,7 +552,7 @@ public class Argh {
 					}
 				} else { // Si el enemigo es más rápido que el personaje
 					// Atacar enemigo primero
-					int ataqueEnemigo = ataquesEnemigo[rand.nextInt(ataquesEnemigo.length)];
+					int ataqueEnemigo = ataquesEnemigo[rand.nextInt(1, ataquesEnemigo.length)];
 					switch (ataqueEnemigo) {
 						case 1 -> {
 							// Ataque 1
@@ -517,8 +571,36 @@ public class Argh {
 			}
 			case 2 -> {
 				// Usar objeto
-				menuInventario(personajeActivo);
-				// try
+				int opcionObjeto = 0;
+				while (true) {
+					menuInventario(personajeActivo);
+				try {
+					opcionObjeto = sc.nextInt();
+					if (opcionObjeto >= 1 && opcionObjeto <= 8) {
+						break;
+					} else {
+						limpiarPantalla();
+						System.out.println("Opción inválida. Introduce una opción válida.");
+					}
+				} catch (Exception e) {
+					limpiarPantalla();
+				}
+				if (opcionObjeto != 8) {
+					limpiarPantalla();
+					usarObjetoCombate(personajeActivo.getInventario(), opcionObjeto, personajeActivo);
+				} else {
+					// Volver al combate
+					limpiarPantalla();
+				}
+				}
+			} case 3 -> {
+				limpiarPantalla();
+				personajeActivo.mostrarInfoCombate();
+				System.out.println("Pulsa enter para volver al combate.");
+				sc.nextLine();
+				limpiarPantalla();
+			} case 4 -> {
+				personajeActivo.huir(enemigoComunMarino);
 			}
 		}
 	}
@@ -668,16 +750,15 @@ public class Argh {
 			if (opcionContinuar == 1) {
 				// Avanzar
 				System.out.println("¡Tu aventura va a comenzar!");
-				esperar(4);
-				// String[] comienzo = new String[3];
+				esperar(2);
 				if(personajeActivo instanceof PersonajeCapitan){
-					System.out.println("Es un placerte tenerte con nosotros, capitán "+personajeActivo.getNombre()+".");
+					System.out.println("Es un placer tenerte con nosotros, capitán " + personajeActivo.getNombre()+".");
 					System.out.println("Su barco se está aproximando a las Tierras desconocidas...");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
 					limpiarPantalla();
 					System.out.println("Capitán, llega un aviso del mástil mayor que se atisba una isla en el horizonte.");
-					System.out.println("Vamos a desplegar a la tripulación para defender el barco... tengo un mal presentimiento...");
+					System.out.println("Vamos a desplegar a la tripulación para defender el barco, tengo un mal presentimiento...");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
 					limpiarPantalla();
@@ -726,13 +807,13 @@ public class Argh {
 					sc.nextLine();
 					limpiarPantalla();
 					System.out.println("Grumete, llega un aviso del mástil mayor: se atisba una isla en el horizonte.");
-					System.out.println("Voy a informar al capitán... tengo un mal presentimiento...");
+					System.out.println("Voy a informar al capitán, tengo un mal presentimiento...");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
 					limpiarPantalla();
 					System.out.println("Debemos advertir al capitán de la posible amenaza. ¡Corre y dile que debe prepararse!");
 					//------------------------------------------------------------------------------------------------------------
-					boolean pruebaDeLaVerdad = obtenerRespuestaConIntentos("pirata",  4);
+					boolean pruebaDeLaVerdad = obtenerRespuestaConIntentos("pirata",  5);
 					//------------------------------------------------------------------------------------------------------------
 					if(pruebaDeLaVerdad){
 						System.out.println("Tus pasos resuenan en todo el barco, haciendo temblar toda la nave.");
@@ -780,11 +861,11 @@ public class Argh {
 					System.out.println();
 					personajeActivo.infoAtaque3();
 					System.out.println();
-					System.out.println("Pulsa enter para continuar: ");
+					System.out.println("Pulsa enter para continuar... ");
 					sc.nextLine();
 					limpiarPantalla();
 				}
-				esperar(2);
+				combate(personajeActivo, enemigoComunMarino, sc, rand);
 				//FUNCION DE SUBIR DE NIVEL
 				//GUARDAR LAS STATS DEL PERSONAJE Y RESTABLECERLAS ANTES DEL COMBATE SEGUN EL NIVEL STAT*(1.1)**NIVEL
 

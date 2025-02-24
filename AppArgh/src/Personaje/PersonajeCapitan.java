@@ -26,6 +26,18 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("║    3. Espectro náutico               ║");
         System.out.println("╚══════════════════════════════════════╝");
     }
+    @Override
+    public void eleccionAtaquesMenu() {
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║                A R G H               ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║         INFORMACIÓN DE ATAQUES       ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║    1. Látigo de hierro (dñF)         ║");
+        System.out.println("║    2. Bramido de acero (dñF)         ║");
+        System.out.println("║    3. Espectro náutico (dñM)         ║");
+        System.out.println("╚══════════════════════════════════════╝");
+    }
 
     @Override
     public void infoAtaque1() {
@@ -96,7 +108,7 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("El capitán ha usado el ataque Espectro náutico.");
         enemigo.setVida(enemigo.getVida() - (int) (0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 120));
         estaSomnoliento = true;
-        System.out.println("El enemigo está somnoliento zZ");
+        System.out.println("El capitán está somnoliento zZ");
     }
 
 }

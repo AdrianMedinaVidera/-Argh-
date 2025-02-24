@@ -89,6 +89,34 @@ public void infoAtaquesMenu() {
         System.out.println("╚══════════════════════════════════════╝");
     }
 }
+@Override
+public void eleccionAtaquesMenu() {
+    if (rolSeleccionado.toLowerCase().equals("cubierta")) {
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║      Elige el ataque a realizar:     ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║    1. Barrido Arcano (dñM)           ║");
+        System.out.println("║    2. Vendaval Ascendente (Est)      ║");
+        System.out.println("║    3. Disparo Certero (dñF)          ║");
+        System.out.println("╚══════════════════════════════════════╝");
+    } else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║      Elige el ataque a realizar:     ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║    1. Meteoro Cheddar (dñM)          ║");
+        System.out.println("║    2. Caldo de los Condenados (Est)  ║");
+        System.out.println("║    3. Hongo Explosivo (dñM)          ║");
+        System.out.println("╚══════════════════════════════════════╝");
+    } else {
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║      Elige el ataque a realizar:     ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║    1. Lanzamiento de Barril (dñF)    ║");
+        System.out.println("║    2. Carga de Ancla (Est)           ║");
+        System.out.println("║    3. Embestida Blindada (dñF)       ║");
+        System.out.println("╚══════════════════════════════════════╝");
+    }
+}
 
 @Override
 public void infoAtaque1() {
