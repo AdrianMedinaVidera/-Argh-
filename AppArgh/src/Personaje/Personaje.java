@@ -610,9 +610,8 @@ public abstract class Personaje {
 			System.out.println("╚══════════════════════════════════════╝");
 		}
 		
-		public boolean huir (Enemigo enemigo) {
+		public boolean huir (Enemigo enemigo, Scanner sc) {
 			System.out.println("¿Está seguro de que quiere huir del combate? (S/N) :P");
-			try (Scanner sc = new Scanner(System.in)){
 			String opcion = sc.nextLine().toLowerCase();
 			double rng = Math.random()* 100 + 1; //Número aleatorio para poder definir probabilidades de huida.
 			if (opcion.equals("s")) {
@@ -621,37 +620,66 @@ public abstract class Personaje {
 						return true; //Huye del combate siempre porque tiene un 100% de probabilidad
 					} else if (velocidad/enemigo.getVelocidad() > 1 && velocidad/enemigo.getVelocidad() < 2) { // Si tiene una velocidad similar o igual, la probabilidad es del 50%
 						if (rng <= 75) { // Es 75 por el aumento del 25%
+							System.out.println("Has huido con éxito.");
+							esperar(1);
+							limpiarPantalla();
 							return true; //Huye del combate
 						} else {
+							System.out.println("No has podido huir.");
+							esperar(1);
+							limpiarPantalla();
 							return false; // No huye del combate
 						}
 					} else { // Si tiene menos velocidad tiene un 25% de probabilidad de huir
 						if (rng <= 50) { // Es 50 por el aumento del 25%
+							System.out.println("Has huido con éxito.");
+							esperar(1);
+							limpiarPantalla();
 							return true; //Huye del combate
 						} else {
+							System.out.println("No has podido huir.");
+							esperar(1);
+							limpiarPantalla();
 							return false; //No huye del combate 
 						}
 					}
 				} else if(velocidad/enemigo.getVelocidad() >= 2 && pedoActivado == false) { // Si tiene al menos el doble de velocidad, la probabilidad de huir es de un 75%
 					if (rng <= 75) {
+						System.out.println("Has huido con éxito.");
+						esperar(1);
+						limpiarPantalla();
 						return true; //Huye del combate
 					} else {
+						System.out.println("No has podido huir.");
+						esperar(1);
+						limpiarPantalla();
 						return false; //No huye del combate
 					}
 				} else if (velocidad/enemigo.getVelocidad() > 1 && velocidad/enemigo.getVelocidad() < 2 && pedoActivado == false) { // Si tiene una velocidad similar o igual, la probabilidad es del 50%
 					if (rng <= 50) {
+						System.out.println("Has huido con éxito.");
+						esperar(1);
+						limpiarPantalla();
 						return true; //Huye del combate
 					} else {
+						System.out.println("No has podido huir.");
+						esperar(1);
+						limpiarPantalla();
 						return false; //No huye del combate
 					}
 				} else { // Si tiene menos velocidad tiene un 25% de probabilidad de huir
 					if (rng <= 25) {
+						System.out.println("Has huido con éxito.");
+						esperar(1);
+						limpiarPantalla();
 						return true; //Huye del combate
 					} else {
+						System.out.println("No has podido huir.");
+						esperar(1);
+						limpiarPantalla();
 						return false; //No huye del combate
 					}
 				}
-			}
 			}
 			return false; //No huye si pone un input diferente a "s" (sí).
 		}

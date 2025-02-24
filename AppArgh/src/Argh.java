@@ -498,7 +498,7 @@ public class Argh {
 				case 1 -> gestionarAtaque(personajeActivo, enemigoComunMarino, sc, rand, ataquesEnemigo);
 				case 2 -> gestionarUsoObjeto(personajeActivo, sc);
 				case 3 -> mostrarEstadisticasCombate(personajeActivo, sc);
-				case 4 -> combateActivo = !personajeActivo.huir(enemigoComunMarino);
+				case 4 -> combateActivo = !personajeActivo.huir(enemigoComunMarino, sc);
 			}
 		}
 	}
@@ -892,7 +892,7 @@ public class Argh {
 
 				// }
 
-				suspense();			
+				// suspense();			
 				// personajeActivo.setDañoFisico((int)(personajeActivo.getDañoFisico() * Math.pow(1.1, enemigoComunMarino.getNivel())));
 				// personajeActivo.setDañoMagico((int)(personajeActivo.getDañoMagico() * Math.pow(1.1, nivelE1)));
 				// personajeActivo.setResistenciaFisica((int)(personajeActivo.getResistenciaFisica() * Math.pow(1.1, nivelE1)));
@@ -902,11 +902,11 @@ public class Argh {
 				// personajeActivo.setNivel((int)(personajeActivo.getNivel() * Math.pow(1.1, nivelE1)));
 				// personajeActivo.setExperiencia((int)(personajeActivo.getExperiencia() * Math.pow(1.1, nivelE1)));
 				// personajeActivo.setMonedas(personajeActivo.getMonedas()+enemigoComun1.getDineroDado());
-				System.out.println("Primer enemigo vencido!");
-				System.out.println("¡Enhorabuena!");
-				System.out.println("Pulsa enter para continuar...");
-				sc.nextLine();
-				limpiarPantalla();
+				// System.out.println("Primer enemigo vencido!");
+				// System.out.println("¡Enhorabuena!");
+				// System.out.println("Pulsa enter para continuar...");
+				// sc.nextLine();
+				// limpiarPantalla();
 			
 				
 			} else if (opcionContinuar == 2) {
