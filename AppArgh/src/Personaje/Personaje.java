@@ -205,7 +205,7 @@ public abstract class Personaje {
 			this.estaSangrando = estaSangrando;
 		}
 
-		public boolean getEstaSomnoliento(boolean estaSomnoliento) {
+		public boolean getEstaSomnoliento() {
 			return estaSomnoliento;
 		}
 
