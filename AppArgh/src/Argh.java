@@ -76,6 +76,18 @@ public class Argh {
 		System.exit(0);
 	}
 
+	public static void mostrarLogo() {
+		System.out.println();
+		System.out.println();
+		System.out.println("    █████╗ ██████╗  ██████╗ ██╗  ██╗ ██╗");
+		System.out.println("   ██╔══██╗██╔══██╗██╔════╝ ██║  ██║ ██║");
+		System.out.println("   ███████║██████╔╝██║  ███╗███████║ ██║");
+		System.out.println("   ██╔══██║██╔══██╗██║   ██║██╔══██║   ");
+		System.out.println("   ██║  ██║██║  ██║╚██████╔╝██║  ██║ ██║");
+		System.out.println("   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═╝");
+		System.out.println("                                        ");
+	}
+
 	public static void entrarTienda (Tendera tendera, Personaje personajeActivo, Scanner sc) { 
 		boolean dentroTienda = true;
 		while (dentroTienda) {
@@ -942,6 +954,7 @@ public class Argh {
 		//Comienzo del juego.
 		Scanner sc = new Scanner(System.in);
 		while (true) { // Bucle de menú inicial
+			mostrarLogo();
 			menuInicial();
 			int opcionInical = 0;
 			try {
@@ -992,13 +1005,13 @@ public class Argh {
 				if (opcionDificultad == 1) {
 					// Dificultad normal
 					System.out.println("");
-					System.out.println("╔══════════════════════════════════════╗");
-					System.out.println("║                A R G H               ║");
-					System.out.println("╠══════════════════════════════════════╣");
-					System.out.println("║         DIFICULTAD NORMAL            ║");
-					System.out.println("║                                      ║");
-					System.out.println("║          ¡Eres un grumete!           ║");
-					System.out.println("║                                      ║");
+					System.out.println("╔═══════════════════════════════════════╗");
+					System.out.println("║                A R G H                ║");
+					System.out.println("╠═══════════════════════════════════════╣");
+					System.out.println("║           DIFICULTAD NORMAL           ║");
+					System.out.println("║                                       ║");
+					System.out.println("║           ¡Eres un grumete!           ║");
+					System.out.println("║                                       ║");
 					int randomRol = (int) (Math.random() * 100); // Número aleatorio para seleccionar rol
 					String rolSeleccionado;
 					boolean contadorCubierta = false;
@@ -1006,19 +1019,19 @@ public class Argh {
 					boolean contadorArtillero = false;
 
 					if (randomRol <= 33) {
-						System.out.println("║  ¡Tu rol seleccionado es CUBIERTA!   ║");
+						System.out.println("║  ¡Tu rol seleccionado es CUBIERTA!    ║");
 						rolSeleccionado = "Cubierta";
 						contadorCubierta = true;
 					} else if (randomRol <= 66) {
-						System.out.println("║  ¡Tu rol seleccionado es COCINERO!   ║");
+						System.out.println("║  ¡Tu rol seleccionado es COCINERO!    ║");
 						rolSeleccionado = "Cocinero";
 						contadorCocinero = true;
 					} else {
-						System.out.println("║  ¡Tu rol seleccionado es ARTILLERO!  ║");
+						System.out.println("║  ¡Tu rol seleccionado es ARTILLERO!   ║");
 						rolSeleccionado = "Artillería";
 						contadorArtillero = true;
 					}
-					System.out.println("╚══════════════════════════════════════╝");
+					System.out.println("╚═══════════════════════════════════════╝");
 					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta);
 					personajeActivo = grumete;
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
@@ -1034,7 +1047,7 @@ public class Argh {
 					System.out.println("╔══════════════════════════════════════╗");
 					System.out.println("║                A R G H               ║");
 					System.out.println("╠══════════════════════════════════════╣");
-					System.out.println("║         DIFICULTAD EXTREMA           ║");
+					System.out.println("║           DIFICULTAD EXTREMA         ║");
 					System.out.println("║                                      ║");
 					System.out.println("║          ¡Eres el capitán!           ║");
 					System.out.println("╚══════════════════════════════════════╝");
@@ -1564,6 +1577,10 @@ public class Argh {
 
 					System.out.println("El leviatán emitió un último rugido antes de hundirse en las profundidades, derrotado.");
 					System.out.println("El océano se calmó, y el silencio volvió a reinar.");
+					limpiarPantalla();
+					System.out.println("VICTORIA");
+				} else if (mundoActual >= 12) { // Combates infinitos
+
 				}
 				
 			} else if (opcionContinuar == 2) {
@@ -1710,6 +1727,26 @@ public class Argh {
 							// Barriles
 							limpiarPantalla();
 							tendera.entrarBarril(personajeActivo, sc);
+							int opcionBarril = 0;
+							if (personajeActivo.getBarrilesDisponibles() <= 0) {
+								opcionBarril = sc.nextInt();
+								if (opcionBarril == 1) {
+									limpiarPantalla();
+								} else {
+									System.out.println("Inserte un valor válido.");
+								}
+							} else {
+								opcionBarril = sc.nextInt();
+								if (opcionBarril == 1) {
+									//Abrir barril
+									tendera.abrirBarril(personajeActivo);
+									limpiarPantalla();
+								} else if (opcionBarril == 2) {
+									tendera.entrarBarril(personajeActivo, sc);
+								} else {
+									System.out.println("Inserte un valor válido.");
+								}
+							}
 						}
 						case 5 -> {
 							// Descansar

@@ -157,7 +157,7 @@ public class Tendera {
         System.out.println("║                 \\                   /             ║");
         System.out.println("║                  \\                 /              ║");
         System.out.println("║                   _________________/               ║");
-        if (personaje.getBarrilesDisponibles() == 0) {
+        if (personaje.getBarrilesDisponibles() <= 0) {
             System.out.println("╠════════════════════════════════════════════════════╣");
             System.out.println("║       AQUÍ APARECERAN LOS BARRILES QUE TENGAS      ║");
             System.out.println("╠════════════════════════════════════════════════════╣");
@@ -167,8 +167,42 @@ public class Tendera {
             System.out.println("╠════════════════════════════════════════════════════╣");
             System.out.println("            BARRILES DISPONIBLES " + personaje.getBarrilesDisponibles());
             System.out.println("║               1. Abrir barril.                     ║");
+            System.out.println("║               2. Salir.                            ║");
             System.out.println("╚════════════════════════════════════════════════════╝");
         }
+    }
+
+    public void abrirBarril (Personaje personaje) {
+        int numAleatorio = (int) (Math.random() * items.length + 1);
+        int index = 0;
+        boolean inventarioVacio = false;
+        for (int i = 0; i < items.length; i++) {
+            if (personaje.getInventario()[i] == null) {
+                inventarioVacio = true;
+                index = i;
+                break;
+            }
+        }
+        if (inventarioVacio) {
+            // Metemos al inventario un objeto aleatorio de la lista de productos.
+            if (numAleatorio == items.length + 1) {
+                int monedasRandom = (int) (Math.random() * 200 + 1);
+                System.out.println("Has encontrado " + monedasRandom + " monedas!");
+                personaje.setMonedas(personaje.getMonedas() + monedasRandom);
+            } else {
+                personaje.getInventario()[index] = items[numAleatorio];
+                System.out.println("Has encontrado un " + items[numAleatorio].getNombre() + "!");
+                esperar(2);
+                limpiarPantalla();
+            }
+        } else {
+            System.out.println("No tienes espacio en el inventario.");
+            esperar(2);
+            limpiarPantalla();
+        }
+        System.out.println("Se va a abrir un barril.");
+        esperar(2);
+
     }
 
     public void entrarCasino(Personaje personaje, Scanner sc) {
