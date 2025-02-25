@@ -51,9 +51,6 @@ Tecnicamente, no puedes terminar nunca el juego, pues existe un modo ilimitado q
 
 ![Portada del juego](https://img.freepik.com/vector-premium/isla-pirata-oceano-estilo-dibujos-animados-barco-amarrado-isla-palmeras-isla-deshabitada-mar-paisaje-tropical-playa-arena-naturaleza-tropical_87946-2101.jpg?semt=ais_hybrid)
 
-![Screenshot](file:///C:/Users/adrim/Downloads/DALL%C2%B7E%202025-02-25%2018.08.17%20-%20A%20pirate%20ship%20engaged%20in%20battle%20against%20enemies%20on%20a%20tropical%20island.%20The%20ship%20has%20tattered%20black%20sails%20with%20a%20skull%20emblem,%20and%20pirates%20are%20firing%20ca.webp)
-
-
 ## Feedback
 
 Si crees que hay alguna forma de mejorar el juego, háznoslo saber al siguiente correo
