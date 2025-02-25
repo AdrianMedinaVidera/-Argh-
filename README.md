@@ -46,10 +46,6 @@ Para entender la diferencia entre ambos personajes, primero hay que entender las
 
 Tecnicamente, no puedes terminar nunca el juego, pues existe un modo ilimitado que te permite seguir jugando hasta el infinito. Al haber sistema de campaña, podrías considerar una victoria a partir del final de esta.
 
-## Documentación
-
-[Consulta el documento](D:\ARGH\ARGH.pdf)
-
 
 ## Screenshots
 
