@@ -45,9 +45,7 @@ abstract public class Enemigo {
 	}
 
 	abstract public void ataque1(Personaje personaje);
-
 	abstract public void ataque2(Personaje personaje);
-
 	abstract public void ataque3(Personaje personaje);
 
 	@Override

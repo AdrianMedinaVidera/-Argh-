@@ -13,10 +13,10 @@ public class PersonajeGrumete extends Personaje{
 			int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
 			int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
 			Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando,
-			String rolSeleccionado, boolean contadorCocinero, boolean contadorArtillero, boolean contadorCubierta) {
+			String rolSeleccionado, boolean contadorCocinero, boolean contadorArtillero, boolean contadorCubierta, int barrilesDisponibles) {
 		super(nombre, genero, vida, dañoFisico, dañoMagico, resistenciaFisica, resistenciaMagica, velocidad, experiencia, nivel,
 				monedas, grumetesRestantes, islasConquistadas, enemigosDerrotados, estaEnCombate, inventario,
-				objetoEquipado, pedoActivado, estaSomnoliento, estaSangrando);
+				objetoEquipado, pedoActivado, estaSomnoliento, estaSangrando, barrilesDisponibles);
 		this.rolSeleccionado = rolSeleccionado;
 		this.contadorCocinero = contadorCocinero;
 		this.contadorArtillero = contadorArtillero;

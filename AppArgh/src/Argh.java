@@ -580,8 +580,50 @@ public class Argh {
 	public static void combate(Personaje personajeActivo, Enemigo enemigo, Scanner sc, Random rand) {
 		boolean combateActivo = true;
 		int[] ataquesEnemigo = {1,2,3};
-	
+		int vidaInicial = (int) (100 * Math.pow(1.1, personajeActivo.getNivel()));
 		while (combateActivo) {
+			
+			if (personajeActivo.getObjetoEquipado().equals(minipocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.5)) {
+				personajeActivo.setVida(personajeActivo.getVida() + 20);
+					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+						int diferencia = personajeActivo.getVida() - vidaInicial;
+						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
+					}
+			} else if (personajeActivo.getObjetoEquipado().equals(pocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
+				personajeActivo.setVida(personajeActivo.getVida() + 60);
+					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+						int diferencia = personajeActivo.getVida() - vidaInicial;
+						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
+					}
+			} else if (personajeActivo.getObjetoEquipado().equals(superpocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
+				personajeActivo.setVida(personajeActivo.getVida() + 120);
+					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+						int diferencia = personajeActivo.getVida() - vidaInicial;
+						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
+					}
+			} else if (personajeActivo.getObjetoEquipado().equals(redbull) && personajeActivo.getEstaSomnoliento()) {
+				personajeActivo.setEstaSomnoliento(false);
+			} else if (personajeActivo.getVelocidad() < enemigo.getVelocidad()) {
+				personajeActivo.setVelocidad((int) (personajeActivo.getVelocidad() * 1.2));
+			} else if (personajeActivo.getObjetoEquipado().equals(redbull) && personajeActivo.getEstaSomnoliento()){
+				personajeActivo.setPedoActivado(true);
+			}
+
+
+
+
+
+
+
+			if (personajeActivo.getEstaSangrando()) {
+                int dañoSangrado = (int)(personajeActivo.getVida() * 0.05);
+                personajeActivo.setVida(personajeActivo.getVida() - dañoSangrado);
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  ¡Estás sangrando! Pierdes " + dañoSangrado + " de vida     ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
+                esperar(2);
+            }
+
 			if (enemigo.getVida() <= 0) {
 				// Damos las recompensas al jugador
 				personajeActivo.setMonedas(personajeActivo.getMonedas() + enemigo.getDineroDado());
@@ -622,7 +664,17 @@ public class Argh {
 			int opcionCombate = obtenerOpcionCombate(personajeActivo, sc, enemigo);
 			
 			switch (opcionCombate) {
-				case 1 -> gestionarAtaque(personajeActivo, enemigo, sc, rand, ataquesEnemigo);
+				case 1 -> {
+					if (personajeActivo.getEstaSomnoliento()) {
+						System.out.println("╔═════════════════════════════════════════════╗");
+                        System.out.println("║  ¡Estás demasiado somnoliento para atacar!  ║");
+                        System.out.println("╚═════════════════════════════════════════════╝");
+						personajeActivo.setEstaSomnoliento(false);
+						esperar(2);
+					} else {
+						gestionarAtaque(personajeActivo, enemigo, sc, rand, ataquesEnemigo);
+					}
+				}
 				case 2 -> gestionarUsoObjeto(personajeActivo, sc);
 				case 3 -> mostrarEstadisticasCombate(personajeActivo, sc);
 				case 4 -> combateActivo = !personajeActivo.huir(enemigo, sc);
@@ -806,7 +858,7 @@ public class Argh {
 		}
 		return -1;
 	}
-	// * ESTA BIEN O ESO PARECE
+
 	private static void gestionarUsoObjeto(Personaje personajeActivo, Scanner sc) {
 		boolean dentroInventario = true;
 		while (dentroInventario) {
@@ -968,7 +1020,10 @@ public class Argh {
 	public static void main(String[] args) {
 		
 		//Creación de objetos.
-		Tendera tendera = new Tendera(null, false);      
+		Producto[] itemsTienda = {minipocion, pocion, superpocion, baculo, espada, mandoble, 
+            varitaMadera, varitaPlastico, varitaOro, escudito, escudo, escudazo, 
+            capita, capa, capaza, alas, pedo, objetoMisterioso, redbull, caramelo};
+        Tendera tendera = new Tendera(itemsTienda, false);     
 
 		Personaje personajeActivo = null;
 		Producto[] inventario = new Producto[7]; // Inventario del jugador
@@ -976,7 +1031,7 @@ public class Argh {
 		Random rand = new Random();
 
 		// Creación de los enemigos
-		Enemigo[] listaEnemigosMarinos = { // (int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad, int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int nado, String enemigoSeleccionado)
+		Enemigo[] listaEnemigosMarinos = {
 			new EnemigoMarinoComun(100, 10, 10, 20, 30, 100, 25, 0, 20, false, 15, "Amonite"),
 			new EnemigoMarinoComun(100, 15, 15, 15, 20, 100, 25, 0, 15, false, 20, "Trilobite"),
 			new EnemigoMarinoComun(100, 20, 20, 10, 10, 100, 25, 0, 10, false, 10, "Zooplacton")
@@ -1081,7 +1136,7 @@ public class Argh {
 						contadorArtillero = true;
 					}
 					System.out.println("╚═══════════════════════════════════════╝");
-					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta);
+					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta, 0);
 					personajeActivo = grumete;
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
@@ -1106,7 +1161,7 @@ public class Argh {
 					sc.nextLine();
 					sc.nextLine();
 					limpiarPantalla();
-					Personaje capitán = new PersonajeCapitan(nombre, genero, 100, 30, 20, 10, 30, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false);
+					Personaje capitán = new PersonajeCapitan(nombre, genero, 100, 30, 20, 10, 30, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, 5);
 					personajeActivo = capitán;
 					break;
 				} else {
@@ -1989,7 +2044,7 @@ public class Argh {
 									tendera.abrirBarril(personajeActivo);
 									limpiarPantalla();
 								} else if (opcionBarril == 2) {
-									tendera.entrarBarril(personajeActivo, sc);
+									limpiarPantalla();
 								} else {
 									System.out.println("Inserte un valor válido.");
 								}

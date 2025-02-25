@@ -173,7 +173,7 @@ public class Tendera {
     }
 
     public void abrirBarril (Personaje personaje) {
-        int numAleatorio = (int) (Math.random() * items.length + 1);
+        int numAleatorio = (int) (Math.random() * items.length);
         int index = 0;
         boolean inventarioVacio = false;
         for (int i = 0; i < items.length; i++) {
@@ -185,12 +185,18 @@ public class Tendera {
         }
         if (inventarioVacio) {
             // Metemos al inventario un objeto aleatorio de la lista de productos.
-            if (numAleatorio == items.length + 1) {
+            System.out.println("Se va a abrir un barril.");
+            esperar(3);
+            if (numAleatorio == 0) {
                 int monedasRandom = (int) (Math.random() * 200 + 1);
                 System.out.println("Has encontrado " + monedasRandom + " monedas!");
                 personaje.setMonedas(personaje.getMonedas() + monedasRandom);
             } else {
-                personaje.getInventario()[index] = items[numAleatorio];
+                Producto itemEncontrado = items[numAleatorio];
+                itemEncontrado.setCantidad(itemEncontrado.getCantidad() + 1);
+                personaje.getInventario()[index] = itemEncontrado;
+                personaje.setBarrilesDisponibles(personaje.getBarrilesDisponibles() - 1); // !
+                
                 System.out.println("Has encontrado un " + items[numAleatorio].getNombre() + "!");
                 esperar(2);
                 limpiarPantalla();
@@ -200,9 +206,6 @@ public class Tendera {
             esperar(2);
             limpiarPantalla();
         }
-        System.out.println("Se va a abrir un barril.");
-        esperar(2);
-
     }
 
     public void entrarCasino(Personaje personaje, Scanner sc) {

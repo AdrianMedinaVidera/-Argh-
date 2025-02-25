@@ -8,10 +8,10 @@ public class PersonajeCapitan extends Personaje {
     public PersonajeCapitan(String nombre, String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
             int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
             int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
-            Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando) {
+            Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando, int barrilesDisponibles) {
         super(nombre, genero, vida, dañoFisico, dañoMagico, resistenciaFisica, resistenciaMagica, velocidad, experiencia, nivel,
                 monedas, grumetesRestantes, islasConquistadas, enemigosDerrotados, estaEnCombate, inventario,
-                objetoEquipado, pedoActivado, estaSomnoliento, estaSangrando);
+                objetoEquipado, pedoActivado, estaSomnoliento, estaSangrando, barrilesDisponibles);
     }
 
     @Override

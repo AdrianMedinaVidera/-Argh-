@@ -22,7 +22,7 @@ public abstract class Personaje {
 	    protected boolean pedoActivado = false; // Pasa a true cuando activan el objeto pedo.
 	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento".
 	    protected boolean estaSangrando = false; // Detecta si el jugador tiene el estado "sangrado".
-		protected int barrilesDisponibles = 0;
+		protected int barrilesDisponibles = 0; // Barriles disponibles para la apertura del jugador.
 
 	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7).
 	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios.
@@ -31,7 +31,7 @@ public abstract class Personaje {
 	    public Personaje(String nombre, String genero, int vida, int dañoFisico, int dañoMagico, int resistenciaFisica,
 				int resistenciaMagica, int velocidad, int experiencia, int nivel, int monedas, int grumetesRestantes,
 				int islasConquistadas, int enemigosDerrotados, boolean estaEnCombate, Producto[] inventario,
-				Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando) 
+				Producto objetoEquipado, boolean pedoActivado, boolean estaSomnoliento, boolean estaSangrando, int barrilesDisponibles) 
 	    {
 			super();
 			this.nombre = nombre;
@@ -54,6 +54,7 @@ public abstract class Personaje {
 			this.estaSomnoliento = estaSomnoliento;
 			this.pedoActivado = pedoActivado;
 			this.estaSangrando = estaSangrando;
+			this.barrilesDisponibles = barrilesDisponibles;
 	    }
 	    
 	    // Getters y Setters de Personaje ---------------------------------------------------------------------------
@@ -222,6 +223,14 @@ public abstract class Personaje {
 			this.barrilesDisponibles = barrilesDisponibles;
 		}
 
+		public void setPedoActivado (boolean pedoActivado) {
+			this.pedoActivado = pedoActivado;
+		}
+
+		public boolean getPedoActivado () {
+			return pedoActivado;
+		}
+
 	    // Fin de Getters y Setters de Personaje --------------------------------------------------------------------
 	    
 		public static void limpiarPantalla() {
@@ -318,23 +327,27 @@ public abstract class Personaje {
 		}
 		public void equiparObjeto(Producto[] inventario, int i) {
 			Producto objetoAnterior = objetoEquipado;
-			if (inventario[i] == null) {
-				System.out.println("No hay ningún objeto en esa posición.");
-				esperar(2);
-				limpiarPantalla();
+			if (objetoEquipado != null) {
+				System.out.println("Ya tienes un objeto equipado. Desequipalo antes de equipar otro.");
 			} else {
-				objetoEquipado = inventario[i];
-				inventario[i].setCantidad(inventario[i].getCantidad() - 1);
-				System.out.println("Se ha equipado el objeto " + inventario[i].getNombre() + ".");
-				if (inventario[i].getCantidad() == 0) {
-					eliminarObjetoInventario(inventario[i]);
+				if (inventario[i] == null) {
+					System.out.println("No hay ningún objeto en esa posición.");
+					esperar(2);
+					limpiarPantalla();
+				} else {
+					objetoEquipado = inventario[i];
+					inventario[i].setCantidad(inventario[i].getCantidad() - 1);
+					System.out.println("Se ha equipado el objeto " + inventario[i].getNombre() + ".");
+					if (inventario[i].getCantidad() == 0) {
+						eliminarObjetoInventario(inventario[i]);
+					}
+					// Comprobar si tenías un objeto antes, y si tenía, lo desequipamos y aumentamos la cantidad de ese objeto.
+					if (objetoAnterior != null) {
+						objetoAnterior.setCantidad(objetoAnterior.getCantidad() + 1);
+					}
+					esperar(2);
+					limpiarPantalla();
 				}
-				// Comprobar si tenías un objeto antes, y si tenía, lo desequipamos y aumentamos la cantidad de ese objeto.
-				if (objetoAnterior != null) {
-					objetoAnterior.setCantidad(objetoAnterior.getCantidad() + 1);
-				}
-				esperar(2);
-				limpiarPantalla();
 			}
 		}
 
