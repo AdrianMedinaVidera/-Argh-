@@ -26,7 +26,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Canto de las profundidades                 ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // La sirena entona una melodía hipnótica que confunde al jugador, realizando 150 de daño mágico y proporcionando el estado somnoliento.
+                // La sirena entona una melodia hipnotica que confunde al jugador, realizando 150 de daño magico y proporcionando el estado somnoliento.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 150));
                 personaje.setEstaSomnoliento(true);
                 System.out.println("╔═════════════════════════════════════════════╗");
@@ -39,7 +39,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Abrazo Mortal                              ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // Patricio agarra al personaje con sus brazos regordetes, si éste no es lo suficientemente fuerte, lo aplasta. Realiza 100 de daño físico y si el jugador tiene menos del 20% de la vida máxima, es ejecutado.
+                // Patricio agarra al personaje con sus brazos regordetes, si este no es lo suficientemente fuerte, lo aplasta. Realiza 100 de daño fisico y si el jugador tiene menos del 20% de la vida maxima, es ejecutado.
                 int vidaInicial = (int) (100 * Math.pow(1.1, personaje.getNivel()));
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 100));
                 if (personaje.getVida() < vidaInicial/5){
@@ -55,7 +55,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Tentaculos aplastantes                     ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // El Kraken usa sus tentáculos para aplastar al jugador, realizando 120 de daño físico y reduciendo sus resistencias un 20%.
+                // El Kraken usa sus tentaculos para aplastar al jugador, realizando 120 de daño fisico y reduciendo sus resistencias un 20%.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + 120));
                 personaje.setResistenciaFisica((int) (personaje.getResistenciaFisica() * 0.8));
                 personaje.setResistenciaMagica((int) (personaje.getResistenciaMagica() * 0.8));
@@ -74,7 +74,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Bendicion de Poseidon                      ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // La sirena recibe la bendición de Poseidón, restaurando 100 de vida y aumenta su velocidad y daño en 20%, pero reduce sus resistencias un 20%
+                // La sirena recibe la bendicion de Poseidon, restaurando 100 de vida y aumenta su velocidad y daño en 20%, pero reduce sus resistencias un 20%
                 vida += 100;
                 dañoFisico *= 1.2;
                 dañoMagico *= 1.2;
@@ -91,7 +91,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Furia Estrellada                           ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // Patricio entra en un estado de furia estrellada, aumentando enormemente su ataque. Aumenta por 2 su daño físico.
+                // Patricio entra en un estado de furia estrellada, aumentando enormemente su ataque. Aumenta por 2 su daño fisico.
                 dañoFisico *= 2;
                 System.out.println("╔══════════════════════════════════════════════════╗");
                 System.out.println("║  El Jefe enemigo ha aumentado su daño fisico     ║");
@@ -120,7 +120,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Tridente Maldito                           ║");
             System.out.println("╚═════════════════════════════════════════════╝");;
-                // La sirena invoca un tridente maldito que ignora las defensas físicas del rival, realizando 120 de daño mágico
+                // La sirena invoca un tridente maldito que ignora las defensas fisicas del rival, realizando 120 de daño magico
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico + 120)));
                 break;
             
@@ -129,7 +129,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Vortice Estelar                            ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // Patricio crea un vórtice que absorbe la energía vital del rival, realizando 120 de daño mágico y absorbiendo vida
+                // Patricio crea un vortice que absorbe la energia vital del rival, realizando 120 de daño magico y absorbiendo vida
                 int dañoRealizado = (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 120);
                 personaje.setVida(personaje.getVida() - dañoRealizado);
                 vida += dañoRealizado/2.5;
@@ -143,7 +143,7 @@ public class EnemigoMarinoJefe extends EnemigoMarino {
             System.out.println("║  El jefe enemigo ha usado el ataque         ║");
             System.out.println("║  Tinta de las profundiades                  ║");
             System.out.println("╚═════════════════════════════════════════════╝");
-                // El Kraken libera una nube de tinta mágica que aturde al jugador, realizando 120 de daño mágico y dejándolo somnoliento
+                // El Kraken libera una nube de tinta magica que aturde al jugador, realizando 120 de daño magico y dejandolo somnoliento
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + 120));
                 personaje.setEstaSomnoliento(true);
                 System.out.println("╔═════════════════════════════════════╗");

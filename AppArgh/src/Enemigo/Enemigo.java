@@ -34,10 +34,10 @@ abstract public class Enemigo {
 
 	public void mostrarInfo() {
 		System.out.println("Vida del enemigo: " + vida);
-		System.out.println("Daño físico del enemigo: " + dañoFisico);
-		System.out.println("Daño mágico del enemigo: " + dañoMagico);
-		System.out.println("Resistencia mágica del enemigo: " + resistenciaMagica);
-		System.out.println("Resistencia física del enemigo: " + resistenciaFisica);
+		System.out.println("Daño fisico del enemigo: " + dañoFisico);
+		System.out.println("Daño magico del enemigo: " + dañoMagico);
+		System.out.println("Resistencia magica del enemigo: " + resistenciaMagica);
+		System.out.println("Resistencia fisica del enemigo: " + resistenciaFisica);
 		System.out.println("Velocidad del enemigo: " + velocidad);
 		System.out.println("Experiencia del enemigo: " + experienciaData);
 		System.out.println("Dinero del enemigo: " + dineroDado);
@@ -157,17 +157,17 @@ abstract public class Enemigo {
 
 		// Para cada tipo de objeto un caso diferente ------
 		switch (objeto.getNombre()) {
-			case "Minipoción" -> {
+			case "Minipocion" -> {
 				vida += 20;
 			}
-			case "Poción" -> {
+			case "Pocion" -> {
 				vida += 60;
 			}
-			case "Superpoción" -> {
+			case "Superpocion" -> {
 				vida += 120;
 			}
 
-			case "Báculo" -> {
+			case "Baculo" -> {
 				dañoFisico += 20;
 			}
 
@@ -183,7 +183,7 @@ abstract public class Enemigo {
 				dañoMagico += 20;
 			}
 
-			case "Varita Plástico" -> {
+			case "Varita Plastico" -> {
 				dañoMagico += 50;
 			}
 

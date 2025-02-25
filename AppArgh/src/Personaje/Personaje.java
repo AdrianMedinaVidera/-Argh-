@@ -5,19 +5,19 @@ import java.util.Scanner;
 
 public abstract class Personaje {
 		protected String nombre; //Nombre que el jugador elige.
-	    protected String genero; //Género a elegir por el jugador.
-	    protected int vida; // Vida que se usará en combate.
-	    protected int dañoFisico; // Tipo de daño, que es resistido por la resistencia física.
-	    protected int dañoMagico; // Tipo de daño, que es resistido por la resistencia mágica.
-	    protected int resistenciaFisica; // Tipo de resistencia, que resiste el daño físico.
-	    protected int resistenciaMagica; // Tipo de resistencia, que resiste el daño mágico.
+	    protected String genero; //Genero a elegir por el jugador.
+	    protected int vida; // Vida que se usara en combate.
+	    protected int dañoFisico; // Tipo de daño, que es resistido por la resistencia fisica.
+	    protected int dañoMagico; // Tipo de daño, que es resistido por la resistencia magica.
+	    protected int resistenciaFisica; // Tipo de resistencia, que resiste el daño fisico.
+	    protected int resistenciaMagica; // Tipo de resistencia, que resiste el daño magico.
 	    protected int velocidad; // Velocidad del personaje, es usado en la batalla para saber el orden de los turnos.
 	    protected int experiencia = 0; // Experiencia que aumenta y sirve para subir de nivel.
-	    protected int nivel = 0; // Nivel del personaje, según el nivel, más fuerte se hace.
+	    protected int nivel = 0; // Nivel del personaje, segun el nivel, mas fuerte se hace.
 	    protected int monedas = 0; // El dinero que tiene el jugador para poder comprar en la tienda.
 	    protected int grumetesRestantes; // La cantidad de oportunidades (vidas) restantes que le queda al jugador.
-	    protected int islasConquistadas = 0; // El número de islas conquistadas (ha vencido al jefe).
-	    protected int enemigosDerrotados = 0; // Número de enemigos comunes derrotados (estadística).
+	    protected int islasConquistadas = 0; // El numero de islas conquistadas (ha vencido al jefe).
+	    protected int enemigosDerrotados = 0; // Numero de enemigos comunes derrotados (estadistica).
 	    protected boolean estaEnCombate = false; // Cuando entra en combate, este atributo empieza a valer "true".
 	    protected boolean pedoActivado = false; // Pasa a true cuando activan el objeto pedo.
 	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento".
@@ -257,19 +257,19 @@ public abstract class Personaje {
 			}
 		}
 
-		// Métodos de Personaje
+		// Metodos de Personaje
 		
-		public void estadísticas() {
+		public void estadisticas() {
 			System.out.println("╔══════════════════════════════════════╗");
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
-			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
+			System.out.println("║         ESTADiSTICAS JUGADOR         ║");
 			System.out.println("╚══════════════════════════════════════╝");
 			System.out.println("  	Vida: " + vida + "                          ");
-			System.out.println("  	Daño Físico: " + dañoFisico + "                   ");
-			System.out.println("  	Daño Mágico: " + dañoMagico + "                   ");
-			System.out.println("  	Resistencia Física: " + resistenciaFisica + "             ");
-			System.out.println("  	Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("  	Daño Fisico: " + dañoFisico + "                   ");
+			System.out.println("  	Daño Magico: " + dañoMagico + "                   ");
+			System.out.println("  	Resistencia Fisica: " + resistenciaFisica + "             ");
+			System.out.println("  	Resistencia Magica: " + resistenciaMagica + "             ");
 			System.out.println("  	Velocidad: " + velocidad + "                      ");
 			System.out.println("  	Nivel: " + nivel + "                           ");
 			System.out.println("  	Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
@@ -292,13 +292,13 @@ public abstract class Personaje {
 			System.out.println("╔══════════════════════════════════════╗");
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
-			System.out.println("║         ESTADÍSTICAS JUGADOR         ║");
+			System.out.println("║         ESTADiSTICAS JUGADOR         ║");
 			System.out.println("╚══════════════════════════════════════╝");
 			System.out.println("  Vida: " + vida + "                          ");
-			System.out.println("  Daño Físico: " + dañoFisico + "                   ");
-			System.out.println("  Daño Mágico: " + dañoMagico + "                   ");
-			System.out.println("  Resistencia Física: " + resistenciaFisica + "             ");
-			System.out.println("  Resistencia Mágica: " + resistenciaMagica + "             ");
+			System.out.println("  Daño Fisico: " + dañoFisico + "                   ");
+			System.out.println("  Daño Magico: " + dañoMagico + "                   ");
+			System.out.println("  Resistencia Fisica: " + resistenciaFisica + "             ");
+			System.out.println("  Resistencia Magica: " + resistenciaMagica + "             ");
 			System.out.println("  Velocidad: " + velocidad + "                      ");
 			System.out.println("  Nivel: " + nivel + "                           ");
 			System.out.println("  Experiencia: " + experiencia + "/100 (" + (100 - experiencia) + " para subir)  ");
@@ -311,7 +311,7 @@ public abstract class Personaje {
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║    1. Atacar          2. Inventario  ║");
-			System.out.println("║    3. Estadísticas    4. Huir        ║");
+			System.out.println("║    3. Estadisticas    4. Huir        ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		}
 		
@@ -331,7 +331,7 @@ public abstract class Personaje {
 				System.out.println("Ya tienes un objeto equipado. Desequipalo antes de equipar otro.");
 			} else {
 				if (inventario[i] == null) {
-					System.out.println("No hay ningún objeto en esa posición.");
+					System.out.println("No hay ningun objeto en esa posicion.");
 					esperar(2);
 					limpiarPantalla();
 				} else {
@@ -341,7 +341,7 @@ public abstract class Personaje {
 					if (inventario[i].getCantidad() == 0) {
 						eliminarObjetoInventario(inventario[i]);
 					}
-					// Comprobar si tenías un objeto antes, y si tenía, lo desequipamos y aumentamos la cantidad de ese objeto.
+					// Comprobar si tenias un objeto antes, y si tenia, lo desequipamos y aumentamos la cantidad de ese objeto.
 					if (objetoAnterior != null) {
 						objetoAnterior.setCantidad(objetoAnterior.getCantidad() + 1);
 					}
@@ -353,7 +353,7 @@ public abstract class Personaje {
 
 		public void desequiparObjeto() {
 			if (objetoEquipado == null) {
-				System.out.println("No tienes ningún objeto equipado.");
+				System.out.println("No tienes ningun objeto equipado.");
 				esperar(2);
 				limpiarPantalla();
 			} else {
@@ -367,7 +367,7 @@ public abstract class Personaje {
 						break;
 					}
 				}
-				// Si no se encontró en el inventario, buscar el primer espacio vacío
+				// Si no se encontro en el inventario, buscar el primer espacio vacio
 				if (!encontrado) {
 					for (int i = 0; i < inventario.length; i++) {
 						if (inventario[i] == null) {
@@ -384,16 +384,16 @@ public abstract class Personaje {
 		}
 		public void usarObjeto(Producto objeto, Scanner sc) {
 			System.out.println("Se va a usar el objeto " + objeto.getNombre());
-			System.out.println("¿Está seguro? (S/N)");
+			System.out.println("¿Esta seguro? (S/N)");
 			String opcion = sc.next().toLowerCase();
-			int vidaInicial = (int) (100 * Math.pow(1.1, nivel)); // Calculamos la vida que debe tener el personaje según su nivel.
+			int vidaInicial = (int) (100 * Math.pow(1.1, nivel)); // Calculamos la vida que debe tener el personaje segun su nivel.
 			if (opcion.equals("s")) {
 				System.out.println("El objeto se ha utilizado correctamente.");
 				// Para cada tipo de objeto un caso diferente ------
 				switch (objeto.getNombre()) {
-				case "Minipoción" -> {
+				case "Minipocion" -> {
 					vida += 20;
-					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
 						int diferencia = vida - vidaInicial;
 						vida -= diferencia;
 					}
@@ -403,9 +403,9 @@ public abstract class Personaje {
 						eliminarObjetoInventario(objeto);
 					}
 				}
-				case "Poción" -> {
+				case "Pocion" -> {
 					vida += 60;
-					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
 						int diferencia = vida - vidaInicial;
 						vida -= diferencia;
 					}
@@ -415,9 +415,9 @@ public abstract class Personaje {
 						eliminarObjetoInventario(objeto);
 					}
 				}
-				case "Superpoción" -> {
+				case "Superpocion" -> {
 					vida += 120;
-					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+					if(vida > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
 						int diferencia = vida - vidaInicial;
 						vida -= diferencia;
 					}
@@ -428,7 +428,7 @@ public abstract class Personaje {
 					}
 				}
 				
-				case "Báculo" -> {
+				case "Baculo" -> {
 					dañoFisico += 20;
 					objeto.setCantidad(objeto.getCantidad()-1);
 					
@@ -464,7 +464,7 @@ public abstract class Personaje {
 					}
 				}
 				
-				case "Varita Plástico" -> {
+				case "Varita Plastico" -> {
 					dañoMagico += 50;
 					objeto.setCantidad(objeto.getCantidad()-1);
 					
@@ -627,7 +627,7 @@ public abstract class Personaje {
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║    1. Continuar       2. Ataques     ║");
-			System.out.println("║    3. Estadísticas    4. Barriles    ║");
+			System.out.println("║    3. Estadisticas    4. Barriles    ║");
 			System.out.println("║    5. Descansar       6. Casino      ║");
 			System.out.println("║                                      ║");
 			System.out.println("║          7. Salir del juego          ║");
@@ -635,16 +635,16 @@ public abstract class Personaje {
 		}
 		
 		public boolean huir (Enemigo enemigo, Scanner sc) {
-			System.out.println("¿Está seguro de que quiere huir del combate? (S/N) :P");
+			System.out.println("¿Esta seguro de que quiere huir del combate? (S/N) :P");
 			String opcion = sc.nextLine().toLowerCase();
-			double rng = Math.random()* 100 + 1; //Número aleatorio para poder definir probabilidades de huida.
+			double rng = Math.random()* 100 + 1; //Numero aleatorio para poder definir probabilidades de huida.
 			if (opcion.equals("s")) {
 				if (pedoActivado) { //Objeto que aumenta la probabilidad de huir en un 25%
 					if (velocidad/enemigo.getVelocidad() >= 2) { // Si tiene al menos el doble de velocidad, la probabilidad de huir es de un 75%
 						return true; //Huye del combate siempre porque tiene un 100% de probabilidad
 					} else if (velocidad/enemigo.getVelocidad() > 1 && velocidad/enemigo.getVelocidad() < 2) { // Si tiene una velocidad similar o igual, la probabilidad es del 50%
 						if (rng <= 75) { // Es 75 por el aumento del 25%
-							System.out.println("Has huido con éxito.");
+							System.out.println("Has huido con exito.");
 							esperar(1);
 							limpiarPantalla();
 							return true; //Huye del combate
@@ -656,7 +656,7 @@ public abstract class Personaje {
 						}
 					} else { // Si tiene menos velocidad tiene un 25% de probabilidad de huir
 						if (rng <= 50) { // Es 50 por el aumento del 25%
-							System.out.println("Has huido con éxito.");
+							System.out.println("Has huido con exito.");
 							esperar(1);
 							limpiarPantalla();
 							return true; //Huye del combate
@@ -669,7 +669,7 @@ public abstract class Personaje {
 					}
 				} else if(velocidad/enemigo.getVelocidad() >= 2 && pedoActivado == false) { // Si tiene al menos el doble de velocidad, la probabilidad de huir es de un 75%
 					if (rng <= 75) {
-						System.out.println("Has huido con éxito.");
+						System.out.println("Has huido con exito.");
 						esperar(1);
 						limpiarPantalla();
 						return true; //Huye del combate
@@ -681,7 +681,7 @@ public abstract class Personaje {
 					}
 				} else if (velocidad/enemigo.getVelocidad() > 1 && velocidad/enemigo.getVelocidad() < 2 && pedoActivado == false) { // Si tiene una velocidad similar o igual, la probabilidad es del 50%
 					if (rng <= 50) {
-						System.out.println("Has huido con éxito.");
+						System.out.println("Has huido con exito.");
 						esperar(1);
 						limpiarPantalla();
 						return true; //Huye del combate
@@ -693,7 +693,7 @@ public abstract class Personaje {
 					}
 				} else { // Si tiene menos velocidad tiene un 25% de probabilidad de huir
 					if (rng <= 25) {
-						System.out.println("Has huido con éxito.");
+						System.out.println("Has huido con exito.");
 						esperar(1);
 						limpiarPantalla();
 						return true; //Huye del combate
@@ -705,7 +705,7 @@ public abstract class Personaje {
 					}
 				}
 			}
-			return false; //No huye si pone un input diferente a "s" (sí).
+			return false; //No huye si pone un input diferente a "s" (si).
 		}
 
 		public void descansar(Scanner sc) {
@@ -720,7 +720,7 @@ public abstract class Personaje {
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║              DESCANSAR               ║");
 			System.out.println("╠══════════════════════════════════════╣");
-			System.out.println("║  ¿Está seguro de que quiere          ║");
+			System.out.println("║  ¿Esta seguro de que quiere          ║");
 			System.out.println("║  descansar? (S/N)                    ║");
 			System.out.println("║                                      ║");
 			System.out.println("║  Precio: 50 monedas                  ║");

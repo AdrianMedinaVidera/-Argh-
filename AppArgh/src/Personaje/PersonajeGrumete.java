@@ -128,9 +128,9 @@ public void infoAtaque1() {
         System.out.println("╠══════════════════════════════════════╣");
         System.out.println("║  Las cerdas de la escoba se juntan   ║");
         System.out.println("║  en un mismo punto para lanzar una   ║");
-        System.out.println("║  bola de energía.                    ║");
+        System.out.println("║  bola de energia.                    ║");
         System.out.println("║                                      ║");
-        System.out.println("║  Daño mágico: 80                     ║");
+        System.out.println("║  Daño magico: 80                     ║");
         System.out.println("╚══════════════════════════════════════╝");
     } else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
         System.out.println("╔══════════════════════════════════════╗");
@@ -139,9 +139,9 @@ public void infoAtaque1() {
         System.out.println("║           METEORO CHEDDAR            ║");
         System.out.println("╠══════════════════════════════════════╣");
         System.out.println("║  Comienza una tormenta de bolas de   ║");
-        System.out.println("║  cheddar que actúan como meteoritos. ║");
+        System.out.println("║  cheddar que actUan como meteoritos. ║");
         System.out.println("║                                      ║");
-        System.out.println("║  Daño mágico: 60                     ║");
+        System.out.println("║  Daño magico: 60                     ║");
         System.out.println("║  Efecto: -20% velocidad enemigo      ║");
         System.out.println("╚══════════════════════════════════════╝");
     } else {
@@ -153,7 +153,7 @@ public void infoAtaque1() {
         System.out.println("║  Lanza un barril lleno de pOlvora    ║");
         System.out.println("║  que explota al impactar.            ║");
         System.out.println("║                                      ║");
-        System.out.println("║  Daño físico: 100                    ║");
+        System.out.println("║  Daño fisico: 100                    ║");
         System.out.println("║  Efecto: -10% resistencia propia     ║");
         System.out.println("╚══════════════════════════════════════╝");
     }
@@ -170,8 +170,8 @@ public void infoAtaque1() {
 			System.out.println("║  Generas un vendaval que iza las     ║");
 			System.out.println("║  velas del barco.                    ║");
 			System.out.println("║                                      ║");
-			System.out.println("║  Efecto: +Velocidad según daño       ║");
-			System.out.println("║          mágico                      ║");
+			System.out.println("║  Efecto: +Velocidad segUn daño       ║");
+			System.out.println("║          magico                      ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		} else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
 			System.out.println("╔══════════════════════════════════════╗");
@@ -183,7 +183,7 @@ public void infoAtaque1() {
 			System.out.println("║  almas de los difuntos.              ║");
 			System.out.println("║                                      ║");
 			System.out.println("║  Efecto: Somnolencia enemigo         ║");
-			System.out.println("║          -20% resistencia mágica     ║");
+			System.out.println("║          -20% resistencia magica     ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		} else {		
 			System.out.println("╔══════════════════════════════════════╗");
@@ -193,8 +193,8 @@ public void infoAtaque1() {
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║  Cargas un ancla a tu espalda.       ║");
 			System.out.println("║                                      ║");
-			System.out.println("║  Efecto: +20% daño físico            ║");
-			System.out.println("║          +20% resistencia física     ║");
+			System.out.println("║  Efecto: +20% daño fisico            ║");
+			System.out.println("║          +20% resistencia fisica     ║");
 			System.out.println("║          -5% velocidad               ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		}
@@ -208,11 +208,11 @@ public void infoAtaque1() {
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║           DISPARO CERTERO            ║");
 			System.out.println("╠══════════════════════════════════════╣");
-			System.out.println("║  Realizas un disparo a través de     ║");
+			System.out.println("║  Realizas un disparo a traves de     ║");
 			System.out.println("║  tu catalejo.                        ║");
 			System.out.println("║                                      ║");
-			System.out.println("║  Daño físico: 50                     ║");
-			System.out.println("║  Efecto: Golpe crítico garantizado   ║");
+			System.out.println("║  Daño fisico: 50                     ║");
+			System.out.println("║  Efecto: Golpe critico garantizado   ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		} else if (rolSeleccionado.toLowerCase().equals("cocinero")) {
 			System.out.println("╔══════════════════════════════════════╗");
@@ -223,9 +223,9 @@ public void infoAtaque1() {
 			System.out.println("║  Lanzas un hongo explosivo al        ║");
 			System.out.println("║  enemigo.                            ║");
 			System.out.println("║                                      ║");
-			System.out.println("║  Daño mágico: 20                     ║");
+			System.out.println("║  Daño magico: 20                     ║");
 			System.out.println("║  Efecto: Veneno (5% vida/turno)      ║");
-			System.out.println("║          -10% resistencia mágica     ║");
+			System.out.println("║          -10% resistencia magica     ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		} else {
 			System.out.println("╔══════════════════════════════════════╗");
@@ -234,10 +234,10 @@ public void infoAtaque1() {
 			System.out.println("║         EMBESTIDA BLINDADA           ║");
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║  Cargas hacia el enemigo con una     ║");
-			System.out.println("║  pieza de artillería.                ║");
+			System.out.println("║  pieza de artilleria.                ║");
 			System.out.println("║                                      ║");
-			System.out.println("║  Daño físico: 65                     ║");
-			System.out.println("║  Efecto: +20% resistencia física     ║");
+			System.out.println("║  Daño fisico: 65                     ║");
+			System.out.println("║  Efecto: +20% resistencia fisica     ║");
 			System.out.println("╚══════════════════════════════════════╝");
 		}
 	}
@@ -267,7 +267,7 @@ public void infoAtaque1() {
             System.out.println("╚════════════════════════════════════════════════════════════╝");
             enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 100));
             resistenciaFisica = (int)(resistenciaFisica * 0.9);
-            System.out.println("El grumete ha disminuido su resistencia física");
+            System.out.println("El grumete ha disminuido su resistencia fisica");
         }
     }
 
@@ -291,7 +291,7 @@ public void infoAtaque1() {
             System.out.println("║  El enemigo ha quedado somnoliento        ║");
             System.out.println("╚═══════════════════════════════════════════╝");
             System.out.println("╔═══════════════════════════════════════════════════╗");
-            System.out.println("║  El enemigo ha disminuido su resistencia mágica   ║");
+            System.out.println("║  El enemigo ha disminuido su resistencia magica   ║");
             System.out.println("╚═══════════════════════════════════════════════════╝");
         } else {
             System.out.println("╔═══════════════════════════════════════════════════╗");
@@ -301,10 +301,10 @@ public void infoAtaque1() {
             resistenciaFisica = (int)(resistenciaFisica * 1.2);
             velocidad = (int)(velocidad * 0.95);
             System.out.println("╔═══════════════════════════════════════════════╗");
-            System.out.println("║  El grumete ha aumentado su daño físico       ║");
+            System.out.println("║  El grumete ha aumentado su daño fisico       ║");
             System.out.println("╚═══════════════════════════════════════════════╝");
             System.out.println("╔════════════════════════════════════════════════════╗");
-            System.out.println("║  El grumete ha aumentado su resistencia física     ║");
+            System.out.println("║  El grumete ha aumentado su resistencia fisica     ║");
             System.out.println("╚════════════════════════════════════════════════════╝");
             System.out.println("╔═══════════════════════════════════════════╗");
             System.out.println("║  El grumete ha disminuido su velocidad    ║");
@@ -330,7 +330,7 @@ public void infoAtaque1() {
             System.out.println("║  El enemigo ha empezado a sangrar   ║");
             System.out.println("╚═════════════════════════════════════╝");
             System.out.println("╔══════════════════════════════════════════════════╗");
-            System.out.println("║  El enemigo ha disminuido su resistencia mágica  ║");
+            System.out.println("║  El enemigo ha disminuido su resistencia magica  ║");
             System.out.println("╚══════════════════════════════════════════════════╝");
         } else {
             System.out.println("╔════════════════════════════════════════════════════╗");
@@ -339,7 +339,7 @@ public void infoAtaque1() {
             enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 65));
             resistenciaFisica = (int)(resistenciaFisica * 1.2);
             System.out.println("╔════════════════════════════════════════════════════╗");
-            System.out.println("║  El grumete ha aumentado su resistencia física     ║");
+            System.out.println("║  El grumete ha aumentado su resistencia fisica     ║");
             System.out.println("╚════════════════════════════════════════════════════╝");
         }
     }

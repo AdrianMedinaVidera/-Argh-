@@ -19,11 +19,11 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("╔══════════════════════════════════════╗");
         System.out.println("║                A R G H               ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║         INFORMACIÓN DE ATAQUES       ║");
+        System.out.println("║         INFORMACIoN DE ATAQUES       ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║    1. Látigo de hierro               ║");
+        System.out.println("║    1. Latigo de hierro               ║");
         System.out.println("║    2. Bramido de acero               ║");
-        System.out.println("║    3. Espectro náutico               ║");
+        System.out.println("║    3. Espectro nautico               ║");
         System.out.println("╚══════════════════════════════════════╝");
     }
     @Override
@@ -31,11 +31,11 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("╔══════════════════════════════════════╗");
         System.out.println("║                A R G H               ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║         INFORMACIÓN DE ATAQUES       ║");
+        System.out.println("║         INFORMACIoN DE ATAQUES       ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║    1. Látigo de hierro (dñF)         ║");
+        System.out.println("║    1. Latigo de hierro (dñF)         ║");
         System.out.println("║    2. Bramido de acero (dñF)         ║");
-        System.out.println("║    3. Espectro náutico (dñM)         ║");
+        System.out.println("║    3. Espectro nautico (dñM)         ║");
         System.out.println("╚══════════════════════════════════════╝");
     }
 
@@ -44,13 +44,13 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("╔══════════════════════════════════════╗");
         System.out.println("║                A R G H               ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║           LÁTIGO DE HIERRO           ║");
+        System.out.println("║           LaTIGO DE HIERRO           ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║  El capitán se abalanza contra el    ║");
+        System.out.println("║  El capitan se abalanza contra el    ║");
         System.out.println("║  enemigo y le realiza un gancho de   ║");
         System.out.println("║  boxeo con su garfio.                ║");
         System.out.println("║                                      ║");
-        System.out.println("║  Daño físico: 50                     ║");
+        System.out.println("║  Daño fisico: 50                     ║");
         System.out.println("║  Efecto: Sangrado (10% vida/turno)   ║");
         System.out.println("╚══════════════════════════════════════╝");
     }
@@ -62,11 +62,11 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("╠══════════════════════════════════════╣");
         System.out.println("║           BRAMIDO DE ACERO           ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║  El capitán dispara un proyectil     ║");
+        System.out.println("║  El capitan dispara un proyectil     ║");
         System.out.println("║  extremadamente potente desde un     ║");
-        System.out.println("║  cañón.                              ║");
+        System.out.println("║  cañon.                              ║");
         System.out.println("║                                      ║");
-        System.out.println("║  Daño físico: 120                    ║");
+        System.out.println("║  Daño fisico: 120                    ║");
         System.out.println("║  Efecto: -50% vida propia            ║");
         System.out.println("╚══════════════════════════════════════╝");
     }
@@ -76,13 +76,13 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("╔══════════════════════════════════════╗");
         System.out.println("║                A R G H               ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║          ESPECTRO NÁUTICO            ║");
+        System.out.println("║          ESPECTRO NaUTICO            ║");
         System.out.println("╠══════════════════════════════════════╣");
-        System.out.println("║  El capitán lanza una botella con    ║");
+        System.out.println("║  El capitan lanza una botella con    ║");
         System.out.println("║  un barco dentro. Al explotar, el    ║");
         System.out.println("║  barco cae sobre el enemigo.         ║");
         System.out.println("║                                      ║");
-        System.out.println("║  Daño mágico: 120                    ║");
+        System.out.println("║  Daño magico: 120                    ║");
         System.out.println("║  Efecto: Somnolencia propia          ║");
         System.out.println("╚══════════════════════════════════════╝");
     }

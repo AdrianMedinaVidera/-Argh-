@@ -12,16 +12,16 @@ public class Argh {
 
 	private static int mundoActual = 0;
 
-	private static Producto minipocion = new Producto("Minipoción", 0, 20);
-	private static Producto pocion = new Producto("Poción", 0, 30);
-	private static Producto superpocion = new Producto("Superpoción", 0, 60);
+	private static Producto minipocion = new Producto("Minipocion", 0, 20);
+	private static Producto pocion = new Producto("Pocion", 0, 30);
+	private static Producto superpocion = new Producto("Superpocion", 0, 60);
 	
-	private static Producto baculo = new Producto("Báculo", 0, 15);
+	private static Producto baculo = new Producto("Baculo", 0, 15);
 	private static Producto espada = new Producto("Espada", 0, 30);
 	private static Producto mandoble = new Producto("Mandoble", 0, 120);
 	
 	private static Producto varitaMadera = new Producto("Varita Madera", 0, 15);
-	private static Producto varitaPlastico = new Producto("Varita Plástico", 0, 30);
+	private static Producto varitaPlastico = new Producto("Varita Plastico", 0, 30);
 	private static Producto varitaOro = new Producto("Varita Oro", 0, 120);
 	
 	private static Producto escudito = new Producto("Escudito", 0, 15);
@@ -67,7 +67,7 @@ public class Argh {
 		System.out.println("║                A R G H               ║");
 		System.out.println("╠══════════════════════════════════════╣");
 		System.out.println("║         ¡Gracias por jugar!          ║");
-		System.out.println("║         ¡Hasta la próxima!           ║");
+		System.out.println("║         ¡Hasta la proxima!           ║");
 		System.out.println("║                                      ║");
 		System.out.println("║        (Cerrando el juego...)        ║");
 		System.out.println("╚══════════════════════════════════════╝");
@@ -245,7 +245,7 @@ public class Argh {
 				}
 			} catch (Exception e) {
 				limpiarPantalla();
-				System.out.println("Introduce un número.");
+				System.out.println("Introduce un numero.");
 				sc.nextLine();
 			}
 		}
@@ -257,7 +257,7 @@ public class Argh {
 		System.out.println("╠══════════════════════════════════════╣");
 		System.out.println("║           1. Jugar                   ║");
 		System.out.println("║           2. Salir                   ║");
-		System.out.println("║           3. Cómo Jugar              ║");
+		System.out.println("║           3. Como Jugar              ║");
 		System.out.println("╚══════════════════════════════════════╝");
 	}
 
@@ -275,29 +275,29 @@ public class Argh {
 		System.out.println("╔══════════════════════════════════════════════════════╗");
 		System.out.println("║                     A R G H                          ║");
 		System.out.println("╠══════════════════════════════════════════════════════╣");
-		System.out.println("║                   CÓMO JUGAR                         ║");
+		System.out.println("║                   CoMO JUGAR                         ║");
 		System.out.println("║                                                      ║");
 		System.out.println("║  1. Elige tu dificultad:                             ║");
-		System.out.println("║     - Normal: Jugarás como grumete                   ║");
-		System.out.println("║     - Extremo: Serás el capitán                      ║");
+		System.out.println("║     - Normal: Jugaras como grumete                   ║");
+		System.out.println("║     - Extremo: Seras el capitan                      ║");
 		System.out.println("║                                                      ║");
-		System.out.println("║  2. Durante el combate podrás:                       ║");
+		System.out.println("║  2. Durante el combate podras:                       ║");
 		System.out.println("║     - Atacar con 3 habilidades diferentes            ║");
 		System.out.println("║     - Usar objetos de tu inventario                  ║");
-		System.out.println("║     - Ver tus estadísticas                           ║");
+		System.out.println("║     - Ver tus estadisticas                           ║");
 		System.out.println("║     - Intentar huir                                  ║");
 		System.out.println("║                                                      ║");
-		System.out.println("║  3. Entre combates podrás:                           ║");
+		System.out.println("║  3. Entre combates podras:                           ║");
 		System.out.println("║     - Avanzar a la siguiente zona                    ║");
 		System.out.println("║     - Gestionar tu inventario                        ║");
 		System.out.println("║     - Visitar la tienda                              ║");
-		System.out.println("║     - Acceder al menú                                ║");
+		System.out.println("║     - Acceder al menu                                ║");
 		System.out.println("║                                                      ║");
-		System.out.println("║  4. Para seleccionar una opción,                     ║");
-		System.out.println("║     debes introducir por terminal el número          ║");
-		System.out.println("║     asociado a dicha opción. (1. Salir)              ║");
+		System.out.println("║  4. Para seleccionar una opcion,                     ║");
+		System.out.println("║     debes introducir por terminal el numero          ║");
+		System.out.println("║     asociado a dicha opcion. (1. Salir)              ║");
 		System.out.println("║                                                      ║");
-		System.out.println("║  Pulsa enter para volver al menú principal...        ║");
+		System.out.println("║  Pulsa enter para volver al menu principal...        ║");
 		System.out.println("╚══════════════════════════════════════════════════════╝");
 	}
 
@@ -308,7 +308,7 @@ public class Argh {
 		System.out.println("║           1. Avanzar                 ║");
 		System.out.println("║           2. Inventario              ║");
 		System.out.println("║           3. Tienda                  ║");
-		System.out.println("║           4. Menú                    ║");
+		System.out.println("║           4. Menu                    ║");
 		System.out.println("╚══════════════════════════════════════╝");
 	}
 
@@ -326,7 +326,7 @@ public class Argh {
 		System.out.printf("║ ║HP:%3d║ %-28s║%n", personaje.getVida(), personaje.getNombre());
 		System.out.printf("║ ║LV:%3d║ %-28s║%n", personaje.getNivel(), 
 			personaje instanceof PersonajeGrumete ? 
-			"Grumete " + ((PersonajeGrumete)personaje).getRolSeleccionado() : "Capitán");
+			"Grumete " + ((PersonajeGrumete)personaje).getRolSeleccionado() : "Capitan");
 		System.out.println("║ └──────┘                             ║");
 		System.out.println("╚══════════════════════════════════════╝");
 	}
@@ -337,38 +337,38 @@ public class Argh {
 		System.out.println("╠══════════════════════════════════════╣");
 		System.out.println("║          OBJETOS A EQUIPAR           ║");
 		System.out.println("╚══════════════════════════════════════╝");
-		if (personaje.getInventario()[0] == null) {// Si el inventario está vacío, no se muestra el objeto (null)
-			System.out.println("   1. " + "Vacío");
+		if (personaje.getInventario()[0] == null) {// Si el inventario esta vacio, no se muestra el objeto (null)
+			System.out.println("   1. " + "Vacio");
 		} else {
 			System.out.println("   1. " + personaje.getInventario()[0].getNombre() + " " + personaje.getInventario()[0].getCantidad());
 		}
 		if (personaje.getInventario()[1] == null) {
-			System.out.println("   2. " + "Vacío");
+			System.out.println("   2. " + "Vacio");
 		} else {
 			System.out.println("   2. " + personaje.getInventario()[1].getNombre() + " " + personaje.getInventario()[1].getCantidad());
 		}
 		if (personaje.getInventario()[2] == null) {
-			System.out.println("   3. " + "Vacío");
+			System.out.println("   3. " + "Vacio");
 		} else {
 			System.out.println("   3. " + personaje.getInventario()[2].getNombre() + " " + personaje.getInventario()[2].getCantidad());
 		}
 		if (personaje.getInventario()[3] == null) {
-			System.out.println("   4. " + "Vacío");
+			System.out.println("   4. " + "Vacio");
 		} else {
 			System.out.println("   4. " + personaje.getInventario()[3].getNombre() + " " + personaje.getInventario()[3].getCantidad());
 		}
 		if (personaje.getInventario()[4] == null) {
-			System.out.println("   5. " + "Vacío");
+			System.out.println("   5. " + "Vacio");
 		} else {
 			System.out.println("   5. " + personaje.getInventario()[4].getNombre() + " " + personaje.getInventario()[4].getCantidad());
 		}
 		if (personaje.getInventario()[5] == null) {
-			System.out.println("   6. " + "Vacío");
+			System.out.println("   6. " + "Vacio");
 		} else {
 			System.out.println("   6. " + personaje.getInventario()[5].getNombre() + " " + personaje.getInventario()[5].getCantidad());
 		}
 		if (personaje.getInventario()[6] == null) {
-			System.out.println("   7. " + "Vacío");
+			System.out.println("   7. " + "Vacio");
 		} else {
 			System.out.println("   7. " + personaje.getInventario()[6].getNombre() + " " + personaje.getInventario()[6].getCantidad());
 		}
@@ -385,38 +385,38 @@ public class Argh {
 		System.out.println("╠══════════════════════════════════════╣");
 		System.out.println("║            OBJETOS A USAR            ║");
 		System.out.println("╚══════════════════════════════════════╝");
-		if (personaje.getInventario()[0] == null) {// Si el inventario está vacío, no se muestra el objeto (null)
-			System.out.println("   1. " + "Vacío");
+		if (personaje.getInventario()[0] == null) {// Si el inventario esta vacio, no se muestra el objeto (null)
+			System.out.println("   1. " + "Vacio");
 		} else {
 			System.out.println("   1. " + personaje.getInventario()[0].getNombre() + " " + personaje.getInventario()[0].getCantidad());
 		}
 		if (personaje.getInventario()[1] == null) {
-			System.out.println("   2. " + "Vacío");
+			System.out.println("   2. " + "Vacio");
 		} else {
 			System.out.println("   2. " + personaje.getInventario()[1].getNombre() + " " + personaje.getInventario()[1].getCantidad());
 		}
 		if (personaje.getInventario()[2] == null) {
-			System.out.println("   3. " + "Vacío");
+			System.out.println("   3. " + "Vacio");
 		} else {
 			System.out.println("   3. " + personaje.getInventario()[2].getNombre() + " " + personaje.getInventario()[2].getCantidad());
 		}
 		if (personaje.getInventario()[3] == null) {
-			System.out.println("   4. " + "Vacío");
+			System.out.println("   4. " + "Vacio");
 		} else {
 			System.out.println("   4. " + personaje.getInventario()[3].getNombre() + " " + personaje.getInventario()[3].getCantidad());
 		}
 		if (personaje.getInventario()[4] == null) {
-			System.out.println("   5. " + "Vacío");
+			System.out.println("   5. " + "Vacio");
 		} else {
 			System.out.println("   5. " + personaje.getInventario()[4].getNombre() + " " + personaje.getInventario()[4].getCantidad());
 		}
 		if (personaje.getInventario()[5] == null) {
-			System.out.println("   6. " + "Vacío");
+			System.out.println("   6. " + "Vacio");
 		} else {
 			System.out.println("   6. " + personaje.getInventario()[5].getNombre() + " " + personaje.getInventario()[5].getCantidad());
 		}
 		if (personaje.getInventario()[6] == null) {
-			System.out.println("   7. " + "Vacío");
+			System.out.println("   7. " + "Vacio");
 		} else {
 			System.out.println("   7. " + personaje.getInventario()[6].getNombre() + " " + personaje.getInventario()[6].getCantidad());
 		}
@@ -440,22 +440,22 @@ public class Argh {
 		boolean exito = false;
 	
 		System.out.println("¡Espabila, puberscente! Si quieres salvar este barco, di la palabra correcta.");
-		System.out.println("¿Cómo se llama alguien que navega los mares saqueando barcos y son muy famosos los del Caribe?");
+		System.out.println("¿Como se llama alguien que navega los mares saqueando barcos y son muy famosos los del Caribe?");
 	
 		for (int i = 1; i <= intentosMaximos; i++) {
-			System.out.println("Intento " + i + " de " + intentosMaximos + ". ¡Responde rápido!");
+			System.out.println("Intento " + i + " de " + intentosMaximos + ". ¡Responde rapido!");
 	
 			String respuesta = scanner.nextLine();
 			if (respuesta.equalsIgnoreCase(claveCorrecta)) {
-				System.out.println("¡Bien hecho, grumete! Te has ganado tu lugar en la tripulación.");
+				System.out.println("¡Bien hecho, grumete! Te has ganado tu lugar en la tripulacion.");
 				exito = true;
 				esperar(3);
 				limpiarPantalla();
 				break;
 			} else {
-				limpiarPantalla(); // Se asume que la función limpiarPantalla() está definida en otro lugar.
+				limpiarPantalla(); // Se asume que la funcion limpiarPantalla() esta definida en otro lugar.
 				System.out.println("¡Eso no es correcto! Prueba de nuevo.");
-				System.out.println("¿Cómo se llama alguien que navega los mares saqueando barcos y son muy famosos los del Caribe?");
+				System.out.println("¿Como se llama alguien que navega los mares saqueando barcos y son muy famosos los del Caribe?");
 			}
 		}
 	
@@ -488,7 +488,7 @@ public class Argh {
 			CalaveraGameOver();
 			salirJuego();
 		} else {
-			// Reestablecemos sus estadísticas ------------------------------------------------
+			// Reestablecemos sus estadisticas ------------------------------------------------
 			personajeActivo.setVida((int) (100 * Math.pow(1.1, personajeActivo.getNivel())));
 			personajeActivo.setResistenciaFisica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
 			personajeActivo.setResistenciaMagica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
@@ -499,7 +499,7 @@ public class Argh {
 			personajeActivo.setMonedas(personajeActivo.getMonedas() / 2);
 			// Vaciamos el inventario
 			personajeActivo.setInventario(new Producto[7]);
-			// Reestablecemos sus estadísticas ------------------------------------------------
+			// Reestablecemos sus estadisticas ------------------------------------------------
 			PersonajeGrumete personajeGrumete = (PersonajeGrumete) personajeActivo;
 			suspense();
 			limpiarPantalla();
@@ -569,7 +569,7 @@ public class Argh {
 	public static boolean usarObjetoCombate (Producto[] inventario, int opcion, Personaje personaje, Scanner sc) {
 		opcion = opcion - 1;
 		if (inventario[opcion] == null){
-			System.out.println("No tienes ningún objeto en esa posición.");
+			System.out.println("No tienes ningun objeto en esa posicion.");
 			return false;
 		} else {
 			personaje.usarObjeto(inventario[opcion], sc);
@@ -585,19 +585,19 @@ public class Argh {
 			
 			if (personajeActivo.getObjetoEquipado().equals(minipocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.5)) {
 				personajeActivo.setVida(personajeActivo.getVida() + 20);
-					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
 						int diferencia = personajeActivo.getVida() - vidaInicial;
 						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
 					}
 			} else if (personajeActivo.getObjetoEquipado().equals(pocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
 				personajeActivo.setVida(personajeActivo.getVida() + 60);
-					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
 						int diferencia = personajeActivo.getVida() - vidaInicial;
 						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
 					}
 			} else if (personajeActivo.getObjetoEquipado().equals(superpocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
 				personajeActivo.setVida(personajeActivo.getVida() + 120);
-					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida máxima, para no aumentar su vida, solo recuperarla.
+					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
 						int diferencia = personajeActivo.getVida() - vidaInicial;
 						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
 					}
@@ -619,7 +619,7 @@ public class Argh {
                 int dañoSangrado = (int)(personajeActivo.getVida() * 0.05);
                 personajeActivo.setVida(personajeActivo.getVida() - dañoSangrado);
                 System.out.println("╔═════════════════════════════════════════════╗");
-                System.out.println("║  ¡Estás sangrando! Pierdes " + dañoSangrado + " de vida     ║");
+                System.out.println("║  ¡Estas sangrando! Pierdes " + dañoSangrado + " de vida     ║");
                 System.out.println("╚═════════════════════════════════════════════╝");
                 esperar(2);
             }
@@ -638,7 +638,7 @@ public class Argh {
 				if (enemigo instanceof EnemigoMarinoJefe || enemigo instanceof EnemigoTerrestreJefe) {
 					personajeActivo.setBarrilesDisponibles(personajeActivo.getBarrilesDisponibles() + 1);
 				}
-				// Reestablecemos las estadísticas según el nivel
+				// Reestablecemos las estadisticas segun el nivel
 				personajeActivo.setVida((int) (100 * Math.pow(1.1, personajeActivo.getNivel())));
 				personajeActivo.setResistenciaFisica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
 				personajeActivo.setResistenciaMagica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
@@ -650,7 +650,7 @@ public class Argh {
 			}
 			if (personajeActivo.getVida() <= 0) {
 				muerteCombate(personajeActivo, sc);
-				// Reestablecemos las estadísticas según el nivel
+				// Reestablecemos las estadisticas segun el nivel
 				personajeActivo.setVida((int) (100 * Math.pow(1.1, personajeActivo.getNivel())));
 				personajeActivo.setResistenciaFisica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
 				personajeActivo.setResistenciaMagica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
@@ -667,7 +667,7 @@ public class Argh {
 				case 1 -> {
 					if (personajeActivo.getEstaSomnoliento()) {
 						System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("║  ¡Estás demasiado somnoliento para atacar!  ║");
+                        System.out.println("║  ¡Estas demasiado somnoliento para atacar!  ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
 						personajeActivo.setEstaSomnoliento(false);
 						esperar(2);
@@ -693,10 +693,10 @@ public class Argh {
 				if (opcion >= 1 && opcion <= 4) {
 					return opcion;
 				}
-				System.out.println("Opción inválida. Introduce una opción válida (1-4).");
+				System.out.println("Opcion invalida. Introduce una opcion valida (1-4).");
 				esperar(2);
 			} catch (Exception e) {
-				System.out.println("Por favor, introduce un número válido.");
+				System.out.println("Por favor, introduce un numero valido.");
 				sc.nextLine();
 				esperar(2);
 			}
@@ -706,7 +706,7 @@ public class Argh {
 	private static void gestionarAtaque(Personaje personajeActivo, Enemigo enemigo, Scanner sc, Random rand, int[] ataquesEnemigo) {
 		int opcionAtaque = obtenerOpcionAtaque(personajeActivo, sc);
 		if (opcionAtaque != -1) {
-			// Determinar quién ataca primero basado en la velocidad
+			// Determinar quien ataca primero basado en la velocidad
 			if (personajeActivo.getVelocidad() > enemigo.getVelocidad()) {
 				// El personaje ataca primero
 				esperar(1);
@@ -849,10 +849,10 @@ public class Argh {
 			if (opcion >= 1 && opcion <= 3) {
 				return opcion;
 			}
-			System.out.println("Ataque inválido. Elige entre 1 y 3.");
+			System.out.println("Ataque invalido. Elige entre 1 y 3.");
 			esperar(2);
 		} catch (Exception e) {
-			System.out.println("Por favor, introduce un número válido.");
+			System.out.println("Por favor, introduce un numero valido.");
 			sc.nextLine();
 			esperar(2);
 		}
@@ -886,10 +886,10 @@ public class Argh {
 				if (opcion >= 1 && opcion <= 8) {
 					return opcion;
 				}
-				System.out.println("Opción inválida. Introduce un número del 1 al 8.");
+				System.out.println("Opcion invalida. Introduce un numero del 1 al 8.");
 				esperar(2);
 			} catch (Exception e) {
-				System.out.println("Por favor, introduce un número válido.");
+				System.out.println("Por favor, introduce un numero valido.");
 				sc.nextLine();
 				esperar(2);
 			}
@@ -943,7 +943,7 @@ public class Argh {
 				enemigo.setdañoMagico((int) (10 * Math.pow(1.1, nivel)));
 				enemigo.setVelocidad((int) (30 * Math.pow(1.1, nivel)));
 				enemigo.setNivel(nivel);
-			} else if (enemigoTerrestre.getEnemigoSeleccionado().equals("Emú")) {
+			} else if (enemigoTerrestre.getEnemigoSeleccionado().equals("Emu")) {
 				enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
 				enemigo.setResistenciaFisica((int) (15 * Math.pow(1.1, nivel)));
 				enemigo.setResistenciaMagica((int) (15 * Math.pow(1.1, nivel)));
@@ -1019,7 +1019,7 @@ public class Argh {
 
 	public static void main(String[] args) {
 		
-		//Creación de objetos.
+		//Creacion de objetos.
 		Producto[] itemsTienda = {minipocion, pocion, superpocion, baculo, espada, mandoble, 
             varitaMadera, varitaPlastico, varitaOro, escudito, escudo, escudazo, 
             capita, capa, capaza, alas, pedo, objetoMisterioso, redbull, caramelo};
@@ -1030,7 +1030,7 @@ public class Argh {
 
 		Random rand = new Random();
 
-		// Creación de los enemigos
+		// Creacion de los enemigos
 		Enemigo[] listaEnemigosMarinos = {
 			new EnemigoMarinoComun(100, 10, 10, 20, 30, 100, 25, 0, 20, false, 15, "Amonite"),
 			new EnemigoMarinoComun(100, 15, 15, 15, 20, 100, 25, 0, 15, false, 20, "Trilobite"),
@@ -1044,7 +1044,7 @@ public class Argh {
 		};
 		Enemigo[] listaEnemigosTerrestres = {
             new EnemigoTerrestreComun(100, 10, 10, 20, 30, 100, 25, 0, 20, false, 15, "Loco"),
-            new EnemigoTerrestreComun(100, 15, 15, 15, 20, 100, 25, 0, 15, false, 20, "Emú"),
+            new EnemigoTerrestreComun(100, 15, 15, 15, 20, 100, 25, 0, 15, false, 20, "Emu"),
             new EnemigoTerrestreComun(100, 20, 20, 10, 10, 100, 25, 0, 10, false, 10, "Sapo")
         };
 
@@ -1057,7 +1057,7 @@ public class Argh {
 
 		//Comienzo del juego.
 		Scanner sc = new Scanner(System.in);
-		while (true) { // Bucle de menú inicial
+		while (true) { // Bucle de menu inicial
 			mostrarLogo();
 			menuInicial();
 			int opcionInical = 0;
@@ -1066,7 +1066,7 @@ public class Argh {
 			} catch (Exception e) {
 				limpiarPantalla();
 				sc.nextLine(); // Clear invalid input
-				System.out.println("Opción inválida. Introduce un número.");
+				System.out.println("Opcion invalida. Introduce un numero.");
 				menuInicial();
 			}
 			limpiarPantalla();
@@ -1075,14 +1075,14 @@ public class Argh {
 				System.out.println("╔══════════════════════════════════════╗");
 				System.out.println("║                A R G H               ║");
 				System.out.println("╠══════════════════════════════════════╣");
-				System.out.println("║        ¿Cuál es tu género?           ║");
+				System.out.println("║        ¿Cual es tu genero?           ║");
 				System.out.println("╚══════════════════════════════════════╝");
 				String genero = sc.next().toLowerCase();
 				limpiarPantalla();
 				System.out.println("╔══════════════════════════════════════╗");
 				System.out.println("║                A R G H               ║");
 				System.out.println("╠══════════════════════════════════════╣");
-				System.out.println("║         ¿Cómo te llamas?             ║");
+				System.out.println("║         ¿Como te llamas?             ║");
 				System.out.println("╚══════════════════════════════════════╝");
 				String nombre = sc.next();
 				limpiarPantalla();
@@ -1096,13 +1096,13 @@ public class Argh {
 							break;
 						} else {
 							limpiarPantalla();
-							System.out.println("Opción incorrecta. Introduce una opción válida.");
+							System.out.println("Opcion incorrecta. Introduce una opcion valida.");
 							menuDificultad();
 						}
 					} catch (Exception e) {
-						sc.nextLine(); // Limpia la opción anterior.
+						sc.nextLine(); // Limpia la opcion anterior.
 						limpiarPantalla();
-						System.out.println("Opción inválida. Introduce un número.");
+						System.out.println("Opcion invalida. Introduce un numero.");
 						menuDificultad();
 					}
 				}
@@ -1116,7 +1116,7 @@ public class Argh {
 					System.out.println("║                                       ║");
 					System.out.println("║           ¡Eres un grumete!           ║");
 					System.out.println("║                                       ║");
-					int randomRol = (int) (Math.random() * 100); // Número aleatorio para seleccionar rol
+					int randomRol = (int) (Math.random() * 100); // Numero aleatorio para seleccionar rol
 					String rolSeleccionado;
 					boolean contadorCubierta = false;
 					boolean contadorCocinero = false;
@@ -1132,7 +1132,7 @@ public class Argh {
 						contadorCocinero = true;
 					} else {
 						System.out.println("║  ¡Tu rol seleccionado es ARTILLERO!   ║");
-						rolSeleccionado = "Artillería";
+						rolSeleccionado = "Artilleria";
 						contadorArtillero = true;
 					}
 					System.out.println("╚═══════════════════════════════════════╝");
@@ -1153,7 +1153,7 @@ public class Argh {
 					System.out.println("╠══════════════════════════════════════╣");
 					System.out.println("║           DIFICULTAD EXTREMA         ║");
 					System.out.println("║                                      ║");
-					System.out.println("║          ¡Eres el capitán!           ║");
+					System.out.println("║          ¡Eres el capitan!           ║");
 					System.out.println("╚══════════════════════════════════════╝");
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
@@ -1161,25 +1161,25 @@ public class Argh {
 					sc.nextLine();
 					sc.nextLine();
 					limpiarPantalla();
-					Personaje capitán = new PersonajeCapitan(nombre, genero, 100, 30, 20, 10, 30, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, 5);
-					personajeActivo = capitán;
+					Personaje capitan = new PersonajeCapitan(nombre, genero, 100, 30, 20, 10, 30, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, 5);
+					personajeActivo = capitan;
 					break;
 				} else {
-					// Opción inválida
-					System.out.println("Opción inválida");
+					// Opcion invalida
+					System.out.println("Opcion invalida");
 				}
 			} else if (opcionInical == 2) {
 				// Salir del juego	
 				salirJuego();
 			} else if (opcionInical == 3) {
-				// Cómo jugar
+				// Como jugar
 				menuComoJugar();
 				sc.nextLine();
 				sc.nextLine();
 				limpiarPantalla();
 			} else {
-				// Opción inválida
-				System.out.println("Opción inválida. Prueba otra vez.");
+				// Opcion invalida
+				System.out.println("Opcion invalida. Prueba otra vez.");
 			}
 		} // Fin del bucle del inicio
 		
@@ -1192,7 +1192,7 @@ public class Argh {
 			} catch (Exception e) {
 				limpiarPantalla();
 				sc.nextLine(); 
-				System.out.println("Opción inválida. Introduce un número.");
+				System.out.println("Opcion invalida. Introduce un numero.");
 			}
 			if (opcionContinuar == 1) {
 				// Avanzar
@@ -1208,9 +1208,9 @@ public class Argh {
 						System.out.println("╔═════════════════════════════════════════════╗");
 						System.out.println("║  Es un placer tenerte con nosotros          ║");
 						System.out.println("╚═════════════════════════════════════════════╝");
-						System.out.println("  capitán " + personajeActivo.getNombre() + ". ");
+						System.out.println("  capitan " + personajeActivo.getNombre() + ". ");
 						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║  Su barco se está aproximando a las         ║");
+						System.out.println("║  Su barco se esta aproximando a las         ║");
 						System.out.println("║  Tierras desconocidas...                    ║");
 						System.out.println("║                                             ║");
 						System.out.println("║  Pulsa enter para continuar...              ║");
@@ -1219,9 +1219,9 @@ public class Argh {
 						limpiarPantalla();
 						System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄");
 						System.out.println();
-						System.out.println("  Capitán, llega un aviso del mástil mayor");
+						System.out.println("  Capitan, llega un aviso del mastil mayor");
 						System.out.println("  que se atisba una isla en el horizonte.");
-						System.out.println("  Vamos a desplegar a la tripulación para");
+						System.out.println("  Vamos a desplegar a la tripulacion para");
 						System.out.println("  defender el barco, tengo un mal");
 						System.out.println("  presentimiento...");
 						System.out.println();
@@ -1230,9 +1230,9 @@ public class Argh {
 						sc.nextLine();
 						limpiarPantalla();
 						System.out.println("╔══════════════════════════════════════════════╗");
-						System.out.println("║  ¡ATENCIÓN CAPITÁN!                          ║");
+						System.out.println("║  ¡ATENCIoN CAPITaN!                          ║");
 						System.out.println("║  Da la orden de proteger el barco            ║");
-						System.out.println("║  (debes gritar, si no no te escucharán):     ║");
+						System.out.println("║  (debes gritar, si no no te escucharan):     ║");
 						System.out.println("╚══════════════════════════════════════════════╝");
 						String aviso = sc.nextLine();
 						while(true){
@@ -1252,7 +1252,7 @@ public class Argh {
 								break;
 							}else{
 								System.out.println("╔════════════════════════════════════╗");
-								System.out.println("║  ¡No le han escuchado, capitán!    ║");
+								System.out.println("║  ¡No le han escuchado, capitan!    ║");
 								System.out.println("║  ¡Tiene que GRITAAAAAAAAAAAAAAAR   ║");
 								System.out.println("║   MUUUUUUCHOOOOOO!                 ║");
 								System.out.println("╚════════════════════════════════════╝");
@@ -1260,16 +1260,16 @@ public class Argh {
 								limpiarPantalla();
 								System.out.println("╔═══════════════════════════════════════════╗");
 								System.out.println("║  Da la orden de proteger el barco         ║");
-								System.out.println("║  (debes gritar, si no, no te escucharán): ║");
+								System.out.println("║  (debes gritar, si no, no te escucharan): ║");
 								System.out.println("╚═══════════════════════════════════════════╝");
 								aviso = sc.nextLine();
 							}
 						}
 						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║  El grito del capitán es tan potente que    ║");
+						System.out.println("║  El grito del capitan es tan potente que    ║");
 						System.out.println("║  hace brincar a los peces del agua.         ║");
 						System.out.println("║                                             ║");
-						System.out.println("║  La tripulación se pone en alerta y         ║");
+						System.out.println("║  La tripulacion se pone en alerta y         ║");
 						System.out.println("║  preparan las defensas del barco...         ║");
 						System.out.println("║                                             ║");
 						System.out.println("║  Pulsa enter para continuar...              ║");
@@ -1283,7 +1283,7 @@ public class Argh {
 						limpiarPantalla();
 						esperar(2);
 						System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄");
-						System.out.println("  ¡Capitán, prepárese, nos atacan!");
+						System.out.println("  ¡Capitan, preparese, nos atacan!");
 						System.out.println("  Pulsa enter para continuar...");
 						System.out.println("▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
 						sc.nextLine();
@@ -1291,7 +1291,7 @@ public class Argh {
 					} else{
 						System.out.println("╔═════════════════════════════════════════════╗");
 						System.out.println("  ║  ¡Bienvenido a bordo, " + personajeActivo.getNombre() + "!".formatted("%-28s") + "║");
-						System.out.println("║  El barco del capitán se aproxima a las     ║");
+						System.out.println("║  El barco del capitan se aproxima a las     ║");
 						System.out.println("║  Tierras desconocidas...                    ║");
 						System.out.println("║                                             ║");
 						System.out.println("║  Pulsa enter para continuar...              ║");
@@ -1299,9 +1299,9 @@ public class Argh {
 						sc.nextLine();
 						limpiarPantalla();
 						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║  Grumete, llega un aviso del mástil mayor:  ║");
+						System.out.println("║  Grumete, llega un aviso del mastil mayor:  ║");
 						System.out.println("║  se atisba una isla en el horizonte.        ║");
-						System.out.println("║  Voy a informar al capitán, tengo un mal    ║");
+						System.out.println("║  Voy a informar al capitan, tengo un mal    ║");
 						System.out.println("║  presentimiento...                          ║");
 						System.out.println("║                                             ║");
 						System.out.println("║  Pulsa enter para continuar...              ║");
@@ -1309,7 +1309,7 @@ public class Argh {
 						sc.nextLine();
 						limpiarPantalla();
 						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║  Debemos advertir al capitán de la posible  ║");
+						System.out.println("║  Debemos advertir al capitan de la posible  ║");
 						System.out.println("║  amenaza. ¡Corre y dile que debe            ║");
 						System.out.println("║  prepararse!                                ║");
 						System.out.println("╚═════════════════════════════════════════════╝");
@@ -1321,7 +1321,7 @@ public class Argh {
 							System.out.println("║  Tus pasos resuenan en todo el barco,       ║");
 							System.out.println("║  haciendo temblar toda la nave.             ║");
 							System.out.println("║                                             ║");
-							System.out.println("║  El capitán se alerta y ordena preparar     ║");
+							System.out.println("║  El capitan se alerta y ordena preparar     ║");
 							System.out.println("║  las defensas del barco...                  ║");
 							System.out.println("║                                             ║");
 							System.out.println("║  Pulsa enter para continuar...              ║");
@@ -1357,13 +1357,13 @@ public class Argh {
 					System.out.println("║  ¡ALERTA! ¡ENEMIGOS A LA VISTA!             ║");
 					System.out.println("║  Cuidado, nos atacan un grupo de            ║");
 					System.out.println("║  " + enemigoComunMarino.getEnemigoSeleccionado() + "                                    ║");
-					System.out.println("║  Vas a entrar en combate, prepárate...      ║");
+					System.out.println("║  Vas a entrar en combate, preparate...      ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
 					limpiarPantalla();
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║  Antes de nada te recomiendo que veas la    ║");
-					System.out.println("║  información de tus ataques.                ║");
+					System.out.println("║  informacion de tus ataques.                ║");
 					System.out.println("║                                             ║");
 					System.out.println("║  ¿Quieres ver tus ataques? S/N              ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1386,7 +1386,7 @@ public class Argh {
 					mundoActual ++;
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1396,7 +1396,7 @@ public class Argh {
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
-					System.out.println("Te adentras más en las profundidades del mar");
+					System.out.println("Te adentras mas en las profundidades del mar");
 					suspense();
 					limpiarPantalla();
 					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
@@ -1406,7 +1406,7 @@ public class Argh {
 					combate(personajeActivo, enemigoComunMarino, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1418,7 +1418,7 @@ public class Argh {
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║  Te adentras más en las profundidades       ║");
+					System.out.println("║  Te adentras mas en las profundidades       ║");
 					System.out.println("║  del mar...                                 ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
@@ -1430,7 +1430,7 @@ public class Argh {
 					combate(personajeActivo, enemigoComunMarino, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1442,14 +1442,14 @@ public class Argh {
                     enemigo = listaEnemigosMarinosJefes[indiceAleatorio];
                     EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║  Sin saber lo que hacíamos, nos sumergimos  ║");
-					System.out.println("║  más profundos aún...                       ║");
+					System.out.println("║  Sin saber lo que haciamos, nos sumergimos  ║");
+					System.out.println("║  mas profundos aun...                       ║");
 					System.out.println("╚═════════════════════════════════════════════╝");					suspense();
 					limpiarPantalla();
                     System.out.println("╔═════════════════════════════════════════════╗");
                     System.out.println("║  ¡ALERTA! ¡JEFE A LA VISTA!                ║");
                     System.out.println("║  " + enemigoMarinoJefe.getJefeSeleccionado() + " se acerca lentamente...          ║");
-                    System.out.println("║  ¡Prepárate para una batalla difícil!      ║");
+                    System.out.println("║  ¡Preparate para una batalla dificil!      ║");
                     System.out.println("╚═════════════════════════════════════════════╝");
                     System.out.println("Pulsa enter para continuar...");
                     sc.nextLine();
@@ -1458,7 +1458,7 @@ public class Argh {
                     combate(personajeActivo, enemigoMarinoJefe, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1468,11 +1468,11 @@ public class Argh {
 				} else if (mundoActual == 4) { // Region 2
 					if(personajeActivo instanceof PersonajeCapitan){
 						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("   Capitán " + personajeActivo.getNombre() + ", hemos llegado a");
+						System.out.println("   Capitan " + personajeActivo.getNombre() + ", hemos llegado a");
 						System.out.println("║  la Isla Maldita.                           ║");
 						System.out.println("║                                             ║");
-						System.out.println("║  Se dice que aquí habita el Guardián de     ║");
-						System.out.println("║  las Profundidades, el único que conoce     ║");
+						System.out.println("║  Se dice que aqui habita el Guardian de     ║");
+						System.out.println("║  las Profundidades, el unico que conoce     ║");
 						System.out.println("║  el paradero del tesoro.                    ║");
 						System.out.println("╚═════════════════════════════════════════════╝");
 						sc.nextLine();
@@ -1481,31 +1481,31 @@ public class Argh {
                         System.out.println("║  Avanzamos con cautela, pero los tambores   ║");
                         System.out.println("║  empiezan a resonar en la selva...          ║");
                         System.out.println("║                                             ║");
-                        System.out.println("║  Algo nos está esperando...                 ║");
+                        System.out.println("║  Algo nos esta esperando...                 ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  Pulsa enter para continuar...              ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
                         sc.nextLine();
                         limpiarPantalla();
                         System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("║  ¡Cuidado, Capitán! ¡Nos emboscan!          ║");
+                        System.out.println("║  ¡Cuidado, Capitan! ¡Nos emboscan!          ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
                     } else {
                         System.out.println("╔═════════════════════════════════════════════╗");
                         System.out.println("   Bienvenido a tierra firme, " + personajeActivo.getNombre() + ".");
                         System.out.println("║  Esta isla no aparece en los mapas...       ║");
-                        System.out.println("║  ¿Qué secretos oculta?                      ║");
+                        System.out.println("║  ¿Que secretos oculta?                      ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  Pulsa enter para continuar...              ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
                         sc.nextLine();
                         limpiarPantalla();
                         System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("║  Un escalofrío recorre tu espalda.          ║");
+                        System.out.println("║  Un escalofrio recorre tu espalda.          ║");
                         System.out.println("║  No estamos solos.                          ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  De pronto, la selva cobra vida y figuras   ║");
-                        System.out.println("║  sombrías emergen entre los árboles...      ║");
+                        System.out.println("║  sombrias emergen entre los arboles...      ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  ¡Prepara tu arma!                          ║");
                         System.out.println("║                                             ║");
@@ -1523,7 +1523,7 @@ public class Argh {
 						combate(personajeActivo, enemigoTerrestreComun, sc, rand);
 						System.out.println("╔═════════════════════════════════════════════╗");
 						System.out.println("║            ¡ENHORABUENA!                    ║");
-						System.out.println("║     Has superado el combate con éxito       ║");
+						System.out.println("║     Has superado el combate con exito       ║");
 						System.out.println("║                                             ║");
 						System.out.println("║     Pulsa enter para continuar...           ║");
 						System.out.println("╚═════════════════════════════════════════════╝");
@@ -1536,7 +1536,7 @@ public class Argh {
 					enemigo = listaEnemigosTerrestres[indiceAleatorio];
 					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║  Nos adentramos más en la selva...          ║");
+					System.out.println("║  Nos adentramos mas en la selva...          ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
 					System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
@@ -1547,7 +1547,7 @@ public class Argh {
 					combate(personajeActivo, enemigoTerrestreComun, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1559,7 +1559,7 @@ public class Argh {
 					enemigo = listaEnemigosTerrestres[indiceAleatorio];
 					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║  Nos adentramos más en la selva...          ║");
+					System.out.println("║  Nos adentramos mas en la selva...          ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
 					System.out.println("Pulsa enter para continuar...");
@@ -1573,7 +1573,7 @@ public class Argh {
 					combate(personajeActivo, enemigoTerrestreComun, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1592,7 +1592,7 @@ public class Argh {
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║  ¡ALERTA! ¡JEFE A LA VISTA!                ║");
 					System.out.println("║  " + enemigoTerrestreJefe.getJefeSeleccionado() + " se acerca lentamente...          ║");
-					System.out.println("║  ¡Prepárate para una batalla difícil!      ║");
+					System.out.println("║  ¡Preparate para una batalla dificil!      ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
 					System.out.println("Pulsa enter para continuar...");
 					sc.nextLine();
@@ -1601,7 +1601,7 @@ public class Argh {
 					combate(personajeActivo, enemigoTerrestreJefe, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1610,11 +1610,11 @@ public class Argh {
 				} else if (mundoActual == 8) {
 					if(personajeActivo instanceof PersonajeCapitan){
                         System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("   Capitán " + personajeActivo.getNombre() + ", según el Guardián,");
-                        System.out.println("║  debemos descender al Abismo del Leviatán.  ║");
+                        System.out.println("   Capitan " + personajeActivo.getNombre() + ", segun el Guardian,");
+                        System.out.println("║  debemos descender al Abismo del Leviatan.  ║");
                         System.out.println("║                                             ║");
-                        System.out.println("║  Solo los más valientes regresan de         ║");
-                        System.out.println("║  allí con vida.                             ║");
+                        System.out.println("║  Solo los mas valientes regresan de         ║");
+                        System.out.println("║  alli con vida.                             ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  Pulsa enter para continuar...              ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
@@ -1625,7 +1625,7 @@ public class Argh {
                         System.out.println("║  acantilados.                               ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  Una escalera de piedra tallada en la roca  ║");
-                        System.out.println("║  nos guía hasta la caverna sumergida...     ║");
+                        System.out.println("║  nos guia hasta la caverna sumergida...     ║");
                         System.out.println("║                                             ║");
                         System.out.println("║  Pero algo se mueve bajo el agua...         ║");
                         System.out.println("║                                             ║");
@@ -1659,7 +1659,7 @@ public class Argh {
                         sc.nextLine();
                         limpiarPantalla();
                         System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("║  ¡Prepárate, debemos pelear si queremos     ║");
+                        System.out.println("║  ¡Preparate, debemos pelear si queremos     ║");
                         System.out.println("║  seguir con vida!                           ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
                     }
@@ -1668,8 +1668,8 @@ public class Argh {
 					enemigo = listaEnemigosTerrestres[indiceAleatorio];
 					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
-                    System.out.println("║  En la caverna había una zona seca,         ║");
-                    System.out.println("║  así que decidimos investigar...            ║");
+                    System.out.println("║  En la caverna habia una zona seca,         ║");
+                    System.out.println("║  asi que decidimos investigar...            ║");
                     System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
 					System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
@@ -1680,7 +1680,7 @@ public class Argh {
 					combate(personajeActivo, enemigoTerrestreComun, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1692,10 +1692,10 @@ public class Argh {
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║   Descubrimos dónde estaba el tesoro,       ║");
-					System.out.println("║   así que fuimos a por él.                  ║");
+					System.out.println("║   Descubrimos donde estaba el tesoro,       ║");
+					System.out.println("║   asi que fuimos a por el.                  ║");
 					System.out.println("║                                             ║");
-					System.out.println("║  Pero no todo salió como pensamos...        ║");
+					System.out.println("║  Pero no todo salio como pensamos...        ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
 					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
@@ -1706,7 +1706,7 @@ public class Argh {
 					combate(personajeActivo, enemigoComunMarino, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
+					System.out.println("║     Has superado el combate con exito       ║");
 					System.out.println("║                                             ║");
 					System.out.println("║     Pulsa enter para continuar...           ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1716,17 +1716,17 @@ public class Argh {
 					EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
                     System.out.println("╔═════════════════════════════════════════════╗");
                     System.out.println("║  El barco se deslizaba sobre aguas oscuras  ║");
-                    System.out.println("║  y tranquilas, como si el propio océano     ║");
-                    System.out.println("║  contuviera la respiración.                 ║");
+                    System.out.println("║  y tranquilas, como si el propio oceano     ║");
+                    System.out.println("║  contuviera la respiracion.                 ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  La tripulación, exhausta pero decidida,    ║");
-                    System.out.println("║  mantenía los ojos fijos en el horizonte.   ║");
+                    System.out.println("║  La tripulacion, exhausta pero decidida,    ║");
+                    System.out.println("║  mantenia los ojos fijos en el horizonte.   ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  Tras innumerables batallas, habían         ║");
-                    System.out.println("║  llegado al lugar donde yacía el tesoro     ║");
-                    System.out.println("║  más grande jamás encontrado.               ║");
+                    System.out.println("║  Tras innumerables batallas, habian         ║");
+                    System.out.println("║  llegado al lugar donde yacia el tesoro     ║");
+                    System.out.println("║  mas grande jamas encontrado.               ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  Pero también era el hogar del Guardián     ║");
+                    System.out.println("║  Pero tambien era el hogar del Guardian     ║");
                     System.out.println("║  de las Profundidades, una criatura temida  ║");
                     System.out.println("║  por todos los marineros...                 ║");
                     System.out.println("╚═════════════════════════════════════════════╝");
@@ -1736,29 +1736,29 @@ public class Argh {
 					limpiarPantalla();
 					if (personajeActivo instanceof PersonajeCapitan) {
 						System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("   El capitán " + personajeActivo.getNombre() + " se encontraba en");
+                        System.out.println("   El capitan " + personajeActivo.getNombre() + " se encontraba en");
                         System.out.println("║  la proa, su mirada firme y su espada       ║");
                         System.out.println("║  lista.                                     ║");
                         System.out.println("║                                             ║");
-                        System.out.println("║  Sabía que este era el momento decisivo.    ║");
-                        System.out.println("║  No podía fallar. No después de todo lo     ║");
-                        System.out.println("║  que habían pasado.                         ║");
+                        System.out.println("║  Sabia que este era el momento decisivo.    ║");
+                        System.out.println("║  No podia fallar. No despues de todo lo     ║");
+                        System.out.println("║  que habian pasado.                         ║");
                         System.out.println("║                                             ║");
-                        System.out.println("║  La tripulación, aunque temerosa,           ║");
-                        System.out.println("║  confiaba en su líder. Sabían que si        ║");
-                        System.out.println("║  alguien podía vencer al Guardián, era él.  ║");
+                        System.out.println("║  La tripulacion, aunque temerosa,           ║");
+                        System.out.println("║  confiaba en su lider. Sabian que si        ║");
+                        System.out.println("║  alguien podia vencer al Guardian, era el.  ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
 					} else {
 						System.out.println("╔═════════════════════════════════════════════╗");
-                        System.out.println("║  Si bien el capitán era muy fuerte, el      ║");
+                        System.out.println("║  Si bien el capitan era muy fuerte, el      ║");
                         System.out.println("  grumete " + personajeActivo.getNombre() + " le ayudaba a mantener    ║");
                         System.out.println("║  la calma.                                  ║");
                         System.out.println("║                                             ║");
-                        System.out.println("║  Sabían que este era el momento decisivo.   ║");
-                        System.out.println("║  No podía fallar. No después de todo lo     ║");
-                        System.out.println("║  que habían pasado.                         ║");
+                        System.out.println("║  Sabian que este era el momento decisivo.   ║");
+                        System.out.println("║  No podia fallar. No despues de todo lo     ║");
+                        System.out.println("║  que habian pasado.                         ║");
                         System.out.println("║                                             ║");
-                        System.out.println("║  Por lo que embarcaron un último viaje      ║");
+                        System.out.println("║  Por lo que embarcaron un ultimo viaje      ║");
                         System.out.println("║  decisivo...                                ║");
                         System.out.println("╚═════════════════════════════════════════════╝");
 					}
@@ -1767,20 +1767,20 @@ public class Argh {
 					sc.nextLine();
 					limpiarPantalla();
 					System.out.println("╔═════════════════════════════════════════════╗");
-                    System.out.println("║  De repente, el agua comenzó a agitarse.    ║");
+                    System.out.println("║  De repente, el agua comenzo a agitarse.    ║");
                     System.out.println("║  Burbujas enormes emergieron de las         ║");
-                    System.out.println("║  profundidades, y el aire se llenó de       ║");
+                    System.out.println("║  profundidades, y el aire se lleno de       ║");
                     System.out.println("║  un rugido ensordecedor.                    ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  El océano pareció partirse en dos cuando   ║");
-                    System.out.println("║  una criatura colosal emergió.              ║");
+                    System.out.println("║  El oceano parecio partirse en dos cuando   ║");
+                    System.out.println("║  una criatura colosal emergio.              ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  Era el Guardián de las Profundidades,      ║");
+                    System.out.println("║  Era el Guardian de las Profundidades,      ║");
                     System.out.println("║  cuyos ojos brillaban como faros en la      ║");
                     System.out.println("║  noche.                                     ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  ¡Prepárense! —gritó el capitán—            ║");
-                    System.out.println("║  ¡Este es el último combate!                ║");
+                    System.out.println("║  ¡Preparense! —grito el capitan—            ║");
+                    System.out.println("║  ¡Este es el ultimo combate!                ║");
                     System.out.println("╚═════════════════════════════════════════════╝");
 					suspense();
 					System.out.println("Pulsa enter para continuar...");
@@ -1789,31 +1789,31 @@ public class Argh {
 					actualizarStatsEnemigosHistoria(enemigoMarinoJefe, mundoActual);
 					combate(personajeActivo, enemigoMarinoJefe, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
-                    System.out.println("║  La batalla fue feroz. El Guardián atacaba  ║");
-                    System.out.println("║  con furia, sus tentáculos golpeaban el     ║");
-                    System.out.println("║  barco y sus mandíbulas intentaban atrapar  ║");
+                    System.out.println("║  La batalla fue feroz. El Guardian atacaba  ║");
+                    System.out.println("║  con furia, sus tentaculos golpeaban el     ║");
+                    System.out.println("║  barco y sus mandibulas intentaban atrapar  ║");
                     System.out.println("║  a los marineros.                           ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  Pero el capitán y su tripulación no se     ║");
-                    System.out.println("║  rendían. Con cada golpe, con cada corte,   ║");
-                    System.out.println("║  se acercaban más a la victoria.            ║");
+                    System.out.println("║  Pero el capitan y su tripulacion no se     ║");
+                    System.out.println("║  rendian. Con cada golpe, con cada corte,   ║");
+                    System.out.println("║  se acercaban mas a la victoria.            ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  El capitán, con una habilidad sin igual,   ║");
+                    System.out.println("║  El capitan, con una habilidad sin igual,   ║");
                     System.out.println("║  esquivaba los ataques de la bestia y       ║");
-                    System.out.println("║  contraatacaba con precisión mortal.        ║");
+                    System.out.println("║  contraatacaba con precision mortal.        ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  Finalmente, con un último y poderoso       ║");
-                    System.out.println("║  golpe, el capitán atravesó el corazón      ║");
-                    System.out.println("║  del Guardián.                              ║");
+                    System.out.println("║  Finalmente, con un ultimo y poderoso       ║");
+                    System.out.println("║  golpe, el capitan atraveso el corazon      ║");
+                    System.out.println("║  del Guardian.                              ║");
                     System.out.println("╚═════════════════════════════════════════════╝");
 
 					System.out.println("╔═════════════════════════════════════════════╗");
-                    System.out.println("║  El leviatán emitió un último rugido        ║");
+                    System.out.println("║  El leviatan emitio un ultimo rugido        ║");
                     System.out.println("║  antes de hundirse en las profundidades,    ║");
                     System.out.println("║  derrotado.                                 ║");
                     System.out.println("║                                             ║");
-                    System.out.println("║  El océano se calmó, y el silencio         ║");
-                    System.out.println("║  volvió a reinar.                          ║");
+                    System.out.println("║  El oceano se calmo, y el silencio         ║");
+                    System.out.println("║  volvio a reinar.                          ║");
                     System.out.println("╚═════════════════════════════════════════════╝");
                     limpiarPantalla();
                     victoria();
@@ -1821,7 +1821,7 @@ public class Argh {
 					mundoActual = 13;
 				} else if (mundoActual >= 13) { // Combates infinitos
 					if (mundoActual % 4 == 0) { // Combate de jefe cada 4 mundos
-						// Selección aleatoria entre jefe marino o terrestre
+						// Seleccion aleatoria entre jefe marino o terrestre
 						boolean esJefeMarino = rand.nextBoolean();
 						if (esJefeMarino) {
 							indiceAleatorio = rand.nextInt(listaEnemigosMarinosJefes.length);
@@ -1937,9 +1937,9 @@ public class Argh {
 							break;
 						}
 						default -> {
-							// Opción inválida
+							// Opcion invalida
 							limpiarPantalla();
-							System.out.println("Opción inválida. Prueba otra vez.");
+							System.out.println("Opcion invalida. Prueba otra vez.");
 						}
 					}
 				}
@@ -1947,7 +1947,7 @@ public class Argh {
 				// Tienda
 				entrarTienda(tendera, personajeActivo, sc);
 			} else if (opcionContinuar == 4) {
-				// Menú
+				// Menu
 				boolean dentroMenu = true;
 				while (dentroMenu) {
 					personajeActivo.menu();
@@ -1959,13 +1959,13 @@ public class Argh {
 								break;
 							} else {
 								limpiarPantalla();
-								System.out.println("Opción inválida. Introduce una opción válida.");
+								System.out.println("Opcion invalida. Introduce una opcion valida.");
 								personajeActivo.menu();
 							}
 						} catch (InputMismatchException e) {
 							limpiarPantalla();
 							sc.nextLine();
-							System.out.println("Opción inválida. Introduce un número.");
+							System.out.println("Opcion invalida. Introduce un numero.");
 							personajeActivo.menu();
 						}
 					}
@@ -2009,7 +2009,7 @@ public class Argh {
 										sc.nextLine();
 										limpiarPantalla();
 									}
-									default -> {System.out.println("Opción no válida.");limpiarPantalla();}
+									default -> {System.out.println("Opcion no valida.");limpiarPantalla();}
 								}
 							} catch (Exception e) {
 								limpiarPantalla();
@@ -2017,9 +2017,9 @@ public class Argh {
 							}
 						}
 						case 3 -> {
-							// Estadísticas
+							// Estadisticas
 							limpiarPantalla();
-							personajeActivo.estadísticas();
+							personajeActivo.estadisticas();
 							System.out.println("Pulsa enter para continuar...");
 							sc.nextLine();
 							sc.nextLine();
@@ -2035,7 +2035,7 @@ public class Argh {
 								if (opcionBarril == 1) {
 									limpiarPantalla();
 								} else {
-									System.out.println("Inserte un valor válido.");
+									System.out.println("Inserte un valor valido.");
 								}
 							} else {
 								opcionBarril = sc.nextInt();
@@ -2046,7 +2046,7 @@ public class Argh {
 								} else if (opcionBarril == 2) {
 									limpiarPantalla();
 								} else {
-									System.out.println("Inserte un valor válido.");
+									System.out.println("Inserte un valor valido.");
 								}
 							}
 						}
@@ -2064,8 +2064,8 @@ public class Argh {
 							salirJuego();
 						}
 						default -> {
-							// Opción inválida
-							System.out.println("Opción inválida. Prueba otra vez.");
+							// Opcion invalida
+							System.out.println("Opcion invalida. Prueba otra vez.");
 						}
 					}
 				}
