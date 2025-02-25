@@ -134,9 +134,9 @@ public class Tendera {
         System.out.println("║                      A R G H                       ║");
         System.out.println("╠════════════════════════════════════════════════════╣");
         System.out.println("║                   ___________________              ║");
-        System.out.println("║                  /                   \\            ║");
-        System.out.println("║                 /                     \\           ║");
-        System.out.println("║                /                       \\          ║");
+        System.out.println("║                  /                   \\             ║");
+        System.out.println("║                 /                     \\            ║");
+        System.out.println("║                /                       \\           ║");
         System.out.println("║               |   ╔═══════════════╗    |           ║");
         System.out.println("║               |   ║   BARRIL DE   ║    |           ║");
         System.out.println("║               |   ║    TESOROS    ║    |           ║");
@@ -156,7 +156,7 @@ public class Tendera {
         System.out.println("║                \\                     /            ║");
         System.out.println("║                 \\                   /             ║");
         System.out.println("║                  \\                 /              ║");
-        System.out.println("║                   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾                ║");
+        System.out.println("║                   _________________/               ║");
         if (personaje.getBarrilesDisponibles() == 0) {
             System.out.println("╠════════════════════════════════════════════════════╣");
             System.out.println("║       AQUÍ APARECERAN LOS BARRILES QUE TENGAS      ║");
