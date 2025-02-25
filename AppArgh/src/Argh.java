@@ -1092,9 +1092,6 @@ public class Argh {
 				int indiceAleatorio = 0;
 				Enemigo enemigo = null;
 				EnemigoMarinoComun enemigoComunMarino = null;
-				EnemigoTerrestreComun enemigoComunTerrestre = null;
-				EnemigoMarinoJefe enemigoJefeMarino = null;
-				EnemigoTerrestreJefe enemigoJefeTerrestre = null;
 				if (mundoActual == 0) {
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║        ¡TU AVENTURA VA A COMENZAR!          ║");
@@ -1579,8 +1576,71 @@ public class Argh {
 					System.out.println("El océano se calmó, y el silencio volvió a reinar.");
 					limpiarPantalla();
 					System.out.println("VICTORIA");
-				} else if (mundoActual >= 12) { // Combates infinitos
+					mundoActual = 13;
+				} else if (mundoActual >= 13) { // Combates infinitos
+					if (mundoActual % 4 == 0) { // Combate de jefe cada 4 mundos
+						// Selección aleatoria entre jefe marino o terrestre
+						boolean esJefeMarino = rand.nextBoolean();
+						if (esJefeMarino) {
+							indiceAleatorio = rand.nextInt(listaEnemigosMarinosJefes.length);
+							enemigo = listaEnemigosMarinosJefes[indiceAleatorio];
+							EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
+							System.out.println("¡Un poderoso jefe marino aparece!");
+							System.out.println("Se acerca " + enemigoMarinoJefe.getJefeSeleccionado());
+							System.out.println("Pulsa enter para continuar...");
+							sc.nextLine();
+							limpiarPantalla();
+							int nivelJefe = (int) (personajeActivo.getNivel() * 1.5);
+							actualizarStatsEnemigosHistoria(enemigoMarinoJefe, nivelJefe);
+							combate(personajeActivo, enemigoMarinoJefe, sc, rand);
+						} else {
+							indiceAleatorio = rand.nextInt(listaEnemigosTerrestresJefes.length);
+							enemigo = listaEnemigosTerrestresJefes[indiceAleatorio];
+							EnemigoTerrestreJefe enemigoTerrestreJefe = (EnemigoTerrestreJefe) enemigo;
+							
+							System.out.println("¡Un poderoso jefe terrestre aparece!");
+							System.out.println("Se acerca " + enemigoTerrestreJefe.getJefeSeleccionado());
+							System.out.println("Pulsa enter para continuar...");
+							sc.nextLine();
+							limpiarPantalla();
+							int nivelJefe = (int) (personajeActivo.getNivel() * 1.5);
+							actualizarStatsEnemigosHistoria(enemigoTerrestreJefe, nivelJefe);
+							combate(personajeActivo, enemigoTerrestreJefe, sc, rand);
+						}
+					} else {
+						// Combates contra enemigos comunes
+						boolean esEnemigoMarino = rand.nextBoolean();
+						if (esEnemigoMarino) {
+							indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
+							enemigo = listaEnemigosMarinos[indiceAleatorio];
+							enemigoComunMarino = (EnemigoMarinoComun) enemigo;
+							System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
+							System.out.println("Pulsa enter para continuar...");
+							sc.nextLine();
+							limpiarPantalla();
+							int nivelComun = (int) (personajeActivo.getNivel() * 1.25);
+							actualizarStatsEnemigosHistoria(enemigoComunMarino, nivelComun);
+							combate(personajeActivo, enemigoComunMarino, sc, rand);
 
+						} else {
+							indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
+							enemigo = listaEnemigosTerrestres[indiceAleatorio];
+							EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
+							System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
+							System.out.println("Pulsa enter para continuar...");
+							sc.nextLine();
+							limpiarPantalla();
+							int nivelComun = (int) (personajeActivo.getNivel() * 1.25);
+							actualizarStatsEnemigosHistoria(enemigoComunMarino, nivelComun);
+							combate(personajeActivo, enemigoTerrestreComun, sc, rand);
+						}
+					}
+					System.out.println("Pulsa enter para continuar...");
+					sc.nextLine();
+					limpiarPantalla();
+					actualizarStatsEnemigosHistoria(enemigo, mundoActual);
+					combate(personajeActivo, enemigo, sc, rand);
+					mundoActual++;
 				}
 				
 			} else if (opcionContinuar == 2) {
