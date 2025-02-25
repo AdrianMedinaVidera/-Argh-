@@ -63,7 +63,7 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("║           BRAMIDO DE ACERO           ║");
         System.out.println("╠══════════════════════════════════════╣");
         System.out.println("║  El capitán dispara un proyectil     ║");
-        System.out.println("║  extremadamente potente desde un      ║");
+        System.out.println("║  extremadamente potente desde un     ║");
         System.out.println("║  cañón.                              ║");
         System.out.println("║                                      ║");
         System.out.println("║  Daño físico: 120                    ║");
@@ -100,7 +100,7 @@ public class PersonajeCapitan extends Personaje {
         System.out.println("El capitán ha usado el ataque Bramido de acero.");
         enemigo.setVida(enemigo.getVida() - (int) (0.5 * (dañoFisico - enemigo.getResistenciaFisica()) + 120));
         vida *= 0.5;
-        System.out.println("El capitán ha disminuido su vida ↓");
+        System.out.println("El capitán ha disminuido su vida ");
     }
 
     @Override

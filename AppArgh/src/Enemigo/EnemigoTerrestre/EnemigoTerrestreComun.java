@@ -25,27 +25,43 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
     public void ataque1(Personaje personaje) {
         switch(enemigoSeleccionado) {
             case "Loco":
-                System.out.println("El enemigo ha usado el ataque Lanzamiento de Cocos");
+            System.out.println("╔═════════════════════════════════════════════╗");
+            System.out.println("║  El enemigo ha usado el ataque              ║");
+            System.out.println("║  Lanzamiento de Cocos                       ║");
+            System.out.println("╚═════════════════════════════════════════════╝");
                 // El loco lanza un coco con fuerza que hace 60 de daño fisico según del atributo correr y lo aumenta en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * correr / 100)));
                 correr += 10;
-                System.out.println("El enemigo ha aumentado su velocidad de carrera");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha aumentado sus velocidad de   ║");
+                System.out.println("║  carrera                                    ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 break;
             
             case "Emú":
-                System.out.println("El enemigo ha usado el ataque Patada de la Extinción");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha usado el ataque              ║");
+                System.out.println("║  Patada de la Extincion                     ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 // El emú da una patada que hace 60 de daño fisico según del atributo correr y aumenta su velocidad en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * correr / 100)));
                 velocidad += 10;
-                System.out.println("El enemigo ha aumentado su velocidad");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha aumentado sus velocidad      ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 break;
             
             case "Sapo":
-                System.out.println("El enemigo ha usado el ataque Lengua del Abismo");
+            System.out.println("╔═══════════════════════════════════════╗");
+            System.out.println("║  El enemigo ha usado el ataque        ║");
+            System.out.println("║ Lengua del Abismo                     ║");
+            System.out.println("╚═══════════════════════════════════════╝");
                 // El sapo lanza un lengüetazo al personaje, haciendo 60 de daño fisico según del atributo correr y aumenta su daño físico en 10.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoFisico - personaje.getResistenciaFisica()) + (60 * correr / 100)));
                 dañoFisico += 10;
-                System.out.println("El enemigo ha aumentado su daño físico");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha aumentado su daño fisico     ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 break;
         }
     }
@@ -54,40 +70,50 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
     public void ataque2(Personaje personaje) {
         switch(enemigoSeleccionado) {
             case "Loco":
-                System.out.println("El enemigo ha usado el ataque Danza del Chamán");
+                System.out.println("╔════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha usado el ataque         ║");
+                System.out.println("║  Danza del Chamán                      ║");
+                System.out.println("╚════════════════════════════════════════╝");
                 // El loco lanza realiza una danza que aumenta sus daños, su velocidad en y correr en 20.
                 dañoFisico += 20;
                 dañoMagico += 20;
                 velocidad += 20;
                 correr += 20;
-                System.out.println("El enemigo ha aumentado su daño físico ");
-                System.out.println("El enemigo ha aumentado su daño mágico ");
-                System.out.println("El enemigo ha aumentado su velocidad ");
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ");
+                System.out.println("╔═══════════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha aumentado sus daños, su velocidad  ║");
+                System.out.println("║  y su velocidad de carrera                        ║");
+                System.out.println("╚═══════════════════════════════════════════════════╝");
                 break;
             
             case "Emú":
-                System.out.println("El enemigo ha usado el ataque Alba del Emú");
+            System.out.println("╔═════════════════════════════════════╗");
+            System.out.println("║  El enemigo ha usado el ataque      ║");
+            System.out.println("║  Alba del Emu                       ║");
+            System.out.println("╚═════════════════════════════════════╝");
                 // El emú alza el vuelo frente al alba y aumenta sus resistencias, velocidad y correr en 20.
                 resistenciaFisica += 20;
                 resistenciaMagica += 20;
                 velocidad += 20;
                 correr += 20;
-                System.out.println("El enemigo ha aumentado su resistencia física ");
-                System.out.println("El enemigo ha aumentado su resistencia mágica ");
-                System.out.println("El enemigo ha aumentado su velocidad ");
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ");
+                System.out.println("╔═══════════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha aumentado sus resistencias,        ║");
+                System.out.println("║  su velocidad y su velocidad de carrera           ║");
+                System.out.println("╚═══════════════════════════════════════════════════╝");
                 break;
             
             case "Sapo":
-                System.out.println("El enemigo ha usado el ataque Eco del Pantano");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha usado el ataque              ║");
+                System.out.println("║  Eco del Pantano                            ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 // El sapo llama a sus amigos para que le ayuden, aumentando su vida y correr en 20 y quitando el sangrado.
                 vida += 20;
                 correr += 20;
                 estaSangrando = false;
-                System.out.println("El enemigo ha aumentado su vida ");
-                System.out.println("El enemigo ha aumentado su velocidad de carrera ");
-                System.out.println("El enemigo ha curado su sangrado");
+                System.out.println("╔════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha aumentado su vida y         ║");
+                System.out.println("║  su velocidad de carrera                   ║");
+                System.out.println("╚════════════════════════════════════════════╝");
                 break;
         }
     }
@@ -96,25 +122,42 @@ public class EnemigoTerrestreComun extends EnemigoTerrestre {
     public void ataque3(Personaje personaje) {
         switch(enemigoSeleccionado) {
             case "Loco":
-                System.out.println("El enemigo ha usado el ataque Invocación de Cangrejos");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha usado el ataque              ║");
+                System.out.println("║  Invocacion de Cangrejos                    ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 // El loco lanza acude a los cangrejos para hacer 35 de daño mágico y deja sangrado
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + (35 * correr / 100)));
                 personaje.setEstaSangrando(true);
+                System.out.println("╔═══════════════════════════════════════════════════╗");
+                System.out.println("║  El personaje esta sangrando...                   ║");
+                System.out.println("╚═══════════════════════════════════════════════════╝");
                 break;
             
             case "Emú":
-                System.out.println("El enemigo ha usado el ataque Tormenta Celeste");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha usado el ataque              ║");
+                System.out.println("║  Tormenta Celeste                           ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 // El emú crea una tormenta que no permite ver al enemigo, dejándolo somnoliento y realizando 25 de daño mágico.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + (25 * correr / 100)));
                 personaje.setEstaSomnoliento(true);
+                System.out.println("╔═══════════════════════════════════════════════════╗");
+                System.out.println("║  El personaje esta somnoliento...                 ║");
+                System.out.println("╚═══════════════════════════════════════════════════╝");
                 break;
             
             case "Sapo":
-                System.out.println("El enemigo ha usado el ataque Lluvia de Babas");
+                System.out.println("╔═════════════════════════════════════════════╗");
+                System.out.println("║  El enemigo ha usado el ataque              ║");
+                System.out.println("║  Lluvia de Babas                            ║");
+                System.out.println("╚═════════════════════════════════════════════╝");
                 // El sapo genera una tormenta que segrega babas tóxicas que realizan 50 de daño mágico y ralentizan al personaje en 20%.
                 personaje.setVida(personaje.getVida() - (int) (0.5 * (dañoMagico - personaje.getResistenciaMagica()) + (50 * correr / 100)));
                 personaje.setVelocidad((int) (personaje.getVelocidad() * 0.8));
-                System.out.println("El personaje ha disminuido su velocidad");
+                System.out.println("╔═══════════════════════════════════════════════════╗");
+                System.out.println("║  El personaje ha disminuido su velocidad          ║");
+                System.out.println("╚═══════════════════════════════════════════════════╝");
                 break;
         }
     }
