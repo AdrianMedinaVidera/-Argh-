@@ -48,7 +48,7 @@ Tecnicamente, no puedes terminar nunca el juego, pues existe un modo ilimitado q
 
 ## Documentación
 
-[Consulta el documento]([https://github.com/usuario/repositorio/blob/main/docs/manual.pdf](https://github.com/AdrianMedinaVidera/-Argh-/blob/main/ARGH.pdf))
+[Consulta el documento](D:\ARGH\ARGH.pdf)
 
 
 ## Screenshots
