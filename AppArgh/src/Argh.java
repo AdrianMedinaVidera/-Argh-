@@ -582,38 +582,33 @@ public class Argh {
 		int[] ataquesEnemigo = {1,2,3};
 		int vidaInicial = (int) (100 * Math.pow(1.1, personajeActivo.getNivel()));
 		while (combateActivo) {
-			
-			if (personajeActivo.getObjetoEquipado().equals(minipocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.5)) {
-				personajeActivo.setVida(personajeActivo.getVida() + 20);
-					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
-						int diferencia = personajeActivo.getVida() - vidaInicial;
-						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
-					}
-			} else if (personajeActivo.getObjetoEquipado().equals(pocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
-				personajeActivo.setVida(personajeActivo.getVida() + 60);
-					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
-						int diferencia = personajeActivo.getVida() - vidaInicial;
-						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
-					}
-			} else if (personajeActivo.getObjetoEquipado().equals(superpocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
-				personajeActivo.setVida(personajeActivo.getVida() + 120);
-					if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
-						int diferencia = personajeActivo.getVida() - vidaInicial;
-						personajeActivo.setVida(personajeActivo.getVida() - diferencia);
-					}
-			} else if (personajeActivo.getObjetoEquipado().equals(redbull) && personajeActivo.getEstaSomnoliento()) {
-				personajeActivo.setEstaSomnoliento(false);
-			} else if (personajeActivo.getVelocidad() < enemigo.getVelocidad()) {
-				personajeActivo.setVelocidad((int) (personajeActivo.getVelocidad() * 1.2));
-			} else if (personajeActivo.getObjetoEquipado().equals(redbull) && personajeActivo.getEstaSomnoliento()){
-				personajeActivo.setPedoActivado(true);
+			if (personajeActivo.getObjetoEquipado() != null) {
+				if (personajeActivo.getObjetoEquipado().equals(minipocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.5)) {
+					personajeActivo.setVida(personajeActivo.getVida() + 20);
+						if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
+							int diferencia = personajeActivo.getVida() - vidaInicial;
+							personajeActivo.setVida(personajeActivo.getVida() - diferencia);
+						}
+				} else if (personajeActivo.getObjetoEquipado().equals(pocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
+					personajeActivo.setVida(personajeActivo.getVida() + 60);
+						if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
+							int diferencia = personajeActivo.getVida() - vidaInicial;
+							personajeActivo.setVida(personajeActivo.getVida() - diferencia);
+						}
+				} else if (personajeActivo.getObjetoEquipado().equals(superpocion) && personajeActivo.getVida() <= (personajeActivo.getVida()*0.25)) {
+					personajeActivo.setVida(personajeActivo.getVida() + 120);
+						if(personajeActivo.getVida() > vidaInicial) { //Comprobamos si el personaje ya tiene la vida maxima, para no aumentar su vida, solo recuperarla.
+							int diferencia = personajeActivo.getVida() - vidaInicial;
+							personajeActivo.setVida(personajeActivo.getVida() - diferencia);
+						}
+				} else if (personajeActivo.getObjetoEquipado().equals(redbull) && personajeActivo.getEstaSomnoliento()) {
+					personajeActivo.setEstaSomnoliento(false);
+				} else if (personajeActivo.getVelocidad() < enemigo.getVelocidad()) {
+					personajeActivo.setVelocidad((int) (personajeActivo.getVelocidad() * 1.2));
+				} else if (personajeActivo.getObjetoEquipado().equals(redbull) && personajeActivo.getEstaSomnoliento()){
+					personajeActivo.setPedoActivado(true);
+				}
 			}
-
-
-
-
-
-
 
 			if (personajeActivo.getEstaSangrando()) {
                 int dañoSangrado = (int)(personajeActivo.getVida() * 0.05);
