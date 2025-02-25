@@ -438,7 +438,7 @@ public class Tendera {
                         System.out.println("╔══════════════════════════════════════════════════════╗");
                         System.out.println("║                      A R G H                         ║");
                         System.out.println("╠══════════════════════════════════════════════════════╣");
-                        System.out.println("║                    CÓMO JUGAR                        ║");
+                        System.out.println("║                    COMO JUGAR                        ║");
                         System.out.println("╠══════════════════════════════════════════════════════╣");
                         System.out.println("║            Selecciona un juego para ver              ║");
                         System.out.println("║               sus reglas y premios:                  ║");
@@ -470,11 +470,12 @@ public class Tendera {
                                 System.out.println("║  valores.                                            ║");
                                 System.out.println("║                                                      ║");
                                 System.out.println("║  RESULTADOS:                                         ║");
-                                System.out.println("║  • Si sumas 7 u 11: ¡GANAS x2 tu apuesta!            ║");
-                                System.out.println("║  • Si sumas 2, 3 o 12: Pierdes tu apuesta            ║");
-                                System.out.println("║  • Cualquier otro número: Empate                     ║");
+                                System.out.println("║  - Si sumas 7 u 11: ¡GANAS x2 tu apuesta!            ║");
+                                System.out.println("║  - Si sumas 2, 3 o 12: Pierdes tu apuesta            ║");
+                                System.out.println("║  - Cualquier otro número: Empate                     ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
                                 System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 sc.nextLine();
                                 limpiarPantalla();
                             }
@@ -487,11 +488,12 @@ public class Tendera {
                                 System.out.println("║  del 0 al 36.                                        ║");
                                 System.out.println("║                                                      ║");
                                 System.out.println("║  RESULTADOS:                                         ║");
-                                System.out.println("║  • Si sale 0: ¡GANAS x10 tu apuesta!                 ║");
-                                System.out.println("║  • Si sale par: Ganas tu apuesta                     ║");
-                                System.out.println("║  • Si sale impar: Pierdes tu apuesta                 ║");
+                                System.out.println("║  - Si sale 0: ¡GANAS x10 tu apuesta!                 ║");
+                                System.out.println("║  - Si sale par: Ganas tu apuesta                     ║");
+                                System.out.println("║  - Si sale impar: Pierdes tu apuesta                 ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
                                 System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 sc.nextLine();
                                 limpiarPantalla();
                             }
@@ -504,11 +506,12 @@ public class Tendera {
                                 System.out.println("║  intentará cortar la cuerda.                         ║");
                                 System.out.println("║                                                      ║");
                                 System.out.println("║  RESULTADOS:                                         ║");
-                                System.out.println("║  • Si elegiste espada y corta: Ganas tu apuesta      ║");
-                                System.out.println("║  • Si elegiste cuerda y resiste: Ganas tu apuesta    ║");
-                                System.out.println("║  • Si fallas tu elección: Pierdes tu apuesta         ║");
+                                System.out.println("║  - Si elegiste espada y corta: Ganas tu apuesta      ║");
+                                System.out.println("║  - Si elegiste cuerda y resiste: Ganas tu apuesta    ║");
+                                System.out.println("║  - Si fallas tu elección: Pierdes tu apuesta         ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
                                 System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 sc.nextLine();
                                 limpiarPantalla();
                             }
@@ -521,11 +524,12 @@ public class Tendera {
                                 System.out.println("║  o retirarte con tus ganancias.                      ║");
                                 System.out.println("║                                                      ║");
                                 System.out.println("║  RESULTADOS:                                         ║");
-                                System.out.println("║  • Si encuentras un barril: Duplicas tu apuesta      ║");
-                                System.out.println("║  • Si te cae un rayo: ¡Pierdes todo!                 ║");
-                                System.out.println("║  • Si te retiras: Te llevas lo acumulado             ║");
+                                System.out.println("║  - Si encuentras un barril: Duplicas tu apuesta      ║");
+                                System.out.println("║  - Si te cae un rayo: ¡Pierdes todo!                 ║");
+                                System.out.println("║  - Si te retiras: Te llevas lo acumulado             ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
                                 System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 sc.nextLine();
                                 limpiarPantalla();
                             }
