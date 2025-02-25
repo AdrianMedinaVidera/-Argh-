@@ -257,7 +257,7 @@ public void infoAtaque1() {
             System.out.println("║  El grumete ha usado el ataque Meteoro Cheddar ║");
             System.out.println("╚════════════════════════════════════════════════╝");
             enemigo.setVida(enemigo.getVida() - (int)(0.5 * (dañoMagico - enemigo.getResistenciaMagica()) + 60));
-            enemigo.setVelocidad((int)(enemigo.getVelocidad() * 0.8));
+            enemigo.setVelocidad((int)(enemigo.getVelocidad() * 0.8) + 1);
             System.out.println("╔════════════════════════════════════════════════╗");
             System.out.println("║  El enemigo ha disminuido su velocidad         ║");
             System.out.println("╚════════════════════════════════════════════════╝");
