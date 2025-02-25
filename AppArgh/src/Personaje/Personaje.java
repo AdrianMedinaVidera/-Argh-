@@ -578,31 +578,33 @@ public abstract class Personaje {
 			} else {
 				// Comprobar si el producto ya existe en el inventario
 				boolean productoExistente = false;
-				for (Producto item : inventario) {
-					if (item != null && item.getNombre().equals(producto.getNombre())) {
-						productoExistente = true;
-						item.setCantidad(item.getCantidad() + 1);
-						monedas -= producto.getPrecio();
-						System.out.println("Se ha realizado la compra correctamente.");
-						System.out.println("Su nuevo balance es de " + monedas + " monedas.");
-						break;
-					}
-				}
-				// Si el producto no existe, agregarlo al inventario
-				if (!productoExistente) {
-					for (int i = 0; i < inventario.length; i++) {
-						if (inventario[i] == null) {
-							inventario[i] = producto;
-							monedas -= producto.getPrecio();
-							producto.setCantidad(producto.getCantidad() + 1);
-							System.out.println("Se ha realizado la compra correctamente.");
-							System.out.println("Su nuevo balance es de " + monedas + " monedas.");
-							break;
-						} else if (inventario[inventario.length - 1] != null) { //Si el último espacio del inventario está lleno es porque no tiene espacio.
-							System.out.println("No tiene espacio en el inventario.");
-							break;
-						}
-					}
+                for (Producto item : inventario) {
+                    if (item != null && item.getNombre().equals(producto.getNombre())) {
+                        productoExistente = true;
+                        item.setCantidad(item.getCantidad() + 1);
+                        monedas -= producto.getPrecio();
+                        System.out.println("Se ha realizado la compra correctamente.");
+                        System.out.println("Su nuevo balance es de " + monedas + " monedas.");
+                        break;
+                    }
+                }
+                // Si el producto no existe, agregarlo al inventario
+                if (!productoExistente) {
+                    boolean hayEspacio = false;
+                    for (int i = 0; i < inventario.length; i++) {
+                        if (inventario[i] == null) {
+                            inventario[i] = producto;
+                            monedas -= producto.getPrecio();
+                            producto.setCantidad(producto.getCantidad() + 1);
+                            System.out.println("Se ha realizado la compra correctamente.");
+                            System.out.println("Su nuevo balance es de " + monedas + " monedas.");
+                            hayEspacio = true;
+                            break;
+                        }
+                    }
+                    if (!hayEspacio) {
+                        System.out.println("No tiene espacio en el inventario.");
+                    }
 				}
 			}
 		}
@@ -612,7 +614,7 @@ public abstract class Personaje {
 			System.out.println("║                A R G H               ║");
 			System.out.println("╠══════════════════════════════════════╣");
 			System.out.println("║    1. Continuar       2. Ataques     ║");
-			System.out.println("║    3. Estadísticas    4. Tienda      ║");
+			System.out.println("║    3. Estadísticas    4. Barriles    ║");
 			System.out.println("║    5. Descansar       6. Casino      ║");
 			System.out.println("║                                      ║");
 			System.out.println("║          7. Salir del juego          ║");

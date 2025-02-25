@@ -246,10 +246,34 @@ public class Argh {
 		System.out.println("╚══════════════════════════════════════╝");
 	}
 
-	public static void menuComoJugar () {
-		System.out.println("+------------------------ARGH------------------------+");
-		System.out.println("");
-		System.out.println("+----------------------------------------------------+");
+	public static void menuComoJugar() {
+		System.out.println("╔══════════════════════════════════════════════════════╗");
+		System.out.println("║                     A R G H                          ║");
+		System.out.println("╠══════════════════════════════════════════════════════╣");
+		System.out.println("║                   CÓMO JUGAR                         ║");
+		System.out.println("║                                                      ║");
+		System.out.println("║  1. Elige tu dificultad:                             ║");
+		System.out.println("║     - Normal: Jugarás como grumete                   ║");
+		System.out.println("║     - Extremo: Serás el capitán                      ║");
+		System.out.println("║                                                      ║");
+		System.out.println("║  2. Durante el combate podrás:                       ║");
+		System.out.println("║     - Atacar con 3 habilidades diferentes            ║");
+		System.out.println("║     - Usar objetos de tu inventario                  ║");
+		System.out.println("║     - Ver tus estadísticas                           ║");
+		System.out.println("║     - Intentar huir                                  ║");
+		System.out.println("║                                                      ║");
+		System.out.println("║  3. Entre combates podrás:                           ║");
+		System.out.println("║     - Avanzar a la siguiente zona                    ║");
+		System.out.println("║     - Gestionar tu inventario                        ║");
+		System.out.println("║     - Visitar la tienda                              ║");
+		System.out.println("║     - Acceder al menú                                ║");
+		System.out.println("║                                                      ║");
+		System.out.println("║  4. Para seleccionar una opción,                     ║");
+		System.out.println("║     debes introducir por terminal el número          ║");
+		System.out.println("║     asociado a dicha opción. (1. Salir)              ║");
+		System.out.println("║                                                      ║");
+		System.out.println("║  Pulsa enter para volver al menú principal...        ║");
+		System.out.println("╚══════════════════════════════════════════════════════╝");
 	}
 
 	public static void menuContinuar() {
@@ -1070,6 +1094,9 @@ public class Argh {
 			} else if (opcionInical == 3) {
 				// Cómo jugar
 				menuComoJugar();
+				sc.nextLine();
+				sc.nextLine();
+				limpiarPantalla();
 			} else {
 				// Opción inválida
 				System.out.println("Opción inválida. Prueba otra vez.");

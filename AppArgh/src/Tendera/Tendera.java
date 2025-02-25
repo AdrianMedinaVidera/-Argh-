@@ -153,9 +153,9 @@ public class Tendera {
         System.out.println("║               |                       |            ║");
         System.out.println("║               |                       |            ║");
         System.out.println("║               |                       |            ║");
-        System.out.println("║                \\                     /            ║");
-        System.out.println("║                 \\                   /             ║");
-        System.out.println("║                  \\                 /              ║");
+        System.out.println("║                \\                     /             ║");
+        System.out.println("║                 \\                   /              ║");
+        System.out.println("║                  \\                 /               ║");
         System.out.println("║                   _________________/               ║");
         if (personaje.getBarrilesDisponibles() <= 0) {
             System.out.println("╠════════════════════════════════════════════════════╣");
@@ -435,11 +435,19 @@ public class Tendera {
                     }
                     case 5 -> {
                         limpiarPantalla();
-                        System.out.println("Como jugar");
-                        System.out.println("1 - Dados malditos");
-                        System.out.println("2 - Ruleta");
-                        System.out.println("3 - Espada o cuerda");
-                        System.out.println("4 - Naufragio");
+                        System.out.println("╔══════════════════════════════════════════════════════╗");
+                        System.out.println("║                      A R G H                         ║");
+                        System.out.println("╠══════════════════════════════════════════════════════╣");
+                        System.out.println("║                    CÓMO JUGAR                        ║");
+                        System.out.println("╠══════════════════════════════════════════════════════╣");
+                        System.out.println("║            Selecciona un juego para ver              ║");
+                        System.out.println("║               sus reglas y premios:                  ║");
+                        System.out.println("║                                                      ║");
+                        System.out.println("║              1. Dados Malditos                       ║");
+                        System.out.println("║              2. Ruleta                               ║");
+                        System.out.println("║              3. Espada o Cuerda                      ║");
+                        System.out.println("║              4. Naufragio                            ║");
+                        System.out.println("╚══════════════════════════════════════════════════════╝");
                         int opcionCasinoJugar = 0;
                         while (true) {
                             try {
