@@ -535,10 +535,26 @@ public class Argh {
 				if (enemigo instanceof EnemigoMarinoJefe || enemigo instanceof EnemigoTerrestreJefe) {
 					personajeActivo.setBarrilesDisponibles(personajeActivo.getBarrilesDisponibles() + 1);
 				}
+				// Reestablecemos las estadísticas según el nivel
+				personajeActivo.setVida((int) (100 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setResistenciaFisica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setResistenciaMagica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setDañoFisico((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setDañoMagico((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setVelocidad((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				combateActivo = false;
 				break;
 			}
 			if (personajeActivo.getVida() <= 0) {
 				muerteCombate(personajeActivo, sc);
+				// Reestablecemos las estadísticas según el nivel
+				personajeActivo.setVida((int) (100 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setResistenciaFisica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setResistenciaMagica((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setDañoFisico((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setDañoMagico((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				personajeActivo.setVelocidad((int) (20 * Math.pow(1.1, personajeActivo.getNivel())));
+				combateActivo = false;
 				break;
 			}
 	
@@ -662,6 +678,11 @@ public class Argh {
 					case 2 -> enemigo.ataque2(personajeActivo);
 					case 3 -> enemigo.ataque3(personajeActivo);
 				}
+				if (enemigo.getVida() < 0) {
+					System.out.println("¡Has derrotado al enemigo!");
+					esperar(1);
+					limpiarPantalla();
+				}
 				esperar(1);
 				
 				// Si el personaje sobrevive, contraataca
@@ -673,16 +694,31 @@ public class Argh {
 							personajeActivo.ataque1(enemigo);
 							System.out.println("Pulsa enter para continuar...");
 							sc.nextLine();
+							if (enemigo.getVida() < 0) {
+								System.out.println("¡Has derrotado al enemigo!");
+								esperar(1);
+								limpiarPantalla();
+							}
 						}
 						case 2 -> {
 							personajeActivo.ataque2(enemigo);
 							System.out.println("Pulsa enter para continuar...");
 							sc.nextLine();
+							if (enemigo.getVida() < 0) {
+								System.out.println("¡Has derrotado al enemigo!");
+								esperar(1);
+								limpiarPantalla();
+							}
 						}
 						case 3 -> {
 							personajeActivo.ataque3(enemigo);
 							System.out.println("Pulsa enter para continuar...");
 							sc.nextLine();
+							if (enemigo.getVida() < 0) {
+								System.out.println("¡Has derrotado al enemigo!");
+								esperar(1);
+								limpiarPantalla();
+							}
 						}
 					}
 					esperar(1);
@@ -1154,7 +1190,6 @@ public class Argh {
 						System.out.println("║  Pulsa enter para continuar...              ║");
 						System.out.println("╚═════════════════════════════════════════════╝");
 						sc.nextLine();
-						sc.nextLine();
 						limpiarPantalla();
 						System.out.println("╔═════════════════════════════════════════════╗");
 						System.out.println("║  Debemos advertir al capitán de la posible  ║");
@@ -1200,7 +1235,6 @@ public class Argh {
 					}
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length); 
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null; 
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║  ¡ALERTA! ¡ENEMIGOS A LA VISTA!             ║");
@@ -1244,7 +1278,6 @@ public class Argh {
 				} else if (mundoActual == 1) {
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
 					System.out.println("Te adentras más en las profundidades del mar");
 					suspense();
@@ -1266,7 +1299,6 @@ public class Argh {
 				} else if (mundoActual == 2) {
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
 					System.out.println("Te adentras más en las profundidades del mar...");
 					suspense();
@@ -1288,7 +1320,6 @@ public class Argh {
 				} else if (mundoActual == 3) {
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinosJefes.length);
                     enemigo = listaEnemigosMarinosJefes[indiceAleatorio];
-                    listaEnemigosMarinosJefes[indiceAleatorio] = null;
                     EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
 					System.out.println("Sin saber lo que hacíamos, nos sumergimos más profundos aún...");
 					suspense();
@@ -1339,9 +1370,8 @@ public class Argh {
 						limpiarPantalla();
 						indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
 						enemigo = listaEnemigosTerrestres[indiceAleatorio];
-						listaEnemigosTerrestres[indiceAleatorio] = null;
 						EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
-						System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
+						System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
 						System.out.println("Pulsa enter para continuar... ");
 						sc.nextLine();
 						actualizarStatsEnemigosHistoria(enemigoTerrestreComun, mundoActual);
@@ -1359,7 +1389,6 @@ public class Argh {
 				} else if (mundoActual == 5) {
 					indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
 					enemigo = listaEnemigosTerrestres[indiceAleatorio];
-					listaEnemigosTerrestres[indiceAleatorio] = null;
 					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
 					System.out.println("Nos adentramos más en la selva...");
 					suspense();
@@ -1381,7 +1410,6 @@ public class Argh {
 				} else if (mundoActual == 6) {
 					indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
 					enemigo = listaEnemigosTerrestres[indiceAleatorio];
-					listaEnemigosTerrestres[indiceAleatorio] = null;
 					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
 					System.out.println("Nos adentramos en la selva...");
 					suspense();
@@ -1406,7 +1434,6 @@ public class Argh {
 				} else if (mundoActual == 7) {
 					indiceAleatorio = rand.nextInt(listaEnemigosTerrestresJefes.length);
 					enemigo = listaEnemigosTerrestresJefes[indiceAleatorio];
-					listaEnemigosTerrestresJefes[indiceAleatorio] = null;
 					EnemigoTerrestreJefe enemigoTerrestreJefe = (EnemigoTerrestreJefe) enemigo;
 					System.out.println("Escuchamos un ruido y decidimos ir a investigar...");
 					suspense();
@@ -1458,7 +1485,6 @@ public class Argh {
 				} else if (mundoActual == 9) {
 					indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
 					enemigo = listaEnemigosTerrestres[indiceAleatorio];
-					listaEnemigosTerrestres[indiceAleatorio] = null;
 					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
 					System.out.println("En la caverna había una zona seca, así que decidimos investigar...");
 					suspense();
@@ -1480,7 +1506,6 @@ public class Argh {
 				} else if (mundoActual == 10) {
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
 					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
 					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
 					System.out.println("Descubrimos dónde estaba el tesoro, así que fuimos a por él.");
 					System.out.println("Pero no todo salió como pensamos...");
@@ -1500,7 +1525,6 @@ public class Argh {
 				} else if (mundoActual == 11) {
 					indiceAleatorio = rand.nextInt(listaEnemigosMarinosJefes.length);
                     enemigo = listaEnemigosMarinosJefes[indiceAleatorio];
-                    listaEnemigosMarinosJefes[indiceAleatorio] = null;
                     EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
 					System.out.println("El barco se deslizaba sobre aguas oscuras y tranquilas, como si el propio océano contuviera la respiración.");
 					System.out.println("La tripulación, exhausta pero decidida, mantenía los ojos fijos en el horizonte.");
@@ -1541,7 +1565,6 @@ public class Argh {
 					System.out.println("El leviatán emitió un último rugido antes de hundirse en las profundidades, derrotado.");
 					System.out.println("El océano se calmó, y el silencio volvió a reinar.");
 				}
-			
 				
 			} else if (opcionContinuar == 2) {
 				// Inventario

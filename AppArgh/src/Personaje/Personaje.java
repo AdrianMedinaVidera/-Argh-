@@ -721,6 +721,8 @@ public abstract class Personaje {
 						vida = (int) (100 * Math.pow(1.1, nivel)); // Le recupera la vida entera.
 						System.out.println("Ha descansado correctamente.");
 						System.out.println("Monedas restantes: " + monedas);
+						esperar(2);
+						limpiarPantalla();
 					} else {
 						System.out.println("No tiene suficientes monedas.");
 						esperar(3);

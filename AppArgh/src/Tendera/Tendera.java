@@ -160,6 +160,8 @@ public class Tendera {
         if (personaje.getBarrilesDisponibles() == 0) {
             System.out.println("╠════════════════════════════════════════════════════╣");
             System.out.println("║       AQUÍ APARECERAN LOS BARRILES QUE TENGAS      ║");
+            System.out.println("╠════════════════════════════════════════════════════╣");
+            System.out.println("║                 1. Salir.                          ║");
             System.out.println("╚════════════════════════════════════════════════════╝");
         } else {
             System.out.println("╠════════════════════════════════════════════════════╣");
@@ -430,7 +432,8 @@ public class Tendera {
                                 System.out.println("║  • Si sumas 2, 3 o 12: Pierdes tu apuesta            ║");
                                 System.out.println("║  • Cualquier otro número: Empate                     ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
-                                esperar(5);
+                                System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 limpiarPantalla();
                             }
                             case 2 -> {
@@ -446,7 +449,8 @@ public class Tendera {
                                 System.out.println("║  • Si sale par: Ganas tu apuesta                     ║");
                                 System.out.println("║  • Si sale impar: Pierdes tu apuesta                 ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
-                                esperar(5);
+                                System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 limpiarPantalla();
                             }
                             case 3 -> {
@@ -462,7 +466,8 @@ public class Tendera {
                                 System.out.println("║  • Si elegiste cuerda y resiste: Ganas tu apuesta    ║");
                                 System.out.println("║  • Si fallas tu elección: Pierdes tu apuesta         ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
-                                esperar(5);
+                                System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 limpiarPantalla();
                             }
                             case 4 -> {
@@ -478,7 +483,8 @@ public class Tendera {
                                 System.out.println("║  • Si te cae un rayo: ¡Pierdes todo!                 ║");
                                 System.out.println("║  • Si te retiras: Te llevas lo acumulado             ║");
                                 System.out.println("╚══════════════════════════════════════════════════════╝");
-                                esperar(5);
+                                System.out.println("Presiona enter para continuar...");
+                                sc.nextLine();
                                 limpiarPantalla();
                             }
                         }
