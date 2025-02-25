@@ -247,7 +247,6 @@ public void infoAtaque1() {
 	@Override
     public void ataque1(Enemigo enemigo) {
         if (rolSeleccionado.toLowerCase().equals("cubierta")) {
-            System.out.println("El grumete ha usado el ataque Barrido Arcano");
             System.out.println("╔═══════════════════════════════════════════════╗");
             System.out.println("║  El grumete ha usado el ataque Barrido Arcano ║");
             System.out.println("╚═══════════════════════════════════════════════╝");
