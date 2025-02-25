@@ -22,6 +22,7 @@ public abstract class Personaje {
 	    protected boolean pedoActivado = false; // Pasa a true cuando activan el objeto pedo.
 	    protected boolean estaSomnoliento = false; // Detecta si el jugador tiene el estado "somnoliento".
 	    protected boolean estaSangrando = false; // Detecta si el jugador tiene el estado "sangrado".
+		protected int barrilesDisponibles = 0;
 
 	    protected Producto[] inventario = new Producto[7]; //Es un inventario con una cantidad de objetos limitada (7).
 	    protected Producto objetoEquipado; // Objeto que puede equiparse el jugador para obtener beneficios.
@@ -212,7 +213,15 @@ public abstract class Personaje {
 		public void setEstaSomnoliento(boolean estaSomnoliento) {
 			this.estaSomnoliento = estaSomnoliento;
 		}
+
+		public int getBarrilesDisponibles () {
+			return barrilesDisponibles;
+		}
 	    
+		public void setBarrilesDisponibles (int barrilesDisponibles) {
+			this.barrilesDisponibles = barrilesDisponibles;
+		}
+
 	    // Fin de Getters y Setters de Personaje --------------------------------------------------------------------
 	    
 		public static void limpiarPantalla() {

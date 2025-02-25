@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Argh {
+public class antesErrores {
 
 	private static int mundoActual = 0;
 
@@ -366,13 +366,13 @@ public class Argh {
 	}
 
 	public static void suspense(){
-		esperar(1);
+		esperar(0);
 		System.out.print(".");
-		esperar(1);
+		esperar(0);
 		System.out.print(".");
-		esperar(1);
+		esperar(0);
 		System.out.print(".");
-		esperar(1);
+		esperar(0);
 	}
 
 	public static boolean obtenerRespuestaConIntentos(String claveCorrecta, int intentosMaximos, Scanner scanner) {
@@ -522,19 +522,6 @@ public class Argh {
 	
 		while (combateActivo) {
 			if (enemigo.getVida() <= 0) {
-				// Damos las recompensas al jugador
-				personajeActivo.setMonedas(personajeActivo.getMonedas() + enemigo.getDineroDado());
-				personajeActivo.setExperiencia(personajeActivo.getExperiencia() + enemigo.getExperienciaData());
-				while (personajeActivo.getExperiencia() >= 100) {
-					personajeActivo.setExperiencia(personajeActivo.getExperiencia() - 100);
-					personajeActivo.setNivel(personajeActivo.getNivel() + 1);
-					if (personajeActivo.getExperiencia() < 100) {
-						break;
-					}
-				}
-				if (enemigo instanceof EnemigoMarinoJefe || enemigo instanceof EnemigoTerrestreJefe) {
-					personajeActivo.setBarrilesDisponibles(personajeActivo.getBarrilesDisponibles() + 1);
-				}
 				break;
 			}
 			if (personajeActivo.getVida() <= 0) {
@@ -573,7 +560,7 @@ public class Argh {
 			}
 		}
 	}
-
+	// TODO COMPROBAR
 	private static void gestionarAtaque(Personaje personajeActivo, Enemigo enemigo, Scanner sc, Random rand, int[] ataquesEnemigo) {
 		int opcionAtaque = obtenerOpcionAtaque(personajeActivo, sc);
 		if (opcionAtaque != -1) {
@@ -754,120 +741,6 @@ public class Argh {
 		sc.nextLine();
 		limpiarPantalla();
 	}
-
-public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) {
-    // Cast to specific enemy type to access getEnemigoSeleccionado()
-    if (enemigo instanceof EnemigoMarinoComun) {
-        EnemigoMarinoComun enemigoMarino = (EnemigoMarinoComun) enemigo;
-        if (enemigoMarino.getEnemigoSeleccionado().equals("Amonite")) {
-			enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoMarino.getEnemigoSeleccionado().equals("Trilobite")) {
-			enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-		} else if (enemigoMarino.getEnemigoSeleccionado().equals("Zooplacton")) {
-			enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-		}
-    } else if (enemigo instanceof EnemigoTerrestreComun) {
-        EnemigoTerrestreComun enemigoTerrestre = (EnemigoTerrestreComun) enemigo;
-        if (enemigoTerrestre.getEnemigoSeleccionado().equals("Loco")) {
-            enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoTerrestre.getEnemigoSeleccionado().equals("Emú")) {
-            enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (15 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoTerrestre.getEnemigoSeleccionado().equals("Sapo")) {
-            enemigo.setVida((int) (100 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        }
-    } else if (enemigo instanceof EnemigoMarinoJefe) {
-        EnemigoMarinoJefe enemigoJefe = (EnemigoMarinoJefe) enemigo;
-        if (enemigoJefe.getJefeSeleccionado().equals("Sirena")) {
-            enemigo.setVida((int) (200 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (40 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (40 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (50 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoJefe.getJefeSeleccionado().equals("Patricio")) {
-            enemigo.setVida((int) (200 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (40 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (50 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoJefe.getJefeSeleccionado().equals("Kraken")) {
-            enemigo.setVida((int) (200 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        }
-    } else if (enemigo instanceof EnemigoTerrestreJefe) {
-        EnemigoTerrestreJefe enemigoJefe = (EnemigoTerrestreJefe) enemigo;
-        if (enemigoJefe.getJefeSeleccionado().equals("Trex")) {
-            enemigo.setVida((int) (200 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (40 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (40 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (50 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoJefe.getJefeSeleccionado().equals("Casuario")) {
-            enemigo.setVida((int) (200 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (40 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (50 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (10 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        } else if (enemigoJefe.getJefeSeleccionado().equals("Rajoy")) {
-            enemigo.setVida((int) (200 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaFisica((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setResistenciaMagica((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setdañoFisico((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setdañoMagico((int) (30 * Math.pow(1.1, nivel)));
-            enemigo.setVelocidad((int) (20 * Math.pow(1.1, nivel)));
-            enemigo.setNivel(nivel);
-        }
-    }
-}
-
 	public static void main(String[] args) {
 		
 		//Creación de objetos.
@@ -875,33 +748,6 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 
 		Personaje personajeActivo = null;
 		Producto[] inventario = new Producto[7]; // Inventario del jugador
-
-		Random rand = new Random();
-
-		// Creación de los enemigos
-		Enemigo[] listaEnemigosMarinos = { // (int vida, int dañoMagico, int resistenciaMagica, int resistenciaFisica, int velocidad, int experienciaData, int dineroDado, int nivel, int dañoFisico, boolean estaSangrando, int nado, String enemigoSeleccionado)
-			new EnemigoMarinoComun(100, 10, 10, 20, 30, 100, 25, 0, 20, false, 15, "Amonite"),
-			new EnemigoMarinoComun(100, 15, 15, 15, 20, 100, 25, 0, 15, false, 20, "Trilobite"),
-			new EnemigoMarinoComun(100, 20, 20, 10, 10, 100, 25, 0, 10, false, 10, "Zooplacton")
-		};
-
-		Enemigo[] listaEnemigosMarinosJefes = {
-			new EnemigoMarinoJefe(200, 40, 40, 20, 50, 100, 100, 0, 10, false, 30, "Sirena"),
-			new EnemigoMarinoJefe(200, 20, 20, 40, 10, 100, 100, 0, 50, false, 30, "Patricio"),
-			new EnemigoMarinoJefe(200, 30, 30, 30, 20, 100, 100, 0, 30, false, 30, "Kraken")
-		};
-		Enemigo[] listaEnemigosTerrestres = {
-            new EnemigoTerrestreComun(100, 10, 10, 20, 30, 100, 25, 0, 20, false, 15, "Loco"),
-            new EnemigoTerrestreComun(100, 15, 15, 15, 20, 100, 25, 0, 15, false, 20, "Emú"),
-            new EnemigoTerrestreComun(100, 20, 20, 10, 10, 100, 25, 0, 10, false, 10, "Sapo")
-        };
-
-		Enemigo[] listaEnemigosTerrestresJefes = {
-			new EnemigoMarinoJefe(200, 40, 40, 20, 50, 100, 100, 0, 10, false, 30, "Trex"),
-			new EnemigoMarinoJefe(200, 20, 20, 40, 10, 100, 100, 0, 50, false, 30, "Casuario"),
-			new EnemigoMarinoJefe(200, 30, 30, 30, 20, 100, 100, 0, 30, false, 30, "Rajoy")
-		};
-
 
 		//Comienzo del juego.
 		Scanner sc = new Scanner(System.in);
@@ -1040,7 +886,7 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 			}
 			if (opcionContinuar == 1) {
 				// Avanzar
-				if (mundoActual == 0) {// Región 1
+				if (mundoActual == 0) {
 					System.out.println("╔═════════════════════════════════════════════╗");
 					System.out.println("║        ¡TU AVENTURA VA A COMENZAR!          ║");
 					System.out.println("╚═════════════════════════════════════════════╝");
@@ -1056,6 +902,7 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 						System.out.println("║                                             ║");
 						System.out.println("║  Pulsa enter para continuar...              ║");
 						System.out.println("└─────────────────────────────────────────────┘");
+
 						sc.nextLine();
 						limpiarPantalla();
 						System.out.println("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄");
@@ -1138,7 +985,6 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 						System.out.println("║  Pulsa enter para continuar...              ║");
 						System.out.println("╚═════════════════════════════════════════════╝");
 						sc.nextLine();
-						sc.nextLine();
 						limpiarPantalla();
 						System.out.println("╔═════════════════════════════════════════════╗");
 						System.out.println("║  Grumete, llega un aviso del mástil mayor:  ║");
@@ -1193,10 +1039,18 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 						}
 					}
 				}
-				int indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length); // ! IMPORTANTE
-				Enemigo enemigo = listaEnemigosMarinos[indiceAleatorio];
-				listaEnemigosMarinos[indiceAleatorio] = null;
-				EnemigoMarinoComun enemigoComunMarino = (EnemigoMarinoComun) enemigo;
+				Enemigo[] listaEnemigosMarinos = { 
+					new EnemigoMarinoComun(100, 20, 20, 20, 30, 30, 30, 0, 20, false, 15, "Amonite"),
+					new EnemigoMarinoComun(100, 20, 20, 20, 20, 30, 30, 0, 20, false, 20, "Trilobite"),
+					new EnemigoMarinoComun(100, 20, 20, 20, 10, 30, 30, 0, 20, false, 10, "Zooplacton")
+				};
+				Random rand = new Random();
+				int indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length); 
+				Enemigo e1 = listaEnemigosMarinos[indiceAleatorio];
+				listaEnemigosMarinos[indiceAleatorio] = null; 
+				// Enemigo e2 = listaEnemigosMarinos[indiceAleatorio];
+				// Enemigo e3 = listaEnemigosMarinos[indiceAleatorio];
+				EnemigoMarinoComun enemigoComunMarino = (EnemigoMarinoComun) e1;
 				System.out.println("╔═════════════════════════════════════════════╗");
 				System.out.println("║  ¡ALERTA! ¡ENEMIGOS A LA VISTA!             ║");
 				System.out.println("║  Cuidado, nos atacan un grupo de            ║");
@@ -1222,336 +1076,20 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 					System.out.println();
 					System.out.println("Pulsa enter para continuar... ");
 					sc.nextLine();
-				} if (true) { // ! ME CAGO EN DIOS 
 					limpiarPantalla();
-					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
-					combate(personajeActivo, enemigoComunMarino, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-					sc.nextLine();
-					limpiarPantalla();
-					mundoActual ++;
-				} if (mundoActual == 1) {
-					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length); // ! IMPORTANTE
-					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
-					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
-					System.out.println("Te adentras más en las profundidades del mar");
-					suspense();
-					limpiarPantalla();
-					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
-					System.out.println("Pulsa enter para continuar... ");
-					sc.nextLine();
-					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
-					combate(personajeActivo, enemigoComunMarino, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-					sc.nextLine();
-					limpiarPantalla();
-					mundoActual ++;
-				} if (mundoActual == 2) {
-					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
-					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
-					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
-					System.out.println("Te adentras más en las profundidades del mar...");
-					suspense();
-					limpiarPantalla();
-					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
-					System.out.println("Pulsa enter para continuar... ");
-					sc.nextLine();
-					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
-					combate(personajeActivo, enemigoComunMarino, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-					sc.nextLine();
-					limpiarPantalla();
-					mundoActual ++;
-				} if (mundoActual == 3) { // Batalla contra jefe
-					indiceAleatorio = rand.nextInt(listaEnemigosMarinosJefes.length);
-                    enemigo = listaEnemigosMarinosJefes[indiceAleatorio];
-                    listaEnemigosMarinosJefes[indiceAleatorio] = null;
-                    EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
-					System.out.println("Sin saber lo que hacíamos, nos sumergimos más profundos aún...");
-					suspense();
-					limpiarPantalla();
-                    System.out.println("╔═════════════════════════════════════════════╗");
-                    System.out.println("║  ¡ALERTA! ¡JEFE A LA VISTA!                ║");
-                    System.out.println("║  " + enemigoMarinoJefe.getJefeSeleccionado() + " se acerca lentamente...          ║");
-                    System.out.println("║  ¡Prepárate para una batalla difícil!      ║");
-                    System.out.println("╚═════════════════════════════════════════════╝");
-                    System.out.println("Pulsa enter para continuar...");
-                    sc.nextLine();
-                    limpiarPantalla();
-					actualizarStatsEnemigosHistoria(enemigoMarinoJefe, mundoActual);
-                    combate(personajeActivo, enemigoMarinoJefe, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-					sc.nextLine();
-					limpiarPantalla();
-				} if (mundoActual == 3) { // Región 2
-					if(personajeActivo instanceof PersonajeCapitan){
-						System.out.println("Capitán " + personajeActivo.getNombre() + ", hemos llegado a la Isla Maldita.");
-						System.out.println("Se dice que aquí habita el Guardián de las Profundidades, el único que conoce el paradero del tesoro.");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("Avanzamos con cautela, pero los tambores empiezan a resonar en la selva...");
-						System.out.println("Algo nos está esperando...");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("¡Cuidado, Capitán! ¡Nos emboscan!");
-					} else{
-						System.out.println("Bienvenido a tierra firme, " + personajeActivo.getNombre() + ".");
-						System.out.println("Esta isla no aparece en los mapas... ¿Qué secretos oculta?");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("Un escalofrío recorre tu espalda. No estamos solos.");
-						System.out.println("De pronto, la selva cobra vida y figuras sombrías emergen entre los árboles...");
-						System.out.println("¡Prepara tu arma!");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
-						enemigo = listaEnemigosTerrestres[indiceAleatorio];
-						listaEnemigosTerrestres[indiceAleatorio] = null;
-						EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
-						System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
-						System.out.println("Pulsa enter para continuar... ");
-						sc.nextLine();
-						actualizarStatsEnemigosHistoria(enemigoTerrestreComun, mundoActual);
-						combate(personajeActivo, enemigoTerrestreComun, sc, rand);
-						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║            ¡ENHORABUENA!                    ║");
-						System.out.println("║     Has superado el combate con éxito       ║");
-						System.out.println("║                                             ║");
-						System.out.println("║     Pulsa enter para continuar...           ║");
-						System.out.println("╚═════════════════════════════════════════════╝");
-						sc.nextLine();
-						limpiarPantalla();
-						mundoActual ++;
-					} if (mundoActual == 4) {
-						indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
-						enemigo = listaEnemigosTerrestres[indiceAleatorio];
-						listaEnemigosTerrestres[indiceAleatorio] = null;
-						EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
-						System.out.println("Nos adentramos más en la selva...");
-						suspense();
-						System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
-						System.out.println("Pulsa enter para continuar... ");
-						sc.nextLine();
-						limpiarPantalla();
-						actualizarStatsEnemigosHistoria(enemigoTerrestreComun, mundoActual);
-						combate(personajeActivo, enemigoTerrestreComun, sc, rand);
-						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║            ¡ENHORABUENA!                    ║");
-						System.out.println("║     Has superado el combate con éxito       ║");
-						System.out.println("║                                             ║");
-						System.out.println("║     Pulsa enter para continuar...           ║");
-						System.out.println("╚═════════════════════════════════════════════╝");
-						sc.nextLine();
-						limpiarPantalla();
-						mundoActual ++;
-					} if (mundoActual == 5) {
-						indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
-						enemigo = listaEnemigosTerrestres[indiceAleatorio];
-						listaEnemigosTerrestres[indiceAleatorio] = null;
-						EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
-						System.out.println("Nos adentramos en la selva...");
-						suspense();
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
-						System.out.println("Pulsa enter para continuar... ");
-						sc.nextLine();
-						limpiarPantalla();
-						actualizarStatsEnemigosHistoria(enemigoTerrestreComun, mundoActual);
-						combate(personajeActivo, enemigoTerrestreComun, sc, rand);
-						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║            ¡ENHORABUENA!                    ║");
-						System.out.println("║     Has superado el combate con éxito       ║");
-						System.out.println("║                                             ║");
-						System.out.println("║     Pulsa enter para continuar...           ║");
-						System.out.println("╚═════════════════════════════════════════════╝");
-						sc.nextLine();
-						limpiarPantalla();
-						mundoActual ++;
-					} if (mundoActual == 6) { // Batalla contra Jefe
-						indiceAleatorio = rand.nextInt(listaEnemigosTerrestresJefes.length);
-						enemigo = listaEnemigosTerrestresJefes[indiceAleatorio];
-						listaEnemigosTerrestresJefes[indiceAleatorio] = null;
-						EnemigoTerrestreJefe enemigoTerrestreJefe = (EnemigoTerrestreJefe) enemigo;
-						System.out.println("Escuchamos un ruido y decidimos ir a investigar...");
-						suspense();
-						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║  ¡ALERTA! ¡JEFE A LA VISTA!                ║");
-						System.out.println("║  " + enemigoTerrestreJefe.getJefeSeleccionado() + " se acerca lentamente...          ║");
-						System.out.println("║  ¡Prepárate para una batalla difícil!      ║");
-						System.out.println("╚═════════════════════════════════════════════╝");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						actualizarStatsEnemigosHistoria(enemigoTerrestreJefe, mundoActual);
-						combate(personajeActivo, enemigoTerrestreJefe, sc, rand);
-						System.out.println("╔═════════════════════════════════════════════╗");
-						System.out.println("║            ¡ENHORABUENA!                    ║");
-						System.out.println("║     Has superado el combate con éxito       ║");
-						System.out.println("║                                             ║");
-						System.out.println("║     Pulsa enter para continuar...           ║");
-						System.out.println("╚═════════════════════════════════════════════╝");
-						sc.nextLine();
-						limpiarPantalla();
-					} if (mundoActual == 6) { // Región 3
-						if(personajeActivo instanceof PersonajeCapitan){
-						System.out.println("Capitán " + personajeActivo.getNombre() + ", según el Guardián, debemos descender al Abismo del Leviatán.");
-						System.out.println("Solo los más valientes regresan de allí con vida.");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("Las olas golpean con furia contra los acantilados.");
-						System.out.println("Una escalera de piedra tallada en la roca nos guía hasta la caverna sumergida...");
-						System.out.println("Pero algo se mueve bajo el agua.");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("¡Por todos los mares! ¡Algo enorme viene hacia nosotros!");
-					}else{
-						System.out.println("Es un descenso peligroso, " + personajeActivo.getNombre() + ".");
-						System.out.println("Las leyendas hablan de un monstruo que protege la Ciudad Sumergida.");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("El agua refleja un brillo misterioso. Algo grande acecha en las profundidades...");
-						System.out.println("Las paredes de la cueva comienzan a estremecerse. No estamos solos.");
-						System.out.println("Pulsa enter para continuar...");
-						sc.nextLine();
-						limpiarPantalla();
-						System.out.println("¡Prepárate, debemos pelear si queremos seguir con vida!");
-					}
-					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
-					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
-					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
-					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
-					System.out.println("Pulsa enter para continuar... ");
-					sc.nextLine();
-					limpiarPantalla();
-					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
-					combate(personajeActivo, enemigoComunMarino, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-					sc.nextLine();
-					limpiarPantalla();
-					mundoActual ++;
-				} if (mundoActual == 7) {
-					indiceAleatorio = rand.nextInt(listaEnemigosTerrestres.length);
-					enemigo = listaEnemigosTerrestres[indiceAleatorio];
-					listaEnemigosTerrestres[indiceAleatorio] = null;
-					EnemigoTerrestreComun enemigoTerrestreComun = (EnemigoTerrestreComun) enemigo;
-					System.out.println("En la caverna había una zona seca, así que decidimos investigar...");
-					suspense();
-					System.out.println("Se acerca un grupo de " + enemigoTerrestreComun.getEnemigoSeleccionado());
-					System.out.println("Pulsa enter para continuar... ");
-					sc.nextLine();
-					limpiarPantalla();
-					actualizarStatsEnemigosHistoria(enemigoTerrestreComun, mundoActual);
-					combate(personajeActivo, enemigoTerrestreComun, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-					sc.nextLine();
-					limpiarPantalla();
-					mundoActual ++;
-				} if (mundoActual == 8) {
-					indiceAleatorio = rand.nextInt(listaEnemigosMarinos.length);
-					enemigo = listaEnemigosMarinos[indiceAleatorio];
-					listaEnemigosMarinos[indiceAleatorio] = null;
-					enemigoComunMarino = (EnemigoMarinoComun) enemigo;
-					System.out.println("Descubrimos dónde estaba el tesoro, así que fuimos a por él.");
-					System.out.println("Pero no todo salió como pensamos...");
-					suspense();
-					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
-					System.out.println("Pulsa enter para continuar... ");
-					sc.nextLine();
-					limpiarPantalla();
-					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
-					combate(personajeActivo, enemigoComunMarino, sc, rand);
-					System.out.println("╔═════════════════════════════════════════════╗");
-					System.out.println("║            ¡ENHORABUENA!                    ║");
-					System.out.println("║     Has superado el combate con éxito       ║");
-					System.out.println("║                                             ║");
-					System.out.println("║     Pulsa enter para continuar...           ║");
-					System.out.println("╚═════════════════════════════════════════════╝");
-				} if (mundoActual == 9) { // Batalla contra Jefe
-					indiceAleatorio = rand.nextInt(listaEnemigosMarinosJefes.length);
-                    enemigo = listaEnemigosMarinosJefes[indiceAleatorio];
-                    listaEnemigosMarinosJefes[indiceAleatorio] = null;
-                    EnemigoMarinoJefe enemigoMarinoJefe = (EnemigoMarinoJefe) enemigo;
-					System.out.println("El barco se deslizaba sobre aguas oscuras y tranquilas, como si el propio océano contuviera la respiración.");
-					System.out.println("La tripulación, exhausta pero decidida, mantenía los ojos fijos en el horizonte.");
-					System.out.println("Tras innumerables batallas contra criaturas marinas y enemigos terrestres, habían llegado al lugar donde, según los mapas, yacía el tesoro más grande jamás encontrado.");
-					System.out.println("Pero también era el hogar del Guardián de las Profundidades, una criatura temida por todos los marineros que osaban mencionar su nombre.");
-					suspense();
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					if (personajeActivo instanceof PersonajeCapitan) {
-						System.out.println("El capitán " + personajeActivo.getNombre() + " se encontraba en la proa, su mirada firme y su espada lista.");
-						System.out.println("Sabía que este era el momento decisivo. No podía fallar. No después de todo lo que habían pasado.");
-						System.out.println("La tripulación, aunque temerosa, confiaba en su líder. Sabían que si alguien podía vencer al Guardián, era él.");
-					} else {
-						System.out.println("Si bien el capitán era muy fuerte, el grumete " + personajeActivo.getNombre() + " le ayudaba a mantener la calma.");
-						System.out.println("Sabían que este era el momento decisivo. No podía fallar. No después de todo lo que habían pasado.");
-						System.out.println("Por lo que embarcaron un último viaje decisivo...");
-					}
-					suspense();
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					System.out.println("De repente, el agua comenzó a agitarse. Burbujas enormes emergieron de las profundidades, y el aire se llenó de un rugido ensordecedor.");
-					System.out.println("El océano pareció partirse en dos cuando una criatura colosal emergió.");
-					System.out.println("Era el Guardián de las Profundidades, cuyos ojos brillaban como faros en la noche.");
-					System.out.println("¡Prepárense! —gritó el capitán, blandiendo su espada—. ¡Este es el último combate!");
-					suspense();
-					System.out.println("Pulsa enter para continuar...");
-					sc.nextLine();
-					limpiarPantalla();
-					actualizarStatsEnemigosHistoria(enemigoMarinoJefe, mundoActual);
-					combate(personajeActivo, enemigoMarinoJefe, sc, rand);
-					System.out.println("La batalla fue feroz. El Guardián atacaba con furia, sus tentáculos golpeaban el barco y sus mandíbulas intentaban atrapar a los marineros.");
-					System.out.println("Pero el capitán y su tripulación no se rendían. Con cada golpe, con cada corte, se acercaban más a la victoria.");
-					System.out.println("El capitán, con una habilidad sin igual, esquivaba los ataques de la bestia y contraatacaba con precisión mortal.");
-					System.out.println("Finalmente, con un último y poderoso golpe, el capitán atravesó el corazón del Guardián.");
-
-					System.out.println("El leviatán emitió un último rugido antes de hundirse en las profundidades, derrotado.");
-					System.out.println("El océano se calmó, y el silencio volvió a reinar.");
 				}
+				combate(personajeActivo, enemigoComunMarino, sc, rand);
+				mundoActual ++;
+				System.out.println("╔═════════════════════════════════════════════╗");
+				System.out.println("║            ¡ENHORABUENA!                    ║");
+				System.out.println("║     Has superado el combate con éxito       ║");
+				System.out.println("║                                             ║");
+				System.out.println("║     Pulsa enter para continuar...           ║");
+				System.out.println("╚═════════════════════════════════════════════╝");
+				sc.nextLine();
+				limpiarPantalla();
+			
+				
 			} else if (opcionContinuar == 2) {
 				// Inventario
 				boolean dentroInventario = true;
@@ -1693,9 +1231,9 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 							limpiarPantalla();
 						}
 						case 4 -> {
-							// Lootboxes (Barriles)
+							// Tienda
 							limpiarPantalla();
-							tendera.entrarBarril(personajeActivo, sc);
+							entrarTienda(tendera, personajeActivo, sc);
 						}
 						case 5 -> {
 							// Descansar
@@ -1719,5 +1257,4 @@ public static void actualizarStatsEnemigosHistoria (Enemigo enemigo, int nivel) 
 			}
 		}
 	}
-}
 }

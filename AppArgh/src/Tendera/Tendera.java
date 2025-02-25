@@ -129,6 +129,46 @@ public class Tendera {
         System.out.println("╚════════════════════════════════════════════════════╝");
     }
 
+    public void entrarBarril (Personaje personaje, Scanner sc) {
+        System.out.println("╔════════════════════════════════════════════════════╗");
+        System.out.println("║                      A R G H                       ║");
+        System.out.println("╠════════════════════════════════════════════════════╣");
+        System.out.println("║                   ___________________              ║");
+        System.out.println("║                  /                   \\            ║");
+        System.out.println("║                 /                     \\           ║");
+        System.out.println("║                /                       \\          ║");
+        System.out.println("║               |   ╔═══════════════╗    |           ║");
+        System.out.println("║               |   ║   BARRIL DE   ║    |           ║");
+        System.out.println("║               |   ║    TESOROS    ║    |           ║");
+        System.out.println("║               |   ╚═══════════════╝    |           ║");
+        System.out.println("║          ╔════╩═══════════════════════╩════╗       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ║  ║║║║║║║║║║║║║║║║║║║║║║║║║║║║   ║       ║");
+        System.out.println("║          ╚════╦═══════════════════════╦════╝       ║");
+        System.out.println("║               |                       |            ║");
+        System.out.println("║               |                       |            ║");
+        System.out.println("║               |                       |            ║");
+        System.out.println("║                \\                     /            ║");
+        System.out.println("║                 \\                   /             ║");
+        System.out.println("║                  \\                 /              ║");
+        System.out.println("║                   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾                ║");
+        if (personaje.getBarrilesDisponibles() == 0) {
+            System.out.println("╠════════════════════════════════════════════════════╣");
+            System.out.println("║       AQUÍ APARECERAN LOS BARRILES QUE TENGAS      ║");
+            System.out.println("╚════════════════════════════════════════════════════╝");
+        } else {
+            System.out.println("╠════════════════════════════════════════════════════╣");
+            System.out.println("            BARRILES DISPONIBLES " + personaje.getBarrilesDisponibles());
+            System.out.println("║               1. Abrir barril.                     ║");
+            System.out.println("╚════════════════════════════════════════════════════╝");
+        }
+    }
+
     public void entrarCasino(Personaje personaje, Scanner sc) {
         limpiarPantalla();
         System.out.println("╔══════════════════════════════════════════════════════╗");
