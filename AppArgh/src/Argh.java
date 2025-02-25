@@ -1136,7 +1136,7 @@ public class Argh {
 						contadorArtillero = true;
 					}
 					System.out.println("╚═══════════════════════════════════════╝");
-					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta, 0);
+					Personaje grumete = new PersonajeGrumete(nombre, genero, 100, 20, 20, 20, 20, 20, 0, 0, 25, 3, 0, 0, false, inventario, null, false, false, false, rolSeleccionado, contadorCocinero, contadorArtillero, contadorCubierta, 0);
 					personajeActivo = grumete;
 					System.out.println("¡BUENA SUERTE PIRATA " + nombre.toUpperCase() + "!");
 					System.out.println("");
@@ -1161,7 +1161,7 @@ public class Argh {
 					sc.nextLine();
 					sc.nextLine();
 					limpiarPantalla();
-					Personaje capitan = new PersonajeCapitan(nombre, genero, 100, 30, 20, 10, 30, 20, 0, 0, 10000000, 3, 0, 0, false, inventario, null, false, false, false, 5);
+					Personaje capitan = new PersonajeCapitan(nombre, genero, 100, 30, 20, 10, 30, 20, 0, 0, 50, 3, 0, 0, false, inventario, null, false, false, false, 0);
 					personajeActivo = capitan;
 					break;
 				} else {
