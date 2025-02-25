@@ -51,7 +51,6 @@ Tecnicamente, no puedes terminar nunca el juego, pues existe un modo ilimitado q
 
 ![Portada del juego](https://img.freepik.com/vector-premium/isla-pirata-oceano-estilo-dibujos-animados-barco-amarrado-isla-palmeras-isla-deshabitada-mar-paisaje-tropical-playa-arena-naturaleza-tropical_87946-2101.jpg?semt=ais_hybrid)
 
-
 ## Feedback
 
 Si crees que hay alguna forma de mejorar el juego, háznoslo saber al siguiente correo
