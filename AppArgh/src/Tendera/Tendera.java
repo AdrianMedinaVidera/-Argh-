@@ -369,10 +369,10 @@ public class Tendera {
                                 }
                                 esperar(3);
                                 System.out.println("¿Quieres volver al casino? (S/N)");
-                                sc.nextLine();
                                 String respuesta = sc.nextLine().toLowerCase();
                                 if (!respuesta.equals("s")) {
                                     seguirJugando = false;
+                                    break;
                                 }
                                 limpiarPantalla();
                             }

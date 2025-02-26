@@ -1397,6 +1397,7 @@ public class Argh {
 					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
 					System.out.println("Pulsa enter para continuar... ");
 					sc.nextLine();
+					sc.nextLine();
 					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
 					combate(personajeActivo, enemigoComunMarino, sc, rand);
 					System.out.println("╔═════════════════════════════════════════════╗");
@@ -1420,6 +1421,7 @@ public class Argh {
 					limpiarPantalla();
 					System.out.println("Se acerca un grupo de " + enemigoComunMarino.getEnemigoSeleccionado());
 					System.out.println("Pulsa enter para continuar... ");
+					sc.nextLine();
 					sc.nextLine();
 					actualizarStatsEnemigosHistoria(enemigoComunMarino, mundoActual);
 					combate(personajeActivo, enemigoComunMarino, sc, rand);
@@ -1448,6 +1450,7 @@ public class Argh {
                     System.out.println("╚═════════════════════════════════════════════╝");
                     System.out.println("Pulsa enter para continuar...");
                     sc.nextLine();
+					sc.nextLine();
                     limpiarPantalla();
 					actualizarStatsEnemigosHistoria(enemigoMarinoJefe, mundoActual);
                     combate(personajeActivo, enemigoMarinoJefe, sc, rand);
